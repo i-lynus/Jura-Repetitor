@@ -202,6 +202,9 @@ with col_right:
 
             weak = profile.get("schwache_rechtsgebiete",[]) if profile else []
             exam_date = profile.get("examenstermin","") if profile else ""
+            schwerpunkt = profile.get("schwerpunktbereich","") if profile else ""
+            uni = profile.get("universitaet","") if profile else ""
+            bundesland = profile.get("bundesland","") if profile else ""
             prompt = (
                 f"Ich lerne für das Staatsexamen.\n"
                 f"Heute: {dt.date.today().isoformat()}\n"
@@ -209,9 +212,14 @@ with col_right:
                 f"Korrekturen bisher: {n_corrections}\n"
                 f"XP: {xp} (Level {info['level']})\n"
                 f"Schwache Gebiete: {', '.join(weak) or 'unbekannt'}\n"
-                f"Examenstermin: {exam_date or 'unbekannt'}\n\n"
-                f"Gib mir 4 konkrete Lernempfehlungen für heute (je 1-2 Sätze). "
+                f"Examenstermin: {exam_date or 'unbekannt'}\n"
+                + (f"Universität: {uni}\n" if uni else "")
+                + (f"Bundesland (Prüfungsrecht): {bundesland}\n" if bundesland else "")
+                + (f"Schwerpunktbereich: {schwerpunkt}\n" if schwerpunkt else "")
+                + f"\nGib mir 4 konkrete Lernempfehlungen für heute (je 1-2 Sätze). "
                 f"Nummeriert, prägnant, examensorientiert."
+                + (f" Berücksichtige dabei den Schwerpunktbereich '{schwerpunkt}' und die "
+                   f"spezifischen Anforderungen des Bundeslandes {bundesland}." if schwerpunkt else "")
             )
             with st.spinner("Analysiere deinen Lernstand..."):
                 suggestions = chat_complete(

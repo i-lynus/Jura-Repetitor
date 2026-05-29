@@ -99,7 +99,13 @@ with st.sidebar:
         )
         if st.button("📤 Senden", key="sb_bug_send", use_container_width=True):
             if bug_txt.strip():
-                save_bug_report(bug_typ, bug_txt, user=uname)
-                st.success("✅ Danke!")
+                ok = save_bug_report(bug_typ, bug_txt, user=uname)
+                if ok:
+                    st.success("✅ Danke! Report gespeichert.")
+                    st.session_state["sb_bug_txt"] = ""
+                else:
+                    st.error("❌ Fehler beim Speichern. Ist das Daten-Repo verbunden?")
+            else:
+                st.warning("Bitte eine Beschreibung eingeben.")
 
 pg.run()

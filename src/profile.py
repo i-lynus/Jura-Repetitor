@@ -9,6 +9,7 @@ from typing import Any
 import streamlit as st
 from src.github_db import read_json, write_json
 from src.config import personal_path
+from src.uni_data import get_all_unis, get_bundesland, get_schwerpunkte
 
 
 # ── Pfad ─────────────────────────────────────────────────────
@@ -183,20 +184,40 @@ def render_onboarding(username: str) -> bool:
 
     profile = _default()
 
+    # ── Uni-Auswahl außerhalb des Forms (damit Schwerpunkte dynamisch laden) ──
+    all_unis = get_all_unis()
+    default_uni = "Universität Münster (WWU)"
+    uni_index = all_unis.index(default_uni) if default_uni in all_unis else 0
+    selected_uni = st.selectbox(
+        "Universität *",
+        all_unis,
+        index=uni_index,
+        key="onb_uni_select",
+    )
+    profile["universitaet"] = selected_uni
+
+    # Bundesland automatisch aus Uni-Daten
+    auto_bundesland = get_bundesland(selected_uni)
+    if auto_bundesland:
+        st.info(f"🏛️ Bundesland (Justizprüfungsamt): **{auto_bundesland}**", icon=None)
+        profile["bundesland"] = auto_bundesland
+    else:
+        profile["bundesland"] = "Nordrhein-Westfalen"
+
+    # Schwerpunkte der gewählten Uni
+    uni_schwerpunkte = get_schwerpunkte(selected_uni)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
     with st.form("onboarding_form"):
 
         # ── Block 1: Studium ──────────────────────────────────
         st.markdown('<div class="onb-step">📚 Studium</div>', unsafe_allow_html=True)
         col1, col2 = st.columns(2)
         with col1:
-            profile["universitaet"] = st.text_input(
-                "Universität *",
-                value="Universität Münster",
-                placeholder="Universität Münster",
-            )
             profile["studienort"] = st.text_input(
                 "Studienort *",
-                value="Münster",
+                value=selected_uni.split("(")[0].replace("Universität ", "").strip(),
                 placeholder="Münster",
             )
         with col2:
@@ -206,13 +227,6 @@ def render_onboarding(username: str) -> bool:
                  "5. Semester", "6. Semester", "7. Semester", "8. Semester",
                  "9. Semester", "10+ Semester", "Repetitor (kein Studium mehr)"],
                 index=7,
-            )
-            profile["bundesland"] = st.selectbox(
-                "Bundesland (für Landesrecht) *",
-                ["Nordrhein-Westfalen", "Bayern", "Baden-Württemberg",
-                 "Berlin", "Hamburg", "Hessen", "Niedersachsen",
-                 "Rheinland-Pfalz", "Sachsen", "Anderes"],
-                index=0,
             )
 
         st.markdown("<br>", unsafe_allow_html=True)
@@ -244,10 +258,13 @@ def render_onboarding(username: str) -> bool:
 
         # ── Block 3: Schwerpunkt ──────────────────────────────
         st.markdown('<div class="onb-step">🔬 Schwerpunktbereich</div>', unsafe_allow_html=True)
-        profile["schwerpunktbereich"] = st.selectbox(
-            "Schwerpunktbereich (falls Uni Münster)",
-            ["Noch nicht gewählt"] + SCHWERPUNKTE,
+        schwerpunkt_options = uni_schwerpunkte if uni_schwerpunkte else SCHWERPUNKTE
+        selected_schwerpunkte = st.multiselect(
+            f"Schwerpunktbereich(e) an der {selected_uni}",
+            schwerpunkt_options,
+            help="Wähle deinen studierten Schwerpunktbereich laut Studienordnung.",
         )
+        profile["schwerpunktbereich"] = ", ".join(selected_schwerpunkte) if selected_schwerpunkte else ""
 
         st.markdown("<br>", unsafe_allow_html=True)
 
@@ -330,10 +347,51 @@ def render_profile_editor(username: str) -> None:
     st.subheader("👤 Mein Profil")
     st.caption("Diese Informationen fließen in alle KI-Antworten ein.")
 
+    # ── Uni-Auswahl außerhalb des Forms (damit Bundesland + Schwerpunkte dynamisch laden) ──
+    all_unis = get_all_unis()
+    current_uni = p.get("universitaet", "")
+    if current_uni in all_unis:
+        uni_idx = all_unis.index(current_uni)
+    else:
+        uni_idx = 0
+
+    selected_uni = st.selectbox(
+        "Universität",
+        all_unis,
+        index=uni_idx,
+        key="edit_uni_select",
+        help="Wähle deine Jurafakultät — Bundesland und Schwerpunkte werden automatisch gesetzt.",
+    )
+    p["universitaet"] = selected_uni
+
+    # Bundesland automatisch aus Uni-Daten befüllen (read-only Info)
+    auto_bundesland = get_bundesland(selected_uni)
+    if auto_bundesland:
+        st.info(f"🏛️ Bundesland / Justizprüfungsamt: **{auto_bundesland}**")
+        p["bundesland"] = auto_bundesland
+    else:
+        p["bundesland"] = p.get("bundesland", "Nordrhein-Westfalen")
+
+    # Schwerpunkte der gewählten Uni ermitteln
+    uni_schwerpunkte = get_schwerpunkte(selected_uni)
+    schwerpunkt_options = uni_schwerpunkte if uni_schwerpunkte else SCHWERPUNKTE
+
+    # Bereits gespeicherte Schwerpunkte als Liste parsen
+    saved_sp_raw = p.get("schwerpunktbereich", "")
+    saved_sp_list = [s.strip() for s in saved_sp_raw.split(",") if s.strip()] if saved_sp_raw else []
+    valid_saved_sp = [s for s in saved_sp_list if s in schwerpunkt_options]
+
+    selected_schwerpunkte = st.multiselect(
+        f"Schwerpunktbereich(e) an der {selected_uni}",
+        schwerpunkt_options,
+        default=valid_saved_sp,
+        key="edit_sp_select",
+        help="Laut Studienordnung deiner Universität.",
+    )
+
     with st.form("profile_edit"):
         col1, col2 = st.columns(2)
         with col1:
-            p["universitaet"] = st.text_input("Universität", value=p.get("universitaet",""))
             p["studienort"] = st.text_input("Studienort", value=p.get("studienort",""))
             p["fachsemester"] = st.text_input("Fachsemester", value=p.get("fachsemester",""))
             p["examenstermin"] = st.text_input("Examenstermin", value=p.get("examenstermin",""))
@@ -343,7 +401,6 @@ def render_profile_editor(username: str) -> None:
                 index=["1. Staatsexamen (Universität)","2. Staatsexamen (Referendariat)","Beide","Noch unentschieden"].index(
                     p.get("examenstyp","1. Staatsexamen (Universität)")),
             )
-            p["bundesland"] = st.text_input("Bundesland", value=p.get("bundesland","Nordrhein-Westfalen"))
             p["ziel_punkte"] = st.select_slider("Zielpunktzahl",
                 options=["6","7","8","9","10","11","12","13","14","15","16","17","18"],
                 value=p.get("ziel_punkte","10"),
@@ -351,8 +408,6 @@ def render_profile_editor(username: str) -> None:
             p["woechentliche_lernstunden"] = st.text_input(
                 "Lernstunden/Woche", value=p.get("woechentliche_lernstunden",""))
 
-        p["schwerpunktbereich"] = st.text_input(
-            "Schwerpunktbereich", value=p.get("schwerpunktbereich",""))
         p["schwache_rechtsgebiete"] = st.multiselect(
             "Schwache Rechtsgebiete", RECHTSGEBIETE,
             default=[r for r in p.get("schwache_rechtsgebiete",[]) if r in RECHTSGEBIETE])
@@ -363,6 +418,10 @@ def render_profile_editor(username: str) -> None:
         p["notizen"] = st.text_area("Besondere Hinweise", value=p.get("notizen",""), height=80)
 
         if st.form_submit_button("💾 Speichern", type="primary"):
+            # Schwerpunkte aus dem außerhalb des Forms gewählten Multiselect übernehmen
+            p["schwerpunktbereich"] = ", ".join(st.session_state.get("edit_sp_select", []))
+            # Bundesland bleibt wie automatisch gesetzt
+            p["bundesland"] = auto_bundesland or p.get("bundesland", "")
             if save_profile(p):
                 st.success("✅ Profil aktualisiert.")
             else:

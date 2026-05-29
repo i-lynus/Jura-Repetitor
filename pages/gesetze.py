@@ -3,6 +3,7 @@ from __future__ import annotations
 import streamlit as st
 
 from src.theme import apply_theme, section_header, gold_divider, page_header
+from src.llm import chat_complete
 
 apply_theme()
 
@@ -272,3 +273,150 @@ st.markdown(
     'Bundesrecht des Bundesministeriums der Justiz.</p>',
     unsafe_allow_html=True,
 )
+
+gold_divider()
+
+# ── ⚖️ AUSLEGUNG ──────────────────────────────────────────────────────────────
+
+section_header("⚖️", "Drei-Perspektiven-Auslegung")
+
+st.markdown(
+    '<p style="font-family:\'IBM Plex Sans\',sans-serif;font-size:.85rem;color:#57534e;'
+    'margin-bottom:.75rem">Gib eine Norm ein und lass dir drei unabhängige '
+    'Auslegungsperspektiven (Literatur, Rechtsprechung, Gesetzgeber) von Claude erklären.</p>',
+    unsafe_allow_html=True,
+)
+
+norm_input = st.text_input(
+    "Norm eingeben",
+    placeholder="z.B. § 242 BGB, § 263 StGB, Art. 5 GG",
+    key="auslegung_norm_input",
+)
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    do_lit = st.checkbox("📚 Literatur", value=True, key="auslegung_cb_lit")
+with col2:
+    do_rspr = st.checkbox("⚖️ Rechtsprechung", value=True, key="auslegung_cb_rspr")
+with col3:
+    do_gesetzgeber = st.checkbox("🏛️ Gesetzgeber", value=True, key="auslegung_cb_gesetzgeber")
+
+if st.button("🔍 Auslegung abrufen", type="primary", key="auslegung_btn") and norm_input:
+    norm_clean = norm_input.strip()
+
+    # ── System-Prompts für die drei Perspektiven ─────────────────────────────
+    PERSPEKTIVEN = [
+        {
+            "key": "lit",
+            "active": do_lit,
+            "label": "📚 Literatur",
+            "color": "#1d4ed8",
+            "bg": "#eff6ff",
+            "border": "#93c5fd",
+            "system": (
+                "Du bist ein Rechtswissenschaftler mit umfassendem Überblick über die "
+                "juristische Fachliteratur. Erkläre die herrschende Meinung in der Literatur "
+                f"zu {{norm}}. Nenne konkret: hM, aA, wichtige Streitstände. Zitiere Kommentare "
+                "wie Palandt/Grüneberg, MüKo (Münchener Kommentar), Staudinger und weitere "
+                "führende Kommentierungen mit typischen Fundstellen (§, Rn.). Strukturiere "
+                "die Antwort klar mit kurzen Abschnitten."
+            ),
+            "user": f"Erkläre die Literaturmeinung zu {norm_clean}.",
+        },
+        {
+            "key": "rspr",
+            "active": do_rspr,
+            "label": "⚖️ Rechtsprechung",
+            "color": "#15803d",
+            "bg": "#f0fdf4",
+            "border": "#86efac",
+            "system": (
+                "Du bist ein erfahrener Richter mit tiefem Einblick in die höchstrichterliche "
+                "Rechtsprechung. Fasse die wichtigsten BGH-, BVerfG- und BAG-Entscheidungen "
+                f"zu {{norm}} zusammen. Nenne echte Aktenzeichen und Leitsätze. Erkläre die "
+                "Entwicklung der Rechtsprechung chronologisch und hebe Leitentscheidungen "
+                "besonders hervor. Zeige auf, wo die Rechtsprechung von der Literatur abweicht."
+            ),
+            "user": f"Fasse die wichtigsten Entscheidungen der Rechtsprechung zu {norm_clean} zusammen.",
+        },
+        {
+            "key": "gesetzgeber",
+            "active": do_gesetzgeber,
+            "label": "🏛️ Gesetzgeber",
+            "color": "#92400e",
+            "bg": "#fffbeb",
+            "border": "#fcd34d",
+            "system": (
+                "Du bist Verfassungsjurist und Gesetzgebungsexperte. Erkläre die "
+                f"Gesetzgebungsgeschichte von {{norm}}: ursprüngliche Gesetzesbegründung, "
+                "relevante BT-Drucksachen, spätere Änderungen und deren Begründungen. "
+                "Was wollte der Gesetzgeber mit der Norm ursprünglich erreichen? Welche "
+                "Zwecke und Ziele werden in den Materialien genannt? Erkläre auch den "
+                "historischen Kontext der Normentstehung."
+            ),
+            "user": f"Erkläre die Gesetzgebungsgeschichte und den Willen des Gesetzgebers zu {norm_clean}.",
+        },
+    ]
+
+    active_perspektiven = [p for p in PERSPEKTIVEN if p["active"]]
+
+    if not active_perspektiven:
+        st.warning("Bitte wähle mindestens eine Perspektive aus.")
+    else:
+        # Ergebnisse abrufen (mit Session-State-Cache)
+        for p in active_perspektiven:
+            cache_key = f"auslegung_{norm_clean}_{p['key']}"
+            if cache_key not in st.session_state:
+                with st.spinner(f"{p['label']} wird abgerufen …"):
+                    system_prompt = p["system"].replace("{norm}", norm_clean)
+                    result = chat_complete(
+                        messages=[{"role": "user", "content": p["user"]}],
+                        system_prompt=system_prompt,
+                    )
+                    st.session_state[cache_key] = result
+
+        # Ergebnisse anzeigen
+        display_cols = st.columns(len(active_perspektiven))
+        for col, p in zip(display_cols, active_perspektiven):
+            cache_key = f"auslegung_{norm_clean}_{p['key']}"
+            result_text = st.session_state.get(cache_key, "")
+            with col:
+                container = st.container()
+                with container:
+                    st.markdown(
+                        f'<div style="background:{p["bg"]};border:1px solid {p["border"]};'
+                        f'border-radius:10px;padding:1rem 1.1rem;margin-bottom:.5rem">'
+                        f'<span style="font-family:\'IBM Plex Sans\',sans-serif;'
+                        f'font-size:1rem;font-weight:700;color:{p["color"]}">'
+                        f'{p["label"]}</span></div>',
+                        unsafe_allow_html=True,
+                    )
+                    st.markdown(result_text)
+
+# Zeige gecachte Ergebnisse wenn vorhanden (auch ohne erneuten Button-Klick)
+elif norm_input:
+    norm_clean = norm_input.strip()
+    cached_perspektiven = []
+    for key_suffix, label, color, bg, border in [
+        ("lit", "📚 Literatur", "#1d4ed8", "#eff6ff", "#93c5fd"),
+        ("rspr", "⚖️ Rechtsprechung", "#15803d", "#f0fdf4", "#86efac"),
+        ("gesetzgeber", "🏛️ Gesetzgeber", "#92400e", "#fffbeb", "#fcd34d"),
+    ]:
+        cache_key = f"auslegung_{norm_clean}_{key_suffix}"
+        if cache_key in st.session_state:
+            cached_perspektiven.append((label, color, bg, border, st.session_state[cache_key]))
+
+    if cached_perspektiven:
+        st.caption(f"Gespeicherte Auslegung für **{norm_clean}** (aus Cache):")
+        display_cols = st.columns(len(cached_perspektiven))
+        for col, (label, color, bg, border, result_text) in zip(display_cols, cached_perspektiven):
+            with col:
+                st.markdown(
+                    f'<div style="background:{bg};border:1px solid {border};'
+                    f'border-radius:10px;padding:1rem 1.1rem;margin-bottom:.5rem">'
+                    f'<span style="font-family:\'IBM Plex Sans\',sans-serif;'
+                    f'font-size:1rem;font-weight:700;color:{color}">'
+                    f'{label}</span></div>',
+                    unsafe_allow_html=True,
+                )
+                st.markdown(result_text)
