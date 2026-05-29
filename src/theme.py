@@ -166,6 +166,26 @@ code{font-family:'IBM Plex Mono',monospace!important;font-size:.85em!important;c
 [data-testid="stPageNavButton"]:hover{
   background:#faf8f3!important;border-color:var(--gold)!important;}
 
+/* Link-Buttons (st.link_button) */
+[data-testid="stLinkButton"] a,
+[data-testid="stLinkButton"] [data-testid*="stBaseButton"]{
+  background:#ffffff!important;color:#1c1917!important;
+  border:1px solid #d6d3d1!important;border-radius:var(--r-sm)!important;
+  font-family:'IBM Plex Sans',sans-serif!important;font-weight:500!important;
+  transition:var(--t)!important;text-decoration:none!important;}
+[data-testid="stLinkButton"] a *,
+[data-testid="stLinkButton"] [data-testid*="stBaseButton"] *{color:#1c1917!important;}
+[data-testid="stLinkButton"] a:hover,
+[data-testid="stLinkButton"] [data-testid*="stBaseButton"]:hover{
+  border-color:#1a2744!important;color:#1a2744!important;background:#faf8f3!important;}
+/* Primary link-button */
+[data-testid="stLinkButton"] a[data-testid*="primary"],
+[data-testid="stLinkButton"] [data-testid*="stBaseButton-primary"]{
+  background:linear-gradient(135deg,#1a2744 0%,#243460 100%)!important;
+  color:#ffffff!important;border:none!important;}
+[data-testid="stLinkButton"] a[data-testid*="primary"] *,
+[data-testid="stLinkButton"] [data-testid*="stBaseButton-primary"] *{color:#ffffff!important;}
+
 /* ── TABS ── */
 .stTabs [data-baseweb="tab-list"]{border-bottom:2px solid var(--parchment-2)!important;gap:0!important;}
 .stTabs [data-baseweb="tab"]{
@@ -340,6 +360,14 @@ hr{border-color:var(--parchment-2)!important;margin:1rem 0!important;}
 [data-testid="stMetric"]:nth-child(2){animation-delay:.08s}
 [data-testid="stMetric"]:nth-child(3){animation-delay:.12s}
 [data-testid="stMetric"]:nth-child(4){animation-delay:.16s}
+
+/* Selectbox: Emojis nicht abschneiden */
+[data-testid="stSelectbox"] [data-baseweb="select"] *{
+  overflow:visible!important;line-height:1.5!important;}
+[data-testid="stSelectbox"] [data-baseweb="select"] input{
+  min-height:1.5rem!important;}
+[data-baseweb="popover"] li{
+  line-height:1.6!important;padding:.35rem .75rem!important;}
 </style>
 """
 

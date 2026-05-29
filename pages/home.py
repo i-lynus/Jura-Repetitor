@@ -113,14 +113,14 @@ with col_left:
 
     # Neue Aufgabe
     with st.form("add_todo", clear_on_submit=True):
-        cols_todo = st.columns([4, 1, 1])
+        cols_todo = st.columns([4, 1, 2])
         with cols_todo[0]:
             new_task = st.text_input("", placeholder="Neue Aufgabe...", label_visibility="collapsed")
         with cols_todo[1]:
             prio = st.selectbox("", ["🔴 Hoch","🟡 Mittel","🟢 Niedrig"],
                                 label_visibility="collapsed", key="todo_prio")
         with cols_todo[2]:
-            add_todo = st.form_submit_button("➕ Hinzufügen", use_container_width=True)
+            add_todo = st.form_submit_button("➕ Hinzu", use_container_width=True)
     if add_todo and new_task.strip():
         prio_map = {"🔴 Hoch":"high","🟡 Mittel":"med","🟢 Niedrig":"low"}
         todos.append({"id":now_iso(),"text":new_task.strip(),
