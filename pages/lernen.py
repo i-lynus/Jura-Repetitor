@@ -210,7 +210,7 @@ with TABS[1]:
         topics = sorted({c.get("topic","—") for c in cards if c.get("topic")})
         f_topic = st.multiselect("Filter", topics)
         visible = [c for c in cards if not f_topic or c.get("topic") in f_topic]
-        for c in visible:
+        for i, c in enumerate(visible):
             with st.expander(c["front"]):
                 st.markdown(c["back"])
                 st.caption(f"ID {c.get('id')} · {c.get('topic','—')} · fällig: {c.get('srs',{}).get('due','?')}")

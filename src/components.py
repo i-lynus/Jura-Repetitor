@@ -5,6 +5,7 @@ oder st.components.v1.html() eingebunden wird.
 """
 from __future__ import annotations
 
+import html
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -161,8 +162,9 @@ def gold_divider() -> None:
 # ---------------------------------------------------------------- #
 
 def section_header(icon: str, title: str) -> None:
+    safe_title = html.escape(title)
     st.markdown(
-        f'<div class="section-header">{icon} {title}</div>',
+        f'<div class="section-header">{icon} {safe_title}</div>',
         unsafe_allow_html=True,
     )
 
@@ -186,6 +188,8 @@ def due_indicator(n: int) -> None:
 
 def welcome_banner(display_name: str, subtitle: str = "") -> None:
     """Animierter Willkommens-Header."""
+    safe_display_name = html.escape(display_name)
+    safe_subtitle = html.escape(subtitle)
     st.markdown(
         f"""
         <div style="animation: fadeSlideDown 0.5s ease both;">
@@ -199,8 +203,8 @@ def welcome_banner(display_name: str, subtitle: str = "") -> None:
             margin:0 0 .75rem;
             animation: fadeIn 0.6s ease 0.2s both;
           ">
-            Willkommen, <strong style="color:#1a2744">{display_name}</strong>
-            {' &mdash; ' + subtitle if subtitle else ''}
+            Willkommen, <strong style="color:#1a2744">{safe_display_name}</strong>
+            {' &mdash; ' + safe_subtitle if safe_subtitle else ''}
           </p>
         </div>
         """,

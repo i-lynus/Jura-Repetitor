@@ -8,6 +8,7 @@ Fixes gegenüber v5:
 - Konsistente Hover-States überall
 """
 from __future__ import annotations
+import html
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -321,7 +322,8 @@ def gold_divider() -> None:
     st.markdown('<hr class="gold-hr">', unsafe_allow_html=True)
 
 def section_header(icon: str, text: str) -> None:
-    st.markdown(f'<div class="sec-hdr">{icon} {text}</div>', unsafe_allow_html=True)
+    safe_text = html.escape(text)
+    st.markdown(f'<div class="sec-hdr">{icon} {safe_text}</div>', unsafe_allow_html=True)
 
 def stat_card(icon: str, num: str, label: str, delay: float = 0) -> str:
     return (f'<div class="stat-card" style="animation-delay:{delay}s">'
@@ -338,10 +340,12 @@ def nav_tile(icon: str, title: str, desc: str, xp_hint: str = "", delay: float =
             f'{xp}</div>')
 
 def page_header(title: str, subtitle: str = "", icon: str = "") -> None:
+    safe_title = html.escape(title)
+    safe_subtitle = html.escape(subtitle)
     st.markdown(
         f"""<div style="margin-bottom:.75rem">
-        <h1 style="margin-bottom:.1rem">{icon + ' ' if icon else ''}{title}</h1>
-        {f'<p style="font-size:.85rem;color:#57534e;margin:0">{subtitle}</p>' if subtitle else ''}
+        <h1 style="margin-bottom:.1rem">{icon + ' ' if icon else ''}{safe_title}</h1>
+        {f'<p style="font-size:.85rem;color:#57534e;margin:0">{safe_subtitle}</p>' if safe_subtitle else ''}
         </div>""",
         unsafe_allow_html=True,
     )

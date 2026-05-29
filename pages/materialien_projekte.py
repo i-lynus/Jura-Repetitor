@@ -289,14 +289,14 @@ with TABS[2]:
             c_l, c_u = st.columns(2)
             with c_l:
                 st.markdown(f"**Im Projekt ({len(linked)})**")
-                for m in linked:
+                for i, m in enumerate(linked):
                     st.markdown(f"- 📄 {m['name']}")
                     if st.button("Entfernen", key=f"unlink_{i}_{m['name'][:12]}"):
                         active["materialien"] = [n for n in active["materialien"] if n != m["name"]]
                         write_json(_meta_path(pid), active, commit_msg=f"unlink: {m['name']}"); st.rerun()
             with c_u:
                 st.markdown(f"**Verfügbar ({len(unlinked)})**")
-                for m in unlinked:
+                for i, m in enumerate(unlinked):
                     if st.button(f"➕ {m['name']}", key=f"link_{i}_{m['name'][:12]}"):
                         active.setdefault("materialien",[]).append(m["name"])
                         write_json(_meta_path(pid), active, commit_msg=f"link: {m['name']}"); st.rerun()
