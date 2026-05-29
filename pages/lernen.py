@@ -49,6 +49,12 @@ with TABS[0]:
         if all_mats:
             def _lbl(m): return f"{SOURCE_BADGE.get(m.get('source_type','personal'),'?')} {m['name']}"
             chosen = st.multiselect("Materialien", [_lbl(m) for m in all_mats], default=[_lbl(m) for m in all_mats])
+            kat_filter = st.multiselect("Kategorie-Filter",
+                ["Gesetzgebung", "Rechtsprechung", "Literatur", "Sonstiges"],
+                default=[], label_visibility="collapsed",
+                placeholder="Alle Kategorien")
+            if kat_filter:
+                all_mats = [m for m in all_mats if m.get("kategorie", "Sonstiges") in kat_filter]
             active_mats = []
             for m in all_mats:
                 if _lbl(m) in chosen:

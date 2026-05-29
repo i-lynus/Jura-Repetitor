@@ -57,12 +57,16 @@ with TABS[0]:
             c1,c2 = st.columns(2)
             with c1: topic = st.text_input("Rechtsgebiet", placeholder="z.B. SchuldR BT")
             with c2: art = st.selectbox("Art", ["Skript","Vorlesungsmitschrift","AG-Fall","Kommentarauszug","Lehrbuchauszug","Eigene Notizen","Sonstiges"])
+            kategorie = st.selectbox("Kategorie",
+                ["Gesetzgebung", "Rechtsprechung", "Literatur", "Sonstiges"],
+                help="Juristische Einordnung der Quelle")
             if st.button("➕ Hochladen", type="primary", disabled=uploaded is None):
                 try:
                     name, text, pages = extract_text(uploaded)
                     if not text.strip(): st.error("Kein Text extrahierbar.")
                     else:
                         entry = {"name":name,"topic":topic.strip() or None,"art":art,
+                                 "kategorie":kategorie,
                                  "text":text,"chars":len(text),"pages":pages,
                                  "uploader":uname,"source_type":SOURCE_TYPE_SHARED if upload_shared else SOURCE_TYPE_PERSONAL}
                         if upload_shared:
@@ -183,7 +187,8 @@ with TABS[1]:
                                mat_name_hw if mat_name_hw.endswith(".md") else mat_name_hw+".md", "text/markdown")
             if st.button("💾 Als Material speichern"):
                 entry = {"name":mat_name_hw or "Handschrift.md","topic":topic_hw or None,
-                         "art":"Handschrift (digitalisiert)","text":full_text[:200_000],
+                         "art":"Handschrift (digitalisiert)","kategorie":"Sonstiges",
+                         "text":full_text[:200_000],
                          "chars":len(full_text),"pages":len(uploaded_imgs),
                          "uploader":uname,
                          "source_type":SOURCE_TYPE_SHARED if save_shared_hw else SOURCE_TYPE_PERSONAL}

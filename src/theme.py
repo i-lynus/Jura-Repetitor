@@ -123,40 +123,40 @@ code{font-family:'IBM Plex Mono',monospace!important;font-size:.85em!important;c
 [data-testid="stMetricValue"]{font-family:'Playfair Display',serif!important;
   color:var(--navy)!important;font-size:1.75rem!important;}
 
-/* ── BUTTONS (Streamlit >=1.37 + Legacy) ── */
+/* ── BUTTONS (Streamlit 1.58 — alle Varianten) ── */
 
-/* Primary: dunkles Navy, weiße Schrift */
-.stButton button[kind="primary"],
-.stButton [data-testid="stBaseButton-primary"],
-[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-primary"]{
+/* Primary: Navy-Gradient, WEISSE Schrift — alle Varianten */
+.stButton [data-testid*="stBaseButton-primary"],
+[data-testid="stFormSubmitButton"] [data-testid*="stBaseButton-primary"],
+.stButton button[kind="primary"]{
   background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%)!important;
   color:#ffffff!important;border:none!important;border-radius:var(--r-sm)!important;
   font-family:'IBM Plex Sans',sans-serif!important;font-weight:600!important;
   box-shadow:0 2px 8px rgba(26,39,68,.22)!important;transition:var(--t)!important;}
-.stButton button[kind="primary"] *,
-.stButton [data-testid="stBaseButton-primary"] *,
-[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-primary"] *{
-  color:#ffffff!important;}
-.stButton button[kind="primary"]:hover,
-.stButton [data-testid="stBaseButton-primary"]:hover{
+.stButton [data-testid*="stBaseButton-primary"] *,
+[data-testid="stFormSubmitButton"] [data-testid*="stBaseButton-primary"] *,
+.stButton button[kind="primary"] *{color:#ffffff!important;}
+.stButton [data-testid*="stBaseButton-primary"]:hover,
+.stButton button[kind="primary"]:hover{
   box-shadow:0 4px 16px rgba(26,39,68,.3)!important;transform:translateY(-1px)!important;}
 
-/* Secondary: weißer Hintergrund, dunkle Schrift */
+/* Secondary + FormSubmit: WEISSER Hintergrund, DUNKLE Schrift */
+.stButton [data-testid*="stBaseButton-secondary"],
+[data-testid="stFormSubmitButton"] [data-testid*="stBaseButton-secondary"],
 .stButton button:not([kind="primary"]),
-.stButton [data-testid="stBaseButton-secondary"],
-[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-secondary"]{
+[data-testid="stFormSubmitButton"] button{
   border-radius:var(--r-sm)!important;font-family:'IBM Plex Sans',sans-serif!important;
   color:#1c1917!important;border:1px solid #d6d3d1!important;
   background:#ffffff!important;transition:var(--t)!important;}
+.stButton [data-testid*="stBaseButton-secondary"] *,
+[data-testid="stFormSubmitButton"] [data-testid*="stBaseButton-secondary"] *,
 .stButton button:not([kind="primary"]) *,
-.stButton [data-testid="stBaseButton-secondary"] *,
-[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-secondary"] *{
-  color:#1c1917!important;}
-.stButton button:not([kind="primary"]):hover,
-.stButton [data-testid="stBaseButton-secondary"]:hover{
+[data-testid="stFormSubmitButton"] button *{color:#1c1917!important;}
+.stButton [data-testid*="stBaseButton-secondary"]:hover,
+.stButton button:not([kind="primary"]):hover{
   border-color:#1a2744!important;color:#1a2744!important;background:#faf8f3!important;}
 
-/* Navigation-Pfeile von st.navigation() */
+/* Navigation-Pfeile */
 [data-testid="stPageNavButton"]{
   background:#ffffff!important;color:var(--navy)!important;
   border:1px solid var(--parchment-2)!important;border-radius:var(--r-sm)!important;
@@ -164,8 +164,7 @@ code{font-family:'IBM Plex Mono',monospace!important;font-size:.85em!important;c
   transition:var(--t)!important;}
 [data-testid="stPageNavButton"] *{color:var(--navy)!important;}
 [data-testid="stPageNavButton"]:hover{
-  background:#faf8f3!important;border-color:var(--gold)!important;
-  color:var(--navy)!important;}
+  background:#faf8f3!important;border-color:var(--gold)!important;}
 
 /* ── TABS ── */
 .stTabs [data-baseweb="tab-list"]{border-bottom:2px solid var(--parchment-2)!important;gap:0!important;}
