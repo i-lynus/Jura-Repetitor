@@ -87,28 +87,28 @@ code{font-family:'IBM Plex Mono',monospace!important;font-size:.85em!important;c
   font-weight:700!important;letter-spacing:.1em!important;
   text-transform:uppercase!important;padding:.7rem .75rem .2rem!important;}
 
-/* Sidebar-Buttons: ALLE States explizit weiß */
+/* Sidebar-Buttons: weiße Schrift auf dunklem Hintergrund */
 [data-testid="stSidebar"] .stButton button,
-[data-testid="stSidebar"] .stButton button *,
-[data-testid="stSidebar"] .stButton button p,
-[data-testid="stSidebar"] .stButton button span{
-  background:rgba(255,255,255,.08)!important;
-  border:1px solid rgba(255,255,255,.2)!important;
-  color:rgba(255,255,255,.95)!important;
+[data-testid="stSidebar"] .stButton [data-testid="stBaseButton-secondary"],
+[data-testid="stSidebar"] .stButton [data-testid="stBaseButton-primary"]{
+  background:rgba(255,255,255,.12)!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  color:#ffffff!important;
   border-radius:var(--r-sm)!important;
   font-family:'IBM Plex Sans',sans-serif!important;
   font-weight:500!important;
   transition:var(--t)!important;}
+[data-testid="stSidebar"] .stButton button *,
+[data-testid="stSidebar"] .stButton [data-testid="stBaseButton-secondary"] *,
+[data-testid="stSidebar"] .stButton [data-testid="stBaseButton-primary"] *{
+  color:#ffffff!important;}
 [data-testid="stSidebar"] .stButton button:hover,
-[data-testid="stSidebar"] .stButton button:hover *{
-  background:rgba(201,168,76,.22)!important;
-  border-color:rgba(201,168,76,.5)!important;
-  color:white!important;}
+[data-testid="stSidebar"] .stButton [data-testid="stBaseButton-secondary"]:hover,
+[data-testid="stSidebar"] .stButton [data-testid="stBaseButton-primary"]:hover{
+  background:rgba(201,168,76,.28)!important;
+  border-color:rgba(201,168,76,.6)!important;
+  color:#ffffff!important;}
 [data-testid="stSidebar"] hr{border-color:rgba(255,255,255,.1)!important;}
-/* Sidebar Buttons explizit weiß */
-[data-testid="stSidebar"] .stButton button,
-[data-testid="stSidebar"] .stButton button *{
-  color:rgba(255,255,255,.92)!important;}
 
 
 /* ── METRICS ── */
@@ -123,20 +123,49 @@ code{font-family:'IBM Plex Mono',monospace!important;font-size:.85em!important;c
 [data-testid="stMetricValue"]{font-family:'Playfair Display',serif!important;
   color:var(--navy)!important;font-size:1.75rem!important;}
 
-/* ── BUTTONS ── */
-.stButton button[kind="primary"]{
+/* ── BUTTONS (Streamlit >=1.37 + Legacy) ── */
+
+/* Primary: dunkles Navy, weiße Schrift */
+.stButton button[kind="primary"],
+.stButton [data-testid="stBaseButton-primary"],
+[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-primary"]{
   background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%)!important;
-  color:white!important;border:none!important;border-radius:var(--r-sm)!important;
+  color:#ffffff!important;border:none!important;border-radius:var(--r-sm)!important;
   font-family:'IBM Plex Sans',sans-serif!important;font-weight:600!important;
   box-shadow:0 2px 8px rgba(26,39,68,.22)!important;transition:var(--t)!important;}
-.stButton button[kind="primary"]:hover{
+.stButton button[kind="primary"] *,
+.stButton [data-testid="stBaseButton-primary"] *,
+[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-primary"] *{
+  color:#ffffff!important;}
+.stButton button[kind="primary"]:hover,
+.stButton [data-testid="stBaseButton-primary"]:hover{
   box-shadow:0 4px 16px rgba(26,39,68,.3)!important;transform:translateY(-1px)!important;}
-.stButton button:not([kind="primary"]){
+
+/* Secondary: weißer Hintergrund, dunkle Schrift */
+.stButton button:not([kind="primary"]),
+.stButton [data-testid="stBaseButton-secondary"],
+[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-secondary"]{
   border-radius:var(--r-sm)!important;font-family:'IBM Plex Sans',sans-serif!important;
-  color:#1c1917!important;border-color:#d6d3d1!important;
-  background:white!important;transition:var(--t)!important;}
-.stButton button:not([kind="primary"]):hover{
+  color:#1c1917!important;border:1px solid #d6d3d1!important;
+  background:#ffffff!important;transition:var(--t)!important;}
+.stButton button:not([kind="primary"]) *,
+.stButton [data-testid="stBaseButton-secondary"] *,
+[data-testid="stFormSubmitButton"] [data-testid="stBaseButton-secondary"] *{
+  color:#1c1917!important;}
+.stButton button:not([kind="primary"]):hover,
+.stButton [data-testid="stBaseButton-secondary"]:hover{
   border-color:#1a2744!important;color:#1a2744!important;background:#faf8f3!important;}
+
+/* Navigation-Pfeile von st.navigation() */
+[data-testid="stPageNavButton"]{
+  background:#ffffff!important;color:var(--navy)!important;
+  border:1px solid var(--parchment-2)!important;border-radius:var(--r-sm)!important;
+  font-family:'IBM Plex Sans',sans-serif!important;font-weight:600!important;
+  transition:var(--t)!important;}
+[data-testid="stPageNavButton"] *{color:var(--navy)!important;}
+[data-testid="stPageNavButton"]:hover{
+  background:#faf8f3!important;border-color:var(--gold)!important;
+  color:var(--navy)!important;}
 
 /* ── TABS ── */
 .stTabs [data-baseweb="tab-list"]{border-bottom:2px solid var(--parchment-2)!important;gap:0!important;}
