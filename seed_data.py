@@ -1,0 +1,790 @@
+"""Seed-Datei mit hochwertigen juristischen Inhalten für den Jura-Repetitor.
+
+Ausführen mit: python3 seed_data.py
+Erzeugt seed_materials_output.json → als users/shared/materials_index.json ins Daten-Repo hochladen.
+"""
+from __future__ import annotations
+
+SEED_MATERIALS = [
+    # ── BGB AT ──────────────────────────────────────────────────────────────
+    {
+        "name": "BGB AT – Willenserklärung",
+        "topic": "BGB AT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Willenserklärung (§§ 116 ff. BGB)\n\n"
+            "## Begriff und Struktur\n"
+            "Eine Willenserklärung ist eine private Willensäußerung, die unmittelbar auf die "
+            "Herbeiführung eines rechtlichen Erfolgs gerichtet ist. Sie setzt sich aus zwei Elementen "
+            "zusammen: dem **objektiven Tatbestand** (äußerlich erkennbare Erklärung) und dem "
+            "**subjektiven Tatbestand** (Handlungswille, Erklärungsbewusstsein, Geschäftswille).\n\n"
+            "## Objektiver Tatbestand\n"
+            "Maßgeblich ist, wie ein objektiver Empfänger die Erklärung nach dem **Horizont des "
+            "Empfängers** unter Berücksichtigung von Treu und Glauben (§ 242 BGB) und der "
+            "Verkehrssitte (§ 157 BGB) verstehen durfte und musste. Entscheidend ist nicht, was der "
+            "Erklärende gemeint hat, sondern der objektive Erklärungswert.\n\n"
+            "## Subjektiver Tatbestand\n"
+            "- **Handlungswille**: bewusstes, willentliches Verhalten (fehlt z.B. bei vis absoluta)\n"
+            "- **Erklärungsbewusstsein**: Bewusstsein, überhaupt eine rechtserhebliche Erklärung "
+            "abzugeben. Str.: nach h.M. (BGH NJW 1984, 2279) ist latentes Erklärungsbewusstsein "
+            "ausreichend; fehlende Erklärung anfechtbar analog § 119 I BGB\n"
+            "- **Geschäftswille**: Wille auf einen bestimmten rechtlichen Erfolg. Sein Fehlen führt "
+            "grundsätzlich nicht zur Unwirksamkeit, sondern nur zur Anfechtbarkeit.\n\n"
+            "## Auslegung von Willenserklärungen\n"
+            "Empfangsbedürftige WE: §§ 133, 157 BGB → objektiver Empfängerhorizont.\n"
+            "Nicht empfangsbedürftige WE (z.B. Testament): § 133 BGB → wirklicher Wille maßgeblich.\n\n"
+            "## Zugang (§ 130 BGB)\n"
+            "Empfangsbedürftige WE wird wirksam mit Zugang. Zugang = Eintritt in den Machtbereich "
+            "des Empfängers und Möglichkeit der Kenntnisnahme unter gewöhnlichen Umständen. "
+            "Wichtig: Brief im Briefkasten an Werktagen bis 18 Uhr gilt am selben Tag als zugegangen "
+            "(str. bei Einwurf nach 17 Uhr, BGH NJW 2004, 1320).\n\n"
+            "## Klausurtipp\n"
+            "Prüfungsreihenfolge: (1) Objektiver Tatbestand – Auslegung nach §§ 133, 157 BGB. "
+            "(2) Subjektiver Tatbestand – fehlender Handlungswille oder Erklärungsbewusstsein? "
+            "(3) Wirksamwerden – Zugang nach § 130 BGB. (4) Anfechtbarkeit §§ 119 ff. BGB."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 116–130 BGB; BGH NJW 1984, 2279; Medicus/Lorenz, BGB AT, 22. Aufl. 2024",
+    },
+    {
+        "name": "BGB AT – Anfechtung",
+        "topic": "BGB AT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Anfechtung von Willenserklärungen (§§ 119–124 BGB)\n\n"
+            "## Anfechtungsgründe\n\n"
+            "### § 119 Abs. 1 BGB – Irrtum im engeren Sinne\n"
+            "**Inhaltsirrtum**: Der Erklärende kennt den objektiven Erklärungswert seiner Erklärung "
+            "nicht (z.B. Fremdwortirrtum). **Erklärungsirrtum**: Versprechen, Verschreiben, "
+            "Vergreifen (Distanzirrtum). Kein Motivirrtum: Irrtümer über Umstände, die die "
+            "Entscheidungsfindung beeinflussen, berechtigen grundsätzlich nicht zur Anfechtung.\n\n"
+            "### § 119 Abs. 2 BGB – Eigenschaftsirrtum\n"
+            "Irrtum über verkehrswesentliche Eigenschaften einer Person oder Sache. Eigenschaften "
+            "sind dauerhafte, wertprägende Merkmale (z.B. Echtheit eines Kunstwerks, Kreditwürdigkeit "
+            "einer Person). Str.: Irrtum über den Wert ist nur ausnahmsweise beachtlich, wenn er "
+            "Ausdruck eines Eigenschaftsirrtums ist.\n\n"
+            "### § 123 BGB – Arglistige Täuschung / widerrechtliche Drohung\n"
+            "Arglist: Vorsätzliches Hervorrufen, Aufrechterhalten oder Ausnutzen eines Irrtums in "
+            "Kenntnis der Unrichtigkeit und mit Wissen um die Erheblichkeit für die "
+            "Willensbildung. Kausalität: Der Irrtum muss für die Abgabe der WE ursächlich sein "
+            "(condicio sine qua non).\n\n"
+            "## Anfechtungserklärung (§ 143 BGB)\n"
+            "Gestaltungsrecht; empfangsbedürftige WE gegenüber dem Anfechtungsgegner; keine "
+            "Begründungspflicht; unverzüglich nach Kenntnis (§ 121 BGB) bzw. Jahresfrist "
+            "(§ 124 BGB) bei § 123 BGB.\n\n"
+            "## Rechtsfolge (§ 142 BGB)\n"
+            "Ex-tunc-Nichtigkeit. Schadensersatzpflicht nach § 122 BGB (Vertrauensschaden) "
+            "bei §§ 119, 120 BGB; kein Ersatz des Erfüllungsinteresses.\n\n"
+            "## Verhältnis zu anderen Normen\n"
+            "Konkurrenzen: § 119 II BGB vs. §§ 434 ff. BGB (Sachmangel): Nach h.M. (BGH) ist "
+            "§ 119 II BGB nach Gefahrübergang durch das Kaufrecht verdrängt. Vor Gefahrübergang "
+            "kumulatives Nebeneinander.\n\n"
+            "## Klausurtipp\n"
+            "Schema: (1) Anfechtungsgrund, (2) Anfechtungserklärung § 143 BGB, (3) Anfechtungsfrist "
+            "§§ 121, 124 BGB, (4) Rechtsfolge § 142 BGB, (5) Schadensersatz § 122 BGB."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 119–124, 142 f. BGB; BGH NJW 1988, 2597; Brox/Walker, BGB AT, 48. Aufl. 2024",
+    },
+    {
+        "name": "BGB AT – Stellvertretung",
+        "topic": "BGB AT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Stellvertretung (§§ 164 ff. BGB)\n\n"
+            "## Voraussetzungen wirksamer Stellvertretung\n"
+            "1. **Eigene Willenserklärung** des Vertreters (keine Botenschaft)\n"
+            "2. **Im Namen des Vertretenen** – Offenkundigkeitsprinzip (§ 164 I 2 BGB). Ausnahme: "
+            "Geschäft für den, den es angeht (Bargeschäfte des täglichen Lebens)\n"
+            "3. **Vertretungsmacht** – rechtsgeschäftlich (Vollmacht, §§ 166 ff. BGB) oder "
+            "gesetzlich (z.B. § 1629 BGB für Eltern)\n\n"
+            "## Vollmacht\n"
+            "Einseitige Innenerteilung (Bevollmächtigung, § 167 I Alt. 1 BGB) oder "
+            "Außenerteilung (§ 167 I Alt. 2 BGB). Unterschied: Innenvollmacht ist gegenüber dem "
+            "Vertreter erklärt; Außenvollmacht gegenüber dem Dritten.\n\n"
+            "**Erlöschen** (§ 168 BGB): Mit dem Grundverhältnis; durch Widerruf; durch Zeitablauf.\n\n"
+            "## Rechtsscheinvollmachten\n"
+            "- **Duldungsvollmacht**: Vertretener duldet wissentlich und ohne Einschränkung das "
+            "Auftreten des Vertreters → haftet wie bei Bevollmächtigung\n"
+            "- **Anscheinsvollmacht**: Vertretener hätte bei pflichtgemäßer Sorgfalt das Auftreten "
+            "erkennen und verhindern können → Vertrauensschutz des Dritten (str.)\n\n"
+            "## Vertreter ohne Vertretungsmacht (§§ 177–179 BGB)\n"
+            "Schwebende Unwirksamkeit bis zur Genehmigung. Kein Genehmigungsrecht bei "
+            "vollmachtlosem Vertreter. Haftung des vollmachtlosen Vertreters nach § 179 BGB: "
+            "Erfüllung oder Schadensersatz (Wahl des Dritten); Ausnahme: schuldlose Unkenntnis "
+            "(§ 179 III BGB).\n\n"
+            "## Wissenszurechnung (§ 166 BGB)\n"
+            "Maßgeblich ist das Wissen/Wissenmüssen des Vertreters, nicht des Vertretenen. "
+            "Ausnahme § 166 II BGB: bei Eigengeschäft des Vertreters ist Vertretener zurechenbar.\n\n"
+            "## Klausurtipp\n"
+            "Immer prüfen: Botenschaft vs. Stellvertretung → Eigenständigkeit der WE des Vertreters?"
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 164–181 BGB; BGH NJW 1956, 1673; Palandt/Ellenberger, BGB, 83. Aufl. 2024, § 164 Rn. 1 ff.",
+    },
+    # ── SchuldR ─────────────────────────────────────────────────────────────
+    {
+        "name": "SchuldR – Kaufvertrag § 433 BGB",
+        "topic": "Schuldrecht BT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Kaufvertrag (§§ 433 ff. BGB)\n\n"
+            "## Grundstruktur\n"
+            "Der Kaufvertrag ist ein gegenseitiger schuldrechtlicher Vertrag. § 433 I BGB: "
+            "Verkäufer schuldet Übergabe der Sache und Verschaffung des Eigentums (Sachkauf) "
+            "bzw. Verschaffung des Rechts (Rechtskauf). § 433 II BGB: Käufer schuldet Kaufpreis "
+            "und Abnahme.\n\n"
+            "## Sachmangel (§ 434 BGB)\n"
+            "**Subjektiver Mangelbegriff** (§ 434 II BGB): Vorrang der Vereinbarung. Sache ist "
+            "mangelhaft, wenn sie nicht die vereinbarte Beschaffenheit hat. **Objektiver "
+            "Mangelbegriff** (§ 434 III BGB): Eignung für die vertraglich vorausgesetzte "
+            "oder gewöhnliche Verwendung; Übereinstimmung mit Probe/Muster; Montagepflicht "
+            "(§ 434 IV BGB). **Montage-/Installationsfehler** (§ 434 IV BGB): fehlerhafte "
+            "Anleitung = Sachmangel. **Rechtsmangel** (§ 435 BGB): Dritter hat Rechte an der Sache.\n\n"
+            "## Gewährleistungsrechte (§§ 437, 439–442 BGB)\n"
+            "Rangfolge: (1) Nacherfüllung (§ 439 BGB) hat Vorrang. Käufer darf Wahlrecht zwischen "
+            "Nachlieferung und Nachbesserung ausüben; Verkäufer kann einmalig verweigern bei "
+            "unverhältnismäßigem Aufwand. (2) Rücktritt (§§ 437 Nr. 2, 323, 326 V BGB) oder "
+            "Minderung (§ 441 BGB): Fristsetzung erforderlich, außer bei Verweigerung, Unmöglichkeit, "
+            "Unzumutbarkeit. (3) Schadensersatz (§§ 437 Nr. 3, 280 ff. BGB): SE statt Leistung "
+            "zusätzlich Fristsetzung, außer bei § 311a BGB.\n\n"
+            "## Verjährung (§ 438 BGB)\n"
+            "Grundsätzlich 2 Jahre ab Ablieferung (§ 438 I Nr. 3 BGB). Sonderfristen: Bauwerke "
+            "5 Jahre (§ 438 I Nr. 2 BGB); arglistig verschwiegene Mängel: 3 Jahre nach Kenntnis "
+            "(§ 438 III BGB).\n\n"
+            "## Klausurtipp\n"
+            "Schema: Vertrag → Mangel bei Gefahrübergang (§ 446 BGB) → Nacherfüllungsrecht → "
+            "Fristsetzung → Sekundäransprüche. Gefahrübergang beim Versendungskauf: § 447 BGB "
+            "(nur zwischen Unternehmern relevant wegen § 475 II BGB)."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 433–453 BGB; BGH NJW 2022, 1234; Grüneberg/Weidenkaff, BGB, 83. Aufl. 2024, § 433 Rn. 1 ff.",
+    },
+    {
+        "name": "SchuldR – Schadensersatz § 280 BGB",
+        "topic": "Schuldrecht AT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Schadensersatz wegen Pflichtverletzung (§ 280 BGB)\n\n"
+            "## Tatbestandsvoraussetzungen § 280 I BGB\n"
+            "1. **Schuldverhältnis** (§ 241 BGB): vertragliches oder gesetzliches Schuldverhältnis\n"
+            "2. **Pflichtverletzung** (§ 241 II BGB): Leistungspflicht oder Rücksichtnahme-/ "
+            "Nebenpflicht. Unterschied: Verletzung der Hauptleistungspflicht → SE statt Leistung "
+            "erfordert §§ 281–283 BGB; Verletzung der Nebenpflicht → § 280 I BGB direkt.\n"
+            "3. **Vertretenmüssen** (§ 276 BGB): Vorsatz und Fahrlässigkeit. "
+            "**Verschuldensmaßstab**: § 276 II BGB (objektive Fahrlässigkeit). Verschulden wird "
+            "vermutet (§ 280 I 2 BGB), Entlastungsbeweis beim Schuldner.\n"
+            "4. **Schaden** (§§ 249 ff. BGB): Differenzhypothese.\n\n"
+            "## § 280 I, II, 286 BGB – Verzögerungsschaden\n"
+            "Voraussetzungen: Pflichtverletzung (Nicht-/Schlechtleistung) + Verzug (§ 286 BGB: "
+            "Mahnung nach Fälligkeit; Ausnahme § 286 II BGB: z.B. kalendermäßige Bestimmung). "
+            "Ersatz: Verzögerungsschaden (z.B. Zinsschaden, Mietkosten für Ersatzsache).\n\n"
+            "## § 280 I, III, 281 BGB – SE statt der Leistung\n"
+            "Voraussetzungen: Nichtleistung oder Schlechtleistung + fruchtlose Fristsetzung "
+            "(Ausnahmen: § 281 II BGB). Rechtsfolge: SE großer oder kleiner Schadensersatz "
+            "statt Leistung (§§ 281 I, IV BGB). Verhältnis zu Rücktritt: §§ 280 I, III, 281, "
+            "323 BGB können kumuliert werden (§ 325 BGB).\n\n"
+            "## § 311a BGB – SE bei anfänglicher Unmöglichkeit\n"
+            "Schuldner kannte das Hindernis bei Vertragsschluss und muss sich das zurechnen "
+            "lassen. Kein Fristsetzungserfordernis. Besonderheit: Schuldner haftet nach "
+            "§ 311a II BGB auf das Erfüllungsinteresse.\n\n"
+            "## Schadensberechnung\n"
+            "**Naturalrestitution** (§ 249 I BGB) hat Vorrang; **Geldersatz** nach §§ 249 II, "
+            "250, 251 BGB subsidiär. Mitverschulden (§ 254 BGB) kürzt den Anspruch anteilig.\n\n"
+            "## Klausurtipp\n"
+            "Unterscheide sorgfältig: § 280 I (Nebenpflichtverletzung, kein Fristerfordernis), "
+            "§§ 280 I, II, 286 (Verzug), §§ 280 I, III, 281 (Nichterfüllung mit Frist), "
+            "§§ 280 I, III, 283 (nachträgliche Unmöglichkeit), § 311a (anfängliche Unmöglichkeit)."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 249–255, 276, 280–286, 311a BGB; MüKoBGB/Ernst, 9. Aufl. 2024, § 280 Rn. 1 ff.",
+    },
+    # ── StGB AT ──────────────────────────────────────────────────────────────
+    {
+        "name": "StGB AT – Vorsatz und Fahrlässigkeit",
+        "topic": "Strafrecht AT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Vorsatz und Fahrlässigkeit im Strafrecht\n\n"
+            "## Vorsatz (§ 15 StGB)\n"
+            "Grundsatz: Nur vorsätzliches Handeln ist strafbar, sofern das Gesetz nicht "
+            "ausdrücklich fahrlässiges Handeln mit Strafe bedroht (§ 15 StGB).\n\n"
+            "**Vorsatzformen**:\n"
+            "- **Dolus directus 1. Grades** (Absicht): Täter will den tatbestandlichen Erfolg. "
+            "Wissenselement nicht zwingend.\n"
+            "- **Dolus directus 2. Grades** (direkter Vorsatz): Täter weiß sicher, dass der "
+            "Erfolg eintreten wird, auch wenn er ihn nicht will.\n"
+            "- **Dolus eventualis** (bedingter Vorsatz): Täter hält Erfolgseintritt für möglich "
+            "und findet sich damit ab (billigend in Kauf nehmen). Abgrenzung zur bewussten "
+            "Fahrlässigkeit: bei letzterer vertraut der Täter auf das Ausbleiben des Erfolges.\n\n"
+            "**Vorsatz muss sich erstrecken auf**: alle Tatbestandsmerkmale zum Zeitpunkt der "
+            "Tathandlung (§ 16 I StGB). Irrtum über Tatbestandsmerkmal → kein Vorsatz.\n\n"
+            "## Tatbestandsirrtum (§ 16 StGB)\n"
+            "Kennt der Täter einen Umstand nicht, der zum gesetzlichen Tatbestand gehört, handelt "
+            "er nicht vorsätzlich. Bei Fahrlässigkeitstat bleibt Strafbarkeit bestehen, wenn "
+            "Unkenntnis auf Fahrlässigkeit beruht (§ 16 I 2 StGB).\n\n"
+            "## Fahrlässigkeit (§ 15 i.V.m. § 222 StGB)\n"
+            "**Bewusste Fahrlässigkeit**: Täter erkennt Möglichkeit des Erfolgseintritts, "
+            "vertraut aber (unbegründet) auf dessen Ausbleiben. **Unbewusste Fahrlässigkeit**: "
+            "Täter erkennt die Möglichkeit des Erfolgseintritts nicht, obwohl er sie bei "
+            "Anwendung der erforderlichen Sorgfalt hätte erkennen und vermeiden können.\n\n"
+            "**Prüfungsschema Fahrlässigkeit**: (1) Tatbestandsmäßigkeit: Sorgfaltspflichtverletzung "
+            "(objektive Sorgfaltspflicht), Kausalität, objektive Zurechenbarkeit, "
+            "Vorhersehbarkeit. (2) Rechtswidrigkeit. (3) Schuld: subjektive Vorhersehbarkeit, "
+            "individuelle Sorgfaltsfähigkeit.\n\n"
+            "## Klausurtipp\n"
+            "Bei dolus eventualis vs. bewusster Fahrlässigkeit: Theorien im Streit – "
+            "Billigunstheorie (h.M.): Täter billigt den Erfolg. Wahrscheinlichkeitstheorie: "
+            "Täter hält Eintritt für wahrscheinlicher als Ausbleiben."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 15, 16 StGB; BGHSt 36, 1; Roxin/Greco, StrafR AT I, 5. Aufl. 2020, § 12 Rn. 1 ff.",
+    },
+    {
+        "name": "StGB AT – Versuch und Rücktritt",
+        "topic": "Strafrecht AT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Versuch und Rücktritt (§§ 22–24 StGB)\n\n"
+            "## Versuch (§§ 22, 23 StGB)\n"
+            "**Voraussetzungen**: (1) Entschluss zur Tat (subjektiver Tatbestand vollständig), "
+            "(2) unmittelbares Ansetzen zur Tatbestandsverwirklichung (§ 22 StGB).\n\n"
+            "**Unmittelbares Ansetzen**: Täter überschreitet die Schwelle zum 'Jetzt geht es los'. "
+            "Formeln: Zwischenaktstheorie – kein wesentlicher Zwischenschritt mehr erforderlich; "
+            "Sphärentheorie – Täter hat die Opfersphäre betreten; Gefährdungstheorie – "
+            "Rechtsgut gerät in unmittelbare Gefahr. Alle Formeln sind ergänzend heranzuziehen.\n\n"
+            "**Strafbarkeit**: § 23 I StGB: Versuch eines Verbrechens ist stets strafbar; "
+            "Versuch eines Vergehens nur, wenn das Gesetz es ausdrücklich bestimmt.\n\n"
+            "**Untauglicher Versuch** (§ 23 III StGB): Täter irrt sich über Tauglichkeit des "
+            "Mittels oder Objekts. Das Gericht kann Strafe mildern oder von Strafe absehen.\n\n"
+            "## Rücktritt (§ 24 StGB)\n"
+            "**Unbeendeter Versuch** (§ 24 I 1 Alt. 1 StGB): Täter hat die Ausführungshandlung "
+            "noch nicht abgeschlossen → Aufgabe genügt (freiwillig die weitere Tatausführung "
+            "aufgeben).\n\n"
+            "**Beendeter Versuch** (§ 24 I 1 Alt. 2 BGB): Täter glaubt, alles zur "
+            "Erfolgsherbeiführung Notwendige getan zu haben → aktives Verhindern des Erfolges "
+            "oder ernsthaftes Bemühen, wenn Erfolg ohne sein Zutun ausbleibt.\n\n"
+            "**Freiwilligkeit**: Der Täter muss aus eigenem Antrieb zurücktreten. Unfreiwillig: "
+            "Entdeckung, Polizei naht, Hindernis macht Vollendung unmöglich (kriminologischer "
+            "Rücktrittsbegriff: 'kann nicht' vs. 'will nicht').\n\n"
+            "**Rechtsfolge**: Rücktritt führt zur Straffreiheit für den Versuch; andere verwirk-"
+            "lichte Delikte bleiben strafbar.\n\n"
+            "## Klausurtipp\n"
+            "Unterscheidung unbeendet/beendet aus der Vorstellung des Täters im Zeitpunkt des "
+            "letzten Ausführungsakts. Mehrere Ausführungsakte → Gesamtbetrachtung."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 22–24 StGB; BGHSt 39, 221; Wessels/Beulke/Satzger, StrafR AT, 53. Aufl. 2023, § 15 Rn. 867 ff.",
+    },
+    {
+        "name": "StGB AT – Notwehr § 32 StGB",
+        "topic": "Strafrecht AT",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Notwehr (§ 32 StGB)\n\n"
+            "## Notwehrlage\n"
+            "**Angriff**: Menschliches Verhalten, das rechtlich geschützte Interessen beeinträchtigt "
+            "oder zu beeinträchtigen droht. Kein Angriff durch Tiere oder Naturgewalten (→ "
+            "Notstand § 34 StGB). Auch Angriff auf fremde Rechtsgüter.\n\n"
+            "**Gegenwärtigkeit**: Angriff beginnt, wenn Übergang zu Ausführungshandlungen "
+            "unmittelbar bevorsteht; dauert an, solange Beeinträchtigung andauert oder "
+            "Wiederholungsgefahr besteht. Vorwegverteidigung bei sicherem zukünftigem Angriff "
+            "grundsätzlich nicht zulässig.\n\n"
+            "**Rechtswidrigkeit des Angriffs**: Objektive Rechtswidrigkeit; kein Einverständnis "
+            "oder rechtfertigender Notstand. Bei entschuldigtem Angriff (z.B. Schuldunfähige): "
+            "Notwehr grds. zulässig, aber sozialethische Einschränkungen.\n\n"
+            "## Notwehrhandlung (Verteidigungshandlung)\n"
+            "**Erforderlichkeit**: Mildestes geeignetes Mittel zur Beendigung des Angriffs; "
+            "relativ sicheres Mittel wählen; Ausweichen nicht erforderlich (kein Weichen-"
+            "gebot), außer bei krassen Missverhältnissen.\n\n"
+            "**Gebotenheit** (sozialethische Einschränkungen): Bei Provokation, bei krassen "
+            "Missverhältnissen (Verteidigung mit tödlicher Waffe gegen Diebstahl geringwertiger "
+            "Sachen), bei schuldlos Angreifenden (z.B. Kinder), bei engen persönlichen "
+            "Beziehungen.\n\n"
+            "## Subjektives Rechtfertigungselement\n"
+            "Der Täter muss die Notwehrlage kennen und in Verteidigungsabsicht handeln. "
+            "Fehlen: volle Strafbarkeit nach dem Erfolg (str.).\n\n"
+            "## Notwehrexzess (§ 33 StGB)\n"
+            "Entschuldigung bei Überschreitung aus Verwirrung, Furcht oder Schrecken; "
+            "nicht bei Intensivexzess aus Wut oder Rache.\n\n"
+            "## Klausurtipp\n"
+            "Aufbau: I. Notwehrlage (Angriff, Gegenwärtigkeit, Rechtswidrigkeit). "
+            "II. Notwehrhandlung (Erforderlichkeit, Gebotenheit). III. Subjektives Element."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 32, 33 StGB; BGHSt 24, 356; Rengier, StrafR AT, 15. Aufl. 2023, § 18 Rn. 1 ff.",
+    },
+    # ── BVerfG / Grundrechtsprüfung ──────────────────────────────────────────
+    {
+        "name": "Grundrechtsprüfung – Schema und Verhältnismäßigkeit",
+        "topic": "Grundrechte",
+        "art": "Skript",
+        "kategorie": "Rechtsprechung",
+        "text": (
+            "# Grundrechtsprüfungsschema (BVerfG)\n\n"
+            "## Allgemeines Prüfungsschema\n\n"
+            "### I. Schutzbereich\n"
+            "1. **Persönlicher Schutzbereich**: Wer kann sich auf das Grundrecht berufen? "
+            "(Jedermann-Grundrecht vs. Deutschengrundrecht; juristische Personen § 19 III GG)\n"
+            "2. **Sachlicher Schutzbereich**: Was schützt das Grundrecht? "
+            "(normative Auslegung; BVerfG legt Schutzbereiche weit aus)\n\n"
+            "### II. Eingriff\n"
+            "**Klassischer Eingriffsbegriff**: gezielt, unmittelbar, rechtsförmig, imperativ. "
+            "**Moderner Eingriffsbegriff** (BVerfG): jede staatliche Maßnahme, die die Grundrechts-"
+            "ausübung beeinträchtigt, unabhängig von Absicht und Form. Erfasst auch faktische "
+            "und mittelbar-normative Beeinträchtigungen.\n\n"
+            "### III. Verfassungsrechtliche Rechtfertigung\n"
+            "**a) Schranken**: Gesetzesvorbehalt (einfacher oder qualifizierter Vorbehalt), "
+            "verfassungsimmanente Schranken (bei vorbehaltlos gewährten GR, z.B. Art. 5 III GG).\n\n"
+            "**b) Schranken-Schranken**:\n"
+            "1. Formelle Verfassungsmäßigkeit (Gesetzgebungskompetenz, Verfahren, Form)\n"
+            "2. Materielle Verfassungsmäßigkeit:\n"
+            "   - Bestimmtheitsgebot\n"
+            "   - Zitiergebot (Art. 19 I 2 GG) – nur bei qualifiziertem Gesetzesvorbehalt\n"
+            "   - **Verhältnismäßigkeit** (Art. 20 III GG i.V.m. dem jeweiligen GR)\n"
+            "   - Wesensgehaltsgarantie (Art. 19 II GG)\n\n"
+            "## Verhältnismäßigkeitsgrundsatz (Übermaßverbot)\n\n"
+            "### 1. Legitimer Zweck\n"
+            "Jeder im öffentlichen Interesse liegende Zweck; kein grundrechtlich oder "
+            "verfassungsrechtlich verbotener Zweck.\n\n"
+            "### 2. Geeignetheit\n"
+            "Das Mittel muss den legitimen Zweck zumindest fördern können. "
+            "Prognoseentscheidung des Gesetzgebers; BVerfG prüft nur auf Evidenz.\n\n"
+            "### 3. Erforderlichkeit\n"
+            "Kein milderes, gleich geeignetes Mittel vorhanden. "
+            "Maßstab: mindest belastende Maßnahme zur Zielerreichung.\n\n"
+            "### 4. Angemessenheit (Verhältnismäßigkeit i.e.S.)\n"
+            "Abwägung: Schwere des Eingriffs vs. Gewicht des verfolgten Ziels. "
+            "BVerfG: je intensiver der Eingriff, desto gewichtiger müssen die "
+            "Rechtfertigungsgründe sein (Stufenlehre).\n\n"
+            "## Wichtige BVerfG-Entscheidungen zum Grundrechtsschutz\n"
+            "- BVerfGE 7, 198 (Lüth): Grundrechte als objektive Wertordnung, mittelbare Drittwirkung\n"
+            "- BVerfGE 65, 1 (Volkszählung): Informationelles Selbstbestimmungsrecht\n"
+            "- BVerfGE 120, 274 (Online-Durchsuchung): Vertraulichkeit informationstechnischer Systeme\n"
+            "- BVerfGE 125, 175 (Hartz IV): Grundrecht auf Gewährleistung eines menschenwürdigen Existenzminimums"
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "BVerfGE 7, 198; 65, 1; 120, 274; 125, 175; Jarass/Pieroth, GG, 17. Aufl. 2023, Vorb. vor Art. 1 Rn. 37 ff.",
+    },
+    {
+        "name": "Grundrechte – Meinungsfreiheit Art. 5 GG",
+        "topic": "Grundrechte",
+        "art": "Kommentarauszug",
+        "kategorie": "Rechtsprechung",
+        "text": (
+            "# Meinungsfreiheit (Art. 5 Abs. 1 GG)\n\n"
+            "## Schutzbereich\n"
+            "**Meinungen**: Werturteile und Tatsachenbehauptungen, sofern letztere zur Meinungsbildung "
+            "beitragen. Bewusst unwahre Tatsachenbehauptungen genießen keinen Schutz (BVerfGE 90, 241). "
+            "**Schmähkritik**: Keine Auseinandersetzung mit der Sache, sondern bloße Diffamierung "
+            "der Person → kein Grundrechtsschutz (BVerfGE 82, 272). Grenze: Sorgfältige Prüfung, "
+            "ob wirklich Schmähkritik vorliegt (BVerfG NJW 2020, 2622 – 'Durchgeknallter Staatsanwalt').\n\n"
+            "## Eingriff\n"
+            "Jede staatliche Maßnahme, die die Äußerungsfreiheit faktisch beeinträchtigt. "
+            "Strafrechtliche Verurteilungen, zivilrechtliche Unterlassungsurteile, "
+            "Berufsverbote, Steuerpflichten auf Druckerzeugnisse.\n\n"
+            "## Schranken\n"
+            "**Art. 5 Abs. 2 GG**: allgemeine Gesetze (Sonderrechtslehre + Abwägungslehre = "
+            "kombinierte Theorie, BVerfGE 7, 198), Jugendschutzgesetze, Ehre.\n\n"
+            "**Wechselwirkungslehre** (BVerfGE 7, 198): Allgemeine Gesetze sind im Lichte des "
+            "Art. 5 I GG auszulegen; Einschränkungen wiederum dürfen nicht den Kern der "
+            "Meinungsfreiheit aushöhlen.\n\n"
+            "## Abwägung mit anderen Rechtsgütern\n"
+            "**Meinungsfreiheit vs. allgemeines Persönlichkeitsrecht (Art. 2 I i.V.m. Art. 1 I GG)**:\n"
+            "- Wahre Tatsachenbehauptungen: regelmäßig Vorrang der Meinungsfreiheit, außer bei "
+            "tiefem Eingriff in die Privat-/Intimsphäre\n"
+            "- Unwahre Tatsachenbehauptungen: Überwiegen des APR\n"
+            "- Werturteile: Einzelfallabwägung; Beiträge zur öffentlichen Debatte haben besonderes Gewicht\n\n"
+            "## BVerfG-Grundsatzentscheidungen\n"
+            "- BVerfGE 7, 198 (Lüth): Wechselwirkungslehre, mittelbare Drittwirkung\n"
+            "- BVerfGE 25, 256 (Blinkfüer): Boykottaufruf als Einschränkung der Meinungsfreiheit\n"
+            "- BVerfGE 93, 266 ('Soldaten sind Mörder'): Strikte Anforderungen an Schmähkritik\n"
+            "- BVerfG NJW 2022, 1951 (Meinungsfreiheit im Netz)"
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "BVerfGE 7, 198; 82, 272; 90, 241; 93, 266; Dreier/Schulze-Fielitz, GG, 3. Aufl. 2023, Art. 5 I, II Rn. 1 ff.",
+    },
+    # ── BGH-Rechtsprechung ───────────────────────────────────────────────────
+    {
+        "name": "BGH – Eigentümer-Besitzer-Verhältnis § 985 BGB",
+        "topic": "Sachenrecht",
+        "art": "Kommentarauszug",
+        "kategorie": "Rechtsprechung",
+        "text": (
+            "# Vindikationsanspruch § 985 BGB und EBV (§§ 985–1003 BGB)\n\n"
+            "## Voraussetzungen § 985 BGB\n"
+            "1. **Eigentum des Klägers** (zum Zeitpunkt der letzten mündlichen Verhandlung)\n"
+            "2. **Besitz des Beklagten**: unmittelbarer oder mittelbarer Besitz (§ 868 BGB)\n"
+            "3. **Kein Recht zum Besitz** (§ 986 BGB): dinglich (Nießbrauch, Pfandrecht) oder "
+            "obligatorisch (Mietvertrag). Beim mittelbaren Besitz: Recht des unmittelbaren Besitzers "
+            "schützt auch mittelbaren Besitzer.\n\n"
+            "## EBV-System (§§ 987–1003 BGB)\n\n"
+            "**Nutzungsherausgabe** (§§ 987, 988 BGB):\n"
+            "- § 987 BGB: Gutgläubiger Besitzer haftet für Nutzungen ab Rechtshängigkeit; "
+            "bösgläubiger Besitzer ab Bösgläubigkeit\n"
+            "- § 988 BGB: Unentgeltlicher Besitz; Bereicherung abzuführen\n\n"
+            "**Schadensersatz** (§§ 989, 990 BGB):\n"
+            "- § 990 I BGB: Verklagte Besitzer/bösgläubige Besitzer haften nach §§ 989, 990 BGB\n"
+            "- BGH NJW 1981, 1666: Bösgläubigkeit = Kenntnis vom fehlenden Besitzrecht oder "
+            "grob fahrlässige Unkenntnis\n\n"
+            "**Verwendungsersatz** (§§ 994–1003 BGB):\n"
+            "- Notwendige Verwendungen: immer ersatzfähig (§ 994 I BGB); "
+            "gutgläubiger Besitzer bei verschuldetem Besitzentzug: § 994 II BGB\n"
+            "- Nützliche Verwendungen: nur gutgläubiger Besitzer, soweit Wertsteigerung noch "
+            "vorhanden (§ 996 BGB)\n"
+            "- Luxusverwendungen: kein Ersatz; nur Wegnahmerecht (§ 997 BGB)\n\n"
+            "## Konkurrenzen\n"
+            "BGH: Im Bereich des EBV sind §§ 987 ff. BGB als abschließende Sonderregelung "
+            "vorrangig gegenüber §§ 812 ff. BGB (Bereicherungsrecht) und §§ 823 ff. BGB "
+            "(Deliktsrecht), soweit es sich um EBV-typische Ansprüche handelt. "
+            "Außerhalb des EBV (z.B. Beschädigung der Sache) tritt keine Sperrwirkung ein.\n\n"
+            "## BGH-Leitsätze\n"
+            "- BGH NJW 1955, 1268: Herausgabepflicht bei Vindikation auch bei Untergang durch "
+            "Einbau (§ 946 BGB) → Direktanspruch entfällt\n"
+            "- BGHZ 32, 76: Gutgläubiger Erwerb nach § 932 BGB schließt § 985 BGB aus"
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 985–1003 BGB; BGHZ 32, 76; BGH NJW 1981, 1666; Staudinger/Gursky, BGB, Neubearbeitung 2023, § 985 Rn. 1 ff.",
+    },
+    {
+        "name": "BGH – Deliktsrecht § 823 BGB",
+        "topic": "Schuldrecht BT",
+        "art": "Kommentarauszug",
+        "kategorie": "Rechtsprechung",
+        "text": (
+            "# Deliktsrecht § 823 BGB – BGH-Rechtsprechung\n\n"
+            "## § 823 Abs. 1 BGB – Grundtatbestand\n\n"
+            "### Haftungsbegründender Tatbestand\n"
+            "1. **Rechtsgutsverletzung**: Leben, Körper, Gesundheit, Freiheit, Eigentum und "
+            "sonstige Rechte. **Sonstige Rechte**: absolut wirkende Rechte (Besitz str., "
+            "bejaht von BGH NJW 1985, 1894); Recht am eingerichteten und ausgeübten "
+            "Gewerbebetrieb (REAG) als Auffangtatbestand (BGH BGHZ 29, 65).\n"
+            "2. **Handlung**: Tun oder Unterlassen (Garantenpflicht erforderlich)\n"
+            "3. **Kausalität**: haftungsbegründende Kausalität (Äquivalenztheorie → "
+            "Adäquanztheorie → objektive Zurechenbarkeit)\n"
+            "4. **Verletzung einer Verkehrspflicht** (bei Unterlassen): BGH entwickelt "
+            "extensive Verkehrspflichten für Ingerenz, Verkehrssicherungspflichten, "
+            "Produzentenhaftung\n"
+            "5. **Verschulden**: Vorsatz oder Fahrlässigkeit (§ 276 BGB)\n\n"
+            "### Haftungsausfüllender Tatbestand\n"
+            "Haftungsausfüllende Kausalität: Schaden muss auf der Rechtsgutsverletzung beruhen. "
+            "Schaden nach §§ 249 ff. BGB.\n\n"
+            "## Produzentenhaftung (BGH BGHZ 51, 91 – Hühnerpest)\n"
+            "Grundlage § 823 I BGB mit umgekehrter Beweislast: Hersteller muss beweisen, "
+            "dass Fehler nicht auf Fabrikationsfehler/Konstruktionsfehler/Instruktionsfehler "
+            "zurückzuführen ist. Neben ProdHaftG (Gefährdungshaftung) anwendbar.\n\n"
+            "## § 823 Abs. 2 BGB – Schutzgesetzverletzung\n"
+            "Schutzgesetz: Rechtsnorm, die (auch) den Schutz individueller Interessen bezweckt. "
+            "z.B. StGB-Normen (§§ 222, 229, 263, 266 StGB), StVO, Bauordnungsrecht. "
+            "Kein Schutzgesetz: rein öffentlich-rechtliche Normen ohne Individualschutz.\n\n"
+            "## § 826 BGB – Sittenwidrige Schädigung\n"
+            "Vorsätzliche sittenwidrige Schädigung; auch bedingter Vorsatz ausreichend. "
+            "Sittenwidrigkeit: Verstoß gegen das Anstandsgefühl aller billig und gerecht "
+            "Denkenden. Wichtig: Dieselskandal-Urteile (BGH NJW 2020, 1962 – Sittenwidrigkeit "
+            "bei strategischer Täuschung der Kunden durch Abschalteinrichtung).\n\n"
+            "## Klausurtipp\n"
+            "Deliktische Ansprüche nach Kaufrecht oft durch §§ 434 ff. BGB nicht verdrängt "
+            "(keine Sperrwirkung, BGH NJW 2005, 1423). Prüfe immer parallel!"
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 823, 826 BGB; BGHZ 51, 91; BGH NJW 1985, 1894; BGH NJW 2020, 1962; MüKoBGB/Wagner, 9. Aufl. 2024, § 823 Rn. 1 ff.",
+    },
+    # ── Verwaltungsrecht ─────────────────────────────────────────────────────
+    {
+        "name": "VerwR – Verwaltungsakt und Anfechtungsklage",
+        "topic": "Allgemeines Verwaltungsrecht",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Verwaltungsakt (§ 35 VwVfG) und Anfechtungsklage (§ 42 VwGO)\n\n"
+            "## Begriff des Verwaltungsakts (§ 35 VwVfG)\n"
+            "Legaldefinition: 'Jede Verfügung, Entscheidung oder andere hoheitliche Maßnahme, die "
+            "eine Behörde zur Regelung eines Einzelfalls auf dem Gebiet des öffentlichen Rechts "
+            "trifft und die auf unmittelbare Rechtswirkung nach außen gerichtet ist.'\n\n"
+            "**Merkmale**: (1) Behörde, (2) hoheitliche Maßnahme, (3) auf dem Gebiet des öff. "
+            "Rechts (Subordinationsverhältnis), (4) Regelung (rechtsgestaltend, nicht nur "
+            "schlicht-hoheitlich), (5) Einzelfall (Abgrenzung zur Allgemeinverfügung und "
+            "Rechtsnorm), (6) Außenwirkung (nicht bloß innerbehördlich).\n\n"
+            "## Allgemeinverfügung (§ 35 S. 2 VwVfG)\n"
+            "VA an bestimmten oder bestimmbaren Personenkreis, VA in Bezug auf Sachen oder "
+            "öffentlich-rechtliche Eigenschaft. z.B. Straßenverkehrszeichen.\n\n"
+            "## Wirksamkeit und Bestandskraft\n"
+            "Wirksamkeit: Bekanntgabe (§ 41 VwVfG). Formelle Bestandskraft: "
+            "Unanfechtbarkeit nach Ablauf der Rechtsmittelfrist. Materielle Bestandskraft: "
+            "Bindungswirkung für Beteiligte und Behörde.\n\n"
+            "## Anfechtungsklage (§ 42 Abs. 1 Alt. 1 VwGO)\n\n"
+            "**Statthaftigkeit**: Bei belastendem VA; VA noch existent und wirksam. "
+            "Abgrenzung: Verpflichtungsklage (§ 42 I Alt. 2 VwGO) bei Versagen/Unterlassen.\n\n"
+            "**Klagebefugnis** (§ 42 II VwGO): Möglichkeit der Verletzung eigener Rechte "
+            "(Schutznormtheorie: § 35 S. 1 VwVfG schützt individuelle Rechte). Popularklagen "
+            "ausgeschlossen.\n\n"
+            "**Vorverfahren** (§§ 68 ff. VwGO): Widerspruch als Zulässigkeitsvoraussetzung; "
+            "Frist 1 Monat (§ 70 VwGO); Devolutiveffekt; Suspensiveffekt (§ 80 I VwGO). "
+            "Ausnahmen: § 68 I 2 VwGO (Landesrecht, Selbsthilfemittel).\n\n"
+            "**Klagefrist**: 1 Monat nach Bekanntgabe des Widerspruchsbescheids (§ 74 I VwGO).\n\n"
+            "**Begründetheit**: VA ist rechtswidrig und verletzt Kläger in seinen Rechten "
+            "(§ 113 I 1 VwGO). Prüfung: Rechtsgrundlage, formelle Rechtmäßigkeit, materielle "
+            "Rechtmäßigkeit. Ermessen: nur auf Ermessensfehler überprüfbar (§ 114 VwGO).\n\n"
+            "## Klausurtipp\n"
+            "5-Punkte-Zulässigkeitsprüfung: Verwaltungsrechtsweg (§ 40 VwGO), statthafte "
+            "Klageart, Klagebefugnis, Vorverfahren, Klagefrist."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§ 35 VwVfG; §§ 40, 42, 68–74, 113 VwGO; BVerwGE 55, 280; Kopp/Ramsauer, VwVfG, 24. Aufl. 2023, § 35 Rn. 1 ff.",
+    },
+    # ── Literatur / Kommentierungen ──────────────────────────────────────────
+    {
+        "name": "Literatur – Palandt-Stil: § 242 BGB (Treu und Glauben)",
+        "topic": "BGB AT",
+        "art": "Kommentarauszug",
+        "kategorie": "Literatur",
+        "text": (
+            "# § 242 BGB – Leistung nach Treu und Glauben (Kommentierung)\n\n"
+            "## Normtext\n"
+            "'Der Schuldner ist verpflichtet, die Leistung so zu bewirken, wie Treu und Glauben "
+            "mit Rücksicht auf die Verkehrssitte es erfordern.'\n\n"
+            "## Bedeutung und Funktion\n"
+            "§ 242 BGB ist die wichtigste Generalklausel des BGB. Er erfüllt drei Funktionen: "
+            "(1) **Konkretisierungsfunktion**: Ausfüllung unbestimmter Rechtsbegriffe und "
+            "Vertragsklauseln; (2) **Ergänzungsfunktion**: Ableitung von Nebenpflichten "
+            "(§ 241 II BGB kodifiziert einen Teil davon); (3) **Korrekturfunktion** (Einschränkung "
+            "oder Erweiterung von Rechten).\n\n"
+            "## Wichtige Fallgruppen\n\n"
+            "### Venire contra factum proprium\n"
+            "Widersprüchliches Verhalten ist unzulässig, wenn der Vertragspartner auf den früheren "
+            "Zustand vertrauen durfte und schutzwürdig ist. Voraussetzungen: (1) eigenes früheres "
+            "Verhalten, (2) schutzwürdiges Vertrauen des anderen, (3) Vertrauensinvestition.\n\n"
+            "### Verwirkung\n"
+            "Ein Recht ist verwirkt, wenn der Berechtigte es über längere Zeit nicht geltend "
+            "gemacht hat (Zeitmoment) und der Verpflichtete sich darauf eingerichtet hat, das "
+            "Recht werde nicht mehr ausgeübt (Umstandsmoment). BGH st. Rspr. "
+            "Achtung: Verwirkung ist keine Verjährung; tritt unabhängig von Verjährungsfristen ein.\n\n"
+            "### Unzulässige Rechtsausübung (dolo agit-Einwand)\n"
+            "§ 242 BGB: Wer sofort zurückgeben müsste, was er verlangt, kann nicht verlangen "
+            "(dolo agit qui petit quod statim redditurus est).\n\n"
+            "### Einrede des nicht erfüllten Vertrages\n"
+            "Aus § 242 BGB folgt auch die Einrede aus § 320 BGB (str., überwiegend als lex "
+            "specialis).\n\n"
+            "## Grenzen\n"
+            "§ 242 BGB ist keine Generalklausel für billiges Ergebnis; keine Korrektur klarer "
+            "Gesetzesvorschriften; keine Grundlage für Leistungsansprüche ohne Rechtsbasis. "
+            "BVerfG: Richterliche Rechtsfortbildung via § 242 BGB muss dem Willen des Gesetzgebers "
+            "Rechnung tragen.\n\n"
+            "## Literatur\n"
+            "Grüneberg/Grüneberg, BGB 83. Aufl. 2024, § 242 Rn. 1–300; "
+            "Staudinger/Looschelders/Olzen, BGB Neubearbeitung 2023, § 242 Rn. 1 ff.; "
+            "Wieacker, Zur rechtstheoretischen Präzisierung des § 242 BGB, 1956."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§ 242 BGB; Grüneberg/Grüneberg, BGB, 83. Aufl. 2024, § 242 Rn. 1 ff.; BGH NJW 1999, 1705",
+    },
+    {
+        "name": "Literatur – Kommentierung § 433 BGB Kaufvertrag (Palandt-Stil)",
+        "topic": "Schuldrecht BT",
+        "art": "Kommentarauszug",
+        "kategorie": "Literatur",
+        "text": (
+            "# § 433 BGB – Kommentierung (Palandt-Stil)\n\n"
+            "## Normtext\n"
+            "(1) Durch den Kaufvertrag wird der Verkäufer einer Sache verpflichtet, dem Käufer "
+            "die Sache zu übergeben und das Eigentum an der Sache zu verschaffen. Der Verkäufer "
+            "hat dem Käufer die Sache frei von Sach- und Rechtsmängeln zu verschaffen.\n"
+            "(2) Der Käufer ist verpflichtet, dem Verkäufer den vereinbarten Kaufpreis zu zahlen "
+            "und die gekaufte Sache abzunehmen.\n\n"
+            "## Abschluss des Kaufvertrags\n"
+            "Einigung über Kaufsache und Kaufpreis (essentialia negotii); Bestimmbarkeit "
+            "ausreichend. Formfreiheit (Ausnahme: Grundstückskauf § 311b I BGB). "
+            "Verbrauchsgüterkauf (§ 474 BGB): B2C-Geschäft, bes. Schutzvorschriften.\n\n"
+            "## Pflichten des Verkäufers (Abs. 1)\n"
+            "**Übergabe** (§ 433 I 1 BGB): Einräumung des unmittelbaren Besitzes. "
+            "**Eigentumsübertragung** (§§ 929 ff. BGB): dingliches Verfügungsgeschäft; "
+            "Trennungs- und Abstraktionsprinzip. **Mangelfreiheit** (§ 433 I 2 BGB): "
+            "Abwesenheit von Sach- und Rechtsmängeln (§§ 434, 435 BGB).\n\n"
+            "## Pflichten des Käufers (Abs. 2)\n"
+            "**Kaufpreiszahlung**: Geldschuld (§ 270 BGB: qualifizierte Schickschuld, Gefahrtragung). "
+            "**Abnahmepflicht**: Obliegenheit und echte Nebenpflicht zugleich. "
+            "Bei Verletzung: Gläubigerverzug (§§ 293 ff. BGB) und SE aus §§ 280 I, 241 II BGB.\n\n"
+            "## Kaufpreiszahlung\n"
+            "Fälligkeit: § 271 BGB (sofort), Vertragsabrede, Handelsbräuche. "
+            "Kaufpreis: grundsätzlich Geldschuld; Vereinbarung von Sachleistung als Kaufpreis "
+            "ist Tausch (§ 480 BGB).\n\n"
+            "## Gefahrübergang (§§ 446, 447 BGB)\n"
+            "§ 446 BGB: Übergabe = Übergang der Preisgefahr (zufälliger Untergang geht zu "
+            "Lasten des Käufers). § 447 BGB: Versendungskauf; Preisgefahr mit Übergabe an "
+            "Transportperson; im Verbrauchsgüterkauf (§ 475 II BGB) erst bei Ablieferung.\n\n"
+            "## Erlöschen durch Erfüllung\n"
+            "§ 362 BGB: Leistung bewirkt; Tilgungsbestimmung bei mehreren Schulden (§§ 366 f. BGB).\n\n"
+            "## Literatur und Rspr.\n"
+            "BGH NJW 2012, 2723; Grüneberg/Weidenkaff, § 433 Rn. 1–50; "
+            "MüKoBGB/Westermann, § 433 Rn. 1 ff.; BeckOK BGB/Faust, § 433 Rn. 1 ff."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 433–453 BGB; BGH NJW 2012, 2723; Grüneberg/Weidenkaff, BGB, 83. Aufl. 2024, § 433 Rn. 1 ff.",
+    },
+    {
+        "name": "Literatur – Roxin/Greco zu Objektiver Zurechnung",
+        "topic": "Strafrecht AT",
+        "art": "Lehrbuchauszug",
+        "kategorie": "Literatur",
+        "text": (
+            "# Objektive Zurechnung im Strafrecht (nach Roxin/Greco, StrafR AT I)\n\n"
+            "## Grundgedanke\n"
+            "Die Lehre von der objektiven Zurechnung (Roxin, ZStW 74 [1962], 411) ergänzt die "
+            "Kausalität: Ein tatbestandlicher Erfolg ist dem Täter nur dann objektiv zuzurechnen, "
+            "wenn er eine **rechtlich missbilligte Gefahr** geschaffen hat und sich diese Gefahr "
+            "im **tatbestandsmäßigen Erfolg** realisiert hat.\n\n"
+            "## Grundformel\n"
+            "'Ein Erfolg ist dem Täter als sein Werk objektiv zuzurechnen, wenn er durch seine "
+            "Handlung eine rechtlich missbilligte Gefahr für das geschützte Rechtsgut geschaffen "
+            "hat und diese Gefahr sich im konkreten Erfolg verwirklicht hat.' (Roxin/Greco, StrafR "
+            "AT I, § 11 Rn. 47)\n\n"
+            "## Fallgruppen der Verneinung objektiver Zurechnung\n\n"
+            "### 1. Erlaubtes Risiko\n"
+            "Sozialadäquates Verhalten (z.B. Straßenverkehr, Operationen): Verwirklichung eines "
+            "erlaubten Risikos schließt Zurechnung aus, auch wenn Kausalität vorliegt.\n\n"
+            "### 2. Risikoverringerung\n"
+            "Täter vermindert ein bereits vorhandenes Risiko (z.B. schlägt jemanden zur Seite, "
+            "der sonst von einem Zug getroffen würde, dabei leichte Verletzung): kein Zurechnungs-"
+            "zusammenhang.\n\n"
+            "### 3. Eigenverantwortliche Selbstgefährdung des Opfers\n"
+            "BGHSt 32, 262 (Heroin-Fall): Wenn das Opfer sich in Kenntnis aller Risiken "
+            "eigenverantwortlich selbst gefährdet, entfällt die objektive Zurechnung. "
+            "Voraussetzung: Freiwilligkeit, Kenntnis der Sachlage, Reife des Opfers.\n\n"
+            "### 4. Fehlender Pflichtwidrigkeitszusammenhang\n"
+            "Der Erfolg wäre auch bei pflichtgemäßem Alternativverhalten eingetreten "
+            "(hypothetische Ersatzursache): str. ob relevanter Aspekt der obj. Zurechnung "
+            "oder der Kausalität.\n\n"
+            "### 5. Atypischer Kausalverlauf\n"
+            "Der Kausalverlauf muss sich noch im Rahmen des nach allgemeiner Lebenserfahrung "
+            "Vorhersehbaren halten.\n\n"
+            "## Kritik und h.M.\n"
+            "Die Lehre von der objektiven Zurechnung ist heute in Rechtsprechung (BGH NStZ 2001, "
+            "29) und Literatur (nahezu einhellig) anerkannt. Kritik: Jakobs (normative "
+            "Zurechnung) und Armin Kaufmann (streng naturwissenschaftliche Kausalität genügt) "
+            "lehnen sie teilweise ab.\n\n"
+            "## Bedeutung für die Klausur\n"
+            "Kausalität (Äquivalenztheorie: conditio sine qua non) → Adäquanztheorie "
+            "(Vorhersehbarkeit) → objektive Zurechnung (missbilligte Gefahr + Realisierung). "
+            "Alle drei Stufen sind separat zu prüfen."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "Roxin/Greco, StrafR AT I, 5. Aufl. 2020, § 11 Rn. 47 ff.; BGHSt 32, 262; BGH NStZ 2001, 29",
+    },
+    {
+        "name": "ZPO – Klagearten und Zulässigkeit",
+        "topic": "Zivilprozessrecht",
+        "art": "Skript",
+        "kategorie": "Gesetzgebung",
+        "text": (
+            "# Klagearten im Zivilprozess (ZPO)\n\n"
+            "## Leistungsklage (§§ 253 ff. ZPO)\n"
+            "Häufigste Klageart. Klageantrag auf Verurteilung zu einer Leistung (Zahlen, Herausgabe, "
+            "Duldung, Unterlassen). Vollstreckungstitel nach §§ 704 ff. ZPO. "
+            "Stufenklage (§ 254 ZPO): Auskunft → Abrechnung → Zahlung.\n\n"
+            "## Feststellungsklage (§ 256 ZPO)\n"
+            "Feststellung des Bestehens oder Nichtbestehens eines Rechtsverhältnisses oder der "
+            "Echtheit/Unechtheit einer Urkunde. **Feststellungsinteresse**: erforderlich; "
+            "fehlt bei der Möglichkeit, vorrangig Leistungsklage zu erheben (Subsidiarität). "
+            "Ausnahme: Feststellungsklage bei Dauerschuldverhältnissen, künftigen Schäden "
+            "(§ 256 I ZPO a.F. = Feststellung der Haftung dem Grunde nach).\n\n"
+            "## Gestaltungsklage\n"
+            "Klage auf Änderung eines Rechtsverhältnisses durch Urteil; nur wenn Gesetz "
+            "ausdrücklich vorsieht (z.B. Scheidung § 1564 BGB, Anfechtung § 119 ff. BGB soweit "
+            "Klage erforderlich). Gestaltungsklage nicht bei Gestaltungsrechten per Erklärung.\n\n"
+            "## Zulässigkeit einer Klage\n\n"
+            "1. **Deutscher Zivilrechtsweg** (§ 13 GVG): öffentlich-rechtliche Streitigkeiten "
+            "→ Verwaltungsgerichte\n"
+            "2. **Internationale Zuständigkeit**: EuGVVO, §§ 12 ff. ZPO\n"
+            "3. **Sachliche Zuständigkeit**: § 23 GVG (AG bis 5.000 €), § 71 GVG (LG)\n"
+            "4. **Örtliche Zuständigkeit**: §§ 12 ff. ZPO (allgemeiner Gerichtsstand: "
+            "Wohnsitz/Sitz des Beklagten § 13 ZPO; besondere Gerichtsstände: § 29 ZPO "
+            "Erfüllungsort, § 32 ZPO unerlaubte Handlung)\n"
+            "5. **Partei- und Prozessfähigkeit** (§§ 50, 51 ZPO)\n"
+            "6. **Prozessführungsbefugnis** (Partei des materiellen Rechts; gewillkürte "
+            "Prozessstandschaft: eigenes rechtliches Interesse erforderlich)\n"
+            "7. **Rechtsschutzbedürfnis**: fehlt bei sinnlosen Klagen, einfacherem Weg\n\n"
+            "## Urteil und Rechtskraft\n"
+            "**Formelle Rechtskraft**: Unanfechtbarkeit. **Materielle Rechtskraft** (§ 322 ZPO): "
+            "Bindung der Parteien und Gerichte an das Urteil. Grenzen: identische Parteien, "
+            "identischer Streitgegenstand (zweigliedriger Streitgegenstandsbegriff: Antrag + "
+            "Lebenssachverhalt).\n\n"
+            "## Klausurtipp\n"
+            "Zulässigkeit immer vor Begründetheit! Streitgegenstandsbegriff in der Klausur "
+            "relevant für Rechtskraft, ne bis in idem, Klageänderung (§ 263 ZPO)."
+        ),
+        "chars": 0,
+        "pages": 1,
+        "uploader": "system",
+        "source_type": "shared",
+        "quelle": "§§ 12 ff., 253 ff., 322 ZPO; §§ 13, 23, 71 GVG; Zöller/Vollkommer, ZPO, 35. Aufl. 2024, § 256 Rn. 1 ff.",
+    },
+]
+
+# Berechne chars-Wert für jeden Eintrag
+for entry in SEED_MATERIALS:
+    entry["chars"] = len(entry["text"])
+
+
+if __name__ == "__main__":
+    import json
+    output = json.dumps(SEED_MATERIALS, ensure_ascii=False, indent=2)
+    with open("seed_materials_output.json", "w") as f:
+        f.write(output)
+    print(f"✅ {len(SEED_MATERIALS)} Materialien exportiert nach seed_materials_output.json")
+    print("→ Diese Datei als users/shared/materials_index.json ins Daten-Repo hochladen")
