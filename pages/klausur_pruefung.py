@@ -210,9 +210,11 @@ with TABS[3]:
         nrw_focus = st.checkbox("Landesrecht einbeziehen (je nach Profil)", value=True)
         mit_loesung = st.checkbox("Lösungsskizze anzeigen", value=True)
         if st.button("⚡ Fall generieren", type="primary", use_container_width=True):
+            _nrw = "Landesrecht berücksichtigen.\n" if nrw_focus else ""
+            _thema = f"Schwerpunkt:{thema_hint}\n" if thema_hint else ""
             prompt = (f"Rechtsgebiet:{rechtsgebiet}\nSchwierigkeit:{schwierigkeit}\n"
-                      f"Dauer:{dauer_min} Min\n{'Landesrecht berücksichtigen.\n' if nrw_focus else ''}"
-                      + (f"Schwerpunkt:{thema_hint}\n" if thema_hint else "")
+                      f"Dauer:{dauer_min} Min\n{_nrw}"
+                      + _thema
                       + f"Lösungsskizze:{'Ja' if mit_loesung else 'Nein'}")
             with st.spinner("Generiere Fall (Haiku)..."):
                 raw = json_complete(prompt, personas.CASE_GENERATOR, max_tokens=3000)
