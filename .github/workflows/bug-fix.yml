@@ -1,0 +1,194 @@
+name: Automated Bug Analysis and Issue Creation
+
+on:
+  schedule:
+    - cron: '0 8,20 * * *'
+  workflow_dispatch:
+
+jobs:
+  analyze-bugs:
+    name: Analyze Bug Reports and Create Issues
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic PyGithub requests
+
+      - name: Analyze bug reports and create issues
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_DATA_TOKEN: ${{ secrets.GITHUB_DATA_TOKEN }}
+          GITHUB_DATA_REPO: ${{ secrets.GITHUB_DATA_REPO }}
+          CURRENT_REPO: ${{ github.repository }}
+        run: |
+          python3 << 'EOF'
+          import os
+          import json
+          import base64
+          import anthropic
+          from github import Github, GithubException
+
+          # --- Configuration ---
+          ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+          GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+          GITHUB_DATA_TOKEN = os.environ["GITHUB_DATA_TOKEN"]
+          GITHUB_DATA_REPO = os.environ["GITHUB_DATA_REPO"]
+          CURRENT_REPO = os.environ["CURRENT_REPO"]
+          FEEDBACK_PATH = "users/shared/feedback.json"
+          MODEL = "claude-haiku-4-5-20251001"
+
+          # --- Clients ---
+          data_gh = Github(GITHUB_DATA_TOKEN)
+          current_gh = Github(GITHUB_TOKEN)
+
+          anthropic_client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+
+          # --- Load feedback.json from data repo ---
+          print(f"Reading feedback from {GITHUB_DATA_REPO}/{FEEDBACK_PATH} ...")
+          data_repo = data_gh.get_repo(GITHUB_DATA_REPO)
+          try:
+              file_contents = data_repo.get_contents(FEEDBACK_PATH)
+          except GithubException as e:
+              print(f"ERROR: Could not read {FEEDBACK_PATH}: {e}")
+              raise SystemExit(1)
+
+          feedback_raw = base64.b64decode(file_contents.content).decode("utf-8")
+          feedback_data = json.loads(feedback_raw)
+          file_sha = file_contents.sha
+
+          # --- Filter open bug reports ---
+          open_bugs = [
+              r for r in feedback_data
+              if r.get("status", "").lower() == "offen"
+              and "bug" in r.get("typ", "").lower()
+          ]
+          print(f"Found {len(open_bugs)} open bug report(s) to analyse.")
+
+          if not open_bugs:
+              print("No open bug reports. Nothing to do.")
+              raise SystemExit(0)
+
+          # --- Analyse each report with Claude ---
+          current_repo = current_gh.get_repo(CURRENT_REPO)
+
+          # Ensure "bug" label exists
+          try:
+              current_repo.get_label("bug")
+          except GithubException:
+              current_repo.create_label("bug", "d73a4a", "Automatically detected code bug")
+
+          issues_created = 0
+          reports_updated = 0
+          skipped = 0
+
+          for report in open_bugs:
+              report_id = report.get("id", "unknown")
+              report_title = report.get("titel", report.get("title", f"Bug Report {report_id}"))
+              report_desc = report.get("beschreibung", report.get("description", ""))
+              report_user = report.get("nutzer", report.get("user", "anonymous"))
+
+              prompt = (
+                  f"Du analysierst einen Nutzerbericht aus einer Jura-Lern-App.\n\n"
+                  f"Titel: {report_title}\n"
+                  f"Beschreibung: {report_desc}\n\n"
+                  "Entscheide: Handelt es sich um einen echten Code-Bug (z.B. Absturz, falsches Verhalten, "
+                  "Datenverlust, kaputte Funktion) oder um UX-Feedback / Feature-Wunsch?\n\n"
+                  "Antworte NUR mit validem JSON (kein Markdown, keine Erklärung):\n"
+                  '{"is_code_bug": <true|false>, "summary": "<kurze englische Zusammenfassung max 120 Zeichen>"}'
+              )
+
+              print(f"\nAnalysing report [{report_id}]: {report_title[:60]} ...")
+
+              try:
+                  message = anthropic_client.messages.create(
+                      model=MODEL,
+                      max_tokens=256,
+                      messages=[{"role": "user", "content": prompt}],
+                  )
+                  response_text = message.content[0].text.strip()
+                  # Strip markdown code fences if present
+                  if response_text.startswith("```"):
+                      response_text = response_text.split("```")[1]
+                      if response_text.startswith("json"):
+                          response_text = response_text[4:]
+                      response_text = response_text.strip()
+                  analysis = json.loads(response_text)
+              except Exception as e:
+                  print(f"  WARNING: Claude analysis failed for [{report_id}]: {e}. Skipping.")
+                  skipped += 1
+                  continue
+
+              is_code_bug = analysis.get("is_code_bug", False)
+              summary = analysis.get("summary", report_title)
+
+              print(f"  → is_code_bug={is_code_bug}, summary={summary}")
+
+              if is_code_bug:
+                  # Create GitHub Issue
+                  issue_title = f"[Bug] {summary}"
+                  issue_body = (
+                      f"**Auto-generated from feedback report `{report_id}`**\n\n"
+                      f"**Gemeldet von:** {report_user}\n"
+                      f"**Originaltitel:** {report_title}\n\n"
+                      f"### Beschreibung\n{report_desc}\n\n"
+                      f"---\n"
+                      f"*Automatisch erstellt durch den Bug-Analyse-Workflow.*"
+                  )
+                  try:
+                      issue = current_repo.create_issue(
+                          title=issue_title,
+                          body=issue_body,
+                          labels=["bug"],
+                      )
+                      print(f"  ✓ Issue created: #{issue.number} — {issue.html_url}")
+                      issues_created += 1
+
+                      # Update report status in feedback_data
+                      report["status"] = "in Bearbeitung"
+                      report["github_issue"] = issue.number
+                      reports_updated += 1
+                  except GithubException as e:
+                      print(f"  WARNING: Could not create issue for [{report_id}]: {e}")
+              else:
+                  print(f"  → Not a code bug — skipping issue creation.")
+
+          # --- Write updated feedback.json back to data repo ---
+          if reports_updated > 0:
+              updated_content = json.dumps(feedback_data, ensure_ascii=False, indent=2)
+              commit_message = (
+                  f"chore: mark {reports_updated} bug report(s) as 'in Bearbeitung' [automated]"
+              )
+              try:
+                  data_repo.update_file(
+                      path=FEEDBACK_PATH,
+                      message=commit_message,
+                      content=updated_content,
+                      sha=file_sha,
+                  )
+                  print(f"\nfeedback.json updated: {reports_updated} report(s) set to 'in Bearbeitung'.")
+              except GithubException as e:
+                  print(f"WARNING: Could not update feedback.json: {e}")
+
+          # --- Summary ---
+          print("\n" + "=" * 60)
+          print("SUMMARY")
+          print("=" * 60)
+          print(f"Open bug reports analysed : {len(open_bugs)}")
+          print(f"GitHub Issues created     : {issues_created}")
+          print(f"Feedback entries updated  : {reports_updated}")
+          print(f"Skipped (analysis error)  : {skipped}")
+          print("=" * 60)
+          EOF
+
+      - name: Print workflow completion notice
+        if: always()
+        run: echo "Bug analysis workflow finished at $(date -u '+%Y-%m-%d %H:%M:%S UTC')."
