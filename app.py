@@ -14,6 +14,7 @@ pg = st.navigation([
     st.Page("pages/materialien_projekte.py", title="Materialien",       icon="📂"),
     st.Page("pages/planung_quellen.py",      title="Planung & Quellen", icon="🗓️"),
     st.Page("pages/gesetze.py",             title="Gesetze",           icon="⚖️"),
+    st.Page("pages/normennetze.py",         title="Normennetze",       icon="🕸️"),
     st.Page("pages/profil.py",               title="Profil",            icon="⚙️"),
 ], position="sidebar")
 
