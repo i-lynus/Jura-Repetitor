@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <!-- PIXEL DISSOLVE transition: screen A breaks into pixel blocks that vanish, revealing screen B -->
+
+  <defs>
+    <linearGradient id="pdScreenA" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#0D0A04"/>
+    </linearGradient>
+    <linearGradient id="pdScreenB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A1A06"/><stop offset="100%" stop-color="#1A2E10"/>
+    </linearGradient>
+    <linearGradient id="pdGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+  </defs>
+
+  <!-- SCREEN B underneath (Garden) -->
+  <rect x="0" y="0" width="640" height="360" rx="12" fill="url(#pdScreenB)"/>
+  <rect x="290" y="200" width="16" height="70" fill="#5C3A1E"/>
+  <rect x="262" y="170" width="72" height="36" fill="#2D6B1A"/>
+  <rect x="272" y="146" width="52" height="30" fill="#4A9B30"/>
+  <rect x="282" y="126" width="32" height="26" fill="#6DBF4A"/>
+  <rect x="290" y="112" width="16" height="18" fill="#A8E060"/>
+  <rect x="0" y="270" width="640" height="90" fill="#1A2E10"/>
+  <text x="320" y="330" font-family="'Courier New', monospace" font-size="14" font-weight="700" letter-spacing="3" fill="#6DBF4A" text-anchor="middle" opacity="0.8">GARTEN</text>
+
+  <!-- SCREEN A as pixel blocks on top (Shop) - each block fades at staggered times -->
+  <g>
+    <!-- Base screen A fill shown as full at start, dissolves block by block -->
+    <!-- We simulate with a grid of 80x72 = many blocks; use representative 8x5 grid of 80px blocks -->
+    <!-- Row 1 -->
+    <rect x="0"   y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <rect x="80"  y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <rect x="160" y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <rect x="320" y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <rect x="400" y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <rect x="480" y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <rect x="560" y="0"   width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" begin="0.0s" repeatCount="indefinite"/></rect>
+    <!-- Row 2 -->
+    <rect x="0"   y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="80"  y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="160" y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="320" y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="400" y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="480" y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="560" y="72"  width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <!-- Row 3 -->
+    <rect x="0"   y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="80"  y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="160" y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="320" y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="400" y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="480" y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="560" y="144" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <!-- Row 4 -->
+    <rect x="0"   y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="80"  y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="160" y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="320" y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="400" y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="480" y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="560" y="216" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <!-- Row 5 -->
+    <rect x="0"   y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="80"  y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="160" y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="240" y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="320" y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="400" y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;0.3;0;0;0;0;0;0.3;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="480" y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;0.3;0;0;0;0.3;1;1" dur="4s" repeatCount="indefinite"/></rect>
+    <rect x="560" y="288" width="80" height="72" fill="url(#pdScreenA)"><animate attributeName="opacity" values="1;1;1;0.3;0;0.3;1;1;1" dur="4s" repeatCount="indefinite"/></rect>
+
+    <!-- Screen A content (shop icon) overlaid, fades with whole group -->
+    <g opacity="1">
+      <animate attributeName="opacity" values="1;0.6;0.2;0;0;0;0.2;0.6;1" dur="4s" repeatCount="indefinite"/>
+      <rect x="280" y="120" width="80" height="80" rx="12" fill="#241808" stroke="url(#pdGold)" stroke-width="2"/>
+      <ellipse cx="312" cy="160" rx="14" ry="6" fill="#C8922A"/>
+      <ellipse cx="312" cy="154" rx="14" ry="6" fill="#F5D060"/>
+      <text x="320" y="330" font-family="'Courier New', monospace" font-size="14" font-weight="700" letter-spacing="3" fill="#F5D060" text-anchor="middle">SHOP</text>
+    </g>
+  </g>
+
+  <!-- Gold dissolve sparkles at midpoint -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0.4;0.8;0.4;0;0.4;0.8;0.4;0" dur="4s" repeatCount="indefinite"/>
+    <rect x="120" y="90"  width="6" height="6" fill="#F5D060"/>
+    <rect x="400" y="180" width="6" height="6" fill="#A8E060"/>
+    <rect x="220" y="240" width="6" height="6" fill="#F5D060"/>
+    <rect x="500" y="120" width="6" height="6" fill="#6DBF4A"/>
+    <rect x="320" y="60"  width="6" height="6" fill="#FFD700"/>
+  </g>
+
+  <!-- Border -->
+  <rect x="0" y="0" width="640" height="360" rx="12" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- Label -->
+  <text x="16" y="22" font-family="'Courier New', monospace" font-size="10" letter-spacing="2" fill="#C8922A" opacity="0.5">PIXEL DISSOLVE</text>
+</svg>

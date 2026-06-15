@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <!-- FADE transition: screen A fades out to dark, screen B fades in -->
+  <!-- Loop: A visible → dark → B visible → dark → A -->
+
+  <defs>
+    <linearGradient id="fadeScreenA" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A1A06"/><stop offset="100%" stop-color="#1A2E10"/>
+    </linearGradient>
+    <linearGradient id="fadeScreenB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#0D0A04"/>
+    </linearGradient>
+    <linearGradient id="fadeGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+    <filter id="fadeGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Frame border -->
+  <rect x="0" y="0" width="640" height="360" rx="12" fill="#000000"/>
+
+  <!-- SCREEN A: Garden -->
+  <g>
+    <animate attributeName="opacity" values="1;1;0;0;0;0;0;1;1" dur="4s" repeatCount="indefinite"/>
+    <rect x="0" y="0" width="640" height="360" rx="12" fill="url(#fadeScreenA)"/>
+    <!-- Garden tree -->
+    <rect x="290" y="200" width="16" height="70" fill="#5C3A1E"/>
+    <rect x="262" y="170" width="72" height="36" fill="#2D6B1A"/>
+    <rect x="272" y="146" width="52" height="30" fill="#4A9B30"/>
+    <rect x="282" y="126" width="32" height="26" fill="#6DBF4A"/>
+    <rect x="290" y="112" width="16" height="18" fill="#A8E060"/>
+    <rect x="0" y="270" width="640" height="90" fill="#1A2E10"/>
+    <!-- Stars -->
+    <circle cx="120" cy="60" r="2" fill="#F5D060" opacity="0.8"/>
+    <circle cx="500" cy="50" r="2" fill="#A8E060" opacity="0.7"/>
+    <text x="320" y="330" font-family="'Courier New', monospace" font-size="14" font-weight="700" letter-spacing="3" fill="#6DBF4A" text-anchor="middle" opacity="0.8">GARTEN</text>
+  </g>
+
+  <!-- SCREEN B: Collection -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;0;1;1;1;0;0;0" dur="4s" repeatCount="indefinite"/>
+    <rect x="0" y="0" width="640" height="360" rx="12" fill="url(#fadeScreenB)"/>
+    <!-- Card grid -->
+    <rect x="200" y="90"  width="60" height="84" rx="6" fill="#241808" stroke="url(#fadeGold)" stroke-width="2"/>
+    <rect x="290" y="90"  width="60" height="84" rx="6" fill="#241808" stroke="url(#fadeGold)" stroke-width="2"/>
+    <rect x="380" y="90"  width="60" height="84" rx="6" fill="#241808" stroke="url(#fadeGold)" stroke-width="2"/>
+    <rect x="206" y="98" width="48" height="44" rx="3" fill="#3A2410"/>
+    <rect x="296" y="98" width="48" height="44" rx="3" fill="#3A2410"/>
+    <rect x="386" y="98" width="48" height="44" rx="3" fill="#3A2410"/>
+    <polygon points="230,108 240,124 230,140 220,124" fill="#C8922A" opacity="0.6"/>
+    <polygon points="320,108 330,124 320,140 310,124" fill="#C8922A" opacity="0.6"/>
+    <text x="320" y="330" font-family="'Courier New', monospace" font-size="14" font-weight="700" letter-spacing="3" fill="#F5D060" text-anchor="middle" opacity="0.8">SAMMLUNG</text>
+  </g>
+
+  <!-- Center leaf flash during transition -->
+  <g transform="translate(320, 180)" opacity="0">
+    <animate attributeName="opacity" values="0;0.3;0.9;0.3;0;0.3;0.9;0.3;0" dur="4s" repeatCount="indefinite"/>
+    <rect x="-6" y="-12" width="6"  height="6"  fill="#6DBF4A" filter="url(#fadeGlow)"/>
+    <rect x="0"  y="-12" width="6"  height="6"  fill="#6DBF4A" filter="url(#fadeGlow)"/>
+    <rect x="-12" y="-6" width="6"  height="6"  fill="#4A9B30"/>
+    <rect x="-6" y="-6"  width="6"  height="6"  fill="#A8E060"/>
+    <rect x="0"  y="-6"  width="6"  height="6"  fill="#6DBF4A"/>
+    <rect x="6"  y="-6"  width="6"  height="6"  fill="#4A9B30"/>
+    <rect x="-6" y="0"   width="6"  height="6"  fill="#4A9B30"/>
+    <rect x="0"  y="0"   width="6"  height="6"  fill="#A8E060"/>
+    <rect x="-6" y="6"   width="6"  height="6"  fill="#2D6B1A"/>
+    <rect x="-6" y="12"  width="6"  height="6"  fill="#2D6B1A"/>
+  </g>
+
+  <!-- Label -->
+  <text x="16" y="22" font-family="'Courier New', monospace" font-size="10" letter-spacing="2" fill="#C8922A" opacity="0.5">FADE</text>
+</svg>

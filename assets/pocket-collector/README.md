@@ -66,6 +66,10 @@ Alle Assets: transparenter Hintergrund, einheitliche Designsprache
 | `garden-grow.svg` | Samen → Baum + Wiegen |
 | `xp-progress-fill.svg` | XP-Balken + LEVEL UP Burst |
 | `achievement-unlock.svg` | Schild-Drop + Strahlen + Konfetti |
+| `transition-fade.svg` | Screen-Übergang: Ein-/Ausblenden |
+| `transition-wipe.svg` | Screen-Übergang: Gold-Wipe (links→rechts) |
+| `transition-pixel-dissolve.svg` | Screen-Übergang: Pixel-Auflösung |
+| `transition-slide.svg` | Screen-Übergang: Slide/Push |
 
 ## Verwendung
 SVGs sind direkt in Web/React-Native/Flutter einbettbar. Für native
