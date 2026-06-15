@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 540" width="360" height="540">
+  <defs>
+    <linearGradient id="tutBubble" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2A1C08"/><stop offset="100%" stop-color="#1A1004"/>
+    </linearGradient>
+    <linearGradient id="tutGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.0"/>
+    </radialGradient>
+    <filter id="tutGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Mask to cut a highlight hole in the dim overlay -->
+    <mask id="holeMask">
+      <rect x="0" y="0" width="360" height="540" fill="white"/>
+      <rect x="110" y="370" width="140" height="120" rx="16" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Dimmed background overlay with cutout -->
+  <rect x="0" y="0" width="360" height="540" rx="16" fill="#000000" opacity="0.72" mask="url(#holeMask)"/>
+
+  <!-- Highlighted target area (the scan button being taught) -->
+  <rect x="110" y="370" width="140" height="120" rx="16" fill="none" stroke="url(#tutGold)" stroke-width="3" stroke-dasharray="10,6" filter="url(#tutGlow)">
+    <animate attributeName="stroke-dashoffset" values="0;32" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Pulsing highlight ring -->
+  <rect x="104" y="364" width="152" height="132" rx="20" fill="none" stroke="#F5D060" stroke-width="1.5" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="1.6s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Mini scan button preview inside highlight -->
+  <rect x="124" y="404" width="112" height="44" rx="10" fill="#104030" stroke="#40E0A0" stroke-width="2"/>
+  <text x="180" y="431" font-family="'Courier New', monospace" font-size="13" font-weight="900" letter-spacing="3" fill="#40E0A0" text-anchor="middle">SCAN</text>
+
+  <!-- Pointing hand (pixel art finger) -->
+  <g transform="translate(232, 446)">
+    <animateTransform attributeName="transform" type="translate" values="232,446; 240,454; 232,446" dur="1.4s" repeatCount="indefinite"/>
+    <!-- Hand back -->
+    <rect x="0"  y="10" width="22" height="26" rx="6" fill="#E8B880" stroke="#C89860" stroke-width="1.5"/>
+    <!-- Pointing finger -->
+    <rect x="-2" y="-6" width="9"  height="22" rx="4" fill="#E8B880" stroke="#C89860" stroke-width="1.5"/>
+    <!-- Finger tip -->
+    <rect x="-2" y="-8" width="9"  height="6"  rx="3" fill="#F0C896"/>
+    <!-- Curled fingers -->
+    <rect x="8"  y="6"  width="6" height="6" rx="2" fill="#D8A870"/>
+    <rect x="14" y="7"  width="6" height="6" rx="2" fill="#D8A870"/>
+    <!-- Cuff -->
+    <rect x="-2" y="34" width="26" height="8" rx="3" fill="#3A5A88"/>
+  </g>
+
+  <!-- Speech bubble (top) -->
+  <g transform="translate(40, 120)">
+    <rect x="0" y="0" width="280" height="100" rx="14" fill="url(#tutBubble)" stroke="url(#tutGold)" stroke-width="2.5" filter="url(#tutGlow)"/>
+    <!-- Corner ornaments -->
+    <rect x="6"   y="6"  width="8" height="8" fill="#F5D060" opacity="0.5"/>
+    <rect x="266" y="6"  width="8" height="8" fill="#F5D060" opacity="0.5"/>
+    <!-- Bubble tail pointing down-right toward highlight -->
+    <polygon points="180,98 210,98 175,128" fill="url(#tutBubble)" stroke="url(#tutGold)" stroke-width="2.5"/>
+    <polygon points="184,100 204,100 176,124" fill="url(#tutBubble)"/>
+    <!-- Tutorial mascot mini avatar -->
+    <circle cx="34" cy="36" r="22" fill="#2D4A1A" stroke="#C8922A" stroke-width="2"/>
+    <!-- pixel face -->
+    <rect x="22" y="22" width="24" height="6" fill="#3A2010"/>
+    <rect x="22" y="28" width="24" height="14" fill="#E8B880" rx="2"/>
+    <rect x="26" y="32" width="5" height="5" fill="#1A4080"/>
+    <rect x="37" y="32" width="5" height="5" fill="#1A4080"/>
+    <rect x="28" y="40" width="12" height="3" fill="#C87040" opacity="0.6"/>
+    <!-- Text -->
+    <text x="70" y="32" font-family="'Courier New', monospace" font-size="12" font-weight="700" fill="#F5D060">Schritt 1 / 5</text>
+    <text x="70" y="52" font-family="'Courier New', monospace" font-size="10" fill="#E8D0A0">Tippe hier, um deine</text>
+    <text x="70" y="68" font-family="'Courier New', monospace" font-size="10" fill="#E8D0A0">erste Karte zu scannen!</text>
+    <!-- Progress dots -->
+    <circle cx="180" cy="84" r="4" fill="#F5D060"/>
+    <circle cx="194" cy="84" r="4" fill="#5A4030"/>
+    <circle cx="208" cy="84" r="4" fill="#5A4030"/>
+    <circle cx="222" cy="84" r="4" fill="#5A4030"/>
+    <circle cx="236" cy="84" r="4" fill="#5A4030"/>
+  </g>
+
+  <!-- "Weiter" / Skip buttons (bottom) -->
+  <g transform="translate(40, 250)">
+    <!-- Skip -->
+    <rect x="0" y="0" width="120" height="36" rx="8" fill="#1A1208" stroke="#5A4030" stroke-width="1.5"/>
+    <text x="60" y="23" font-family="'Courier New', monospace" font-size="10" letter-spacing="1" fill="#8A7A60" text-anchor="middle">ÜBERSPRINGEN</text>
+    <!-- Next -->
+    <rect x="160" y="0" width="120" height="36" rx="8" fill="#1A1208" stroke="url(#tutGold)" stroke-width="2" filter="url(#tutGlow)"/>
+    <text x="220" y="23" font-family="'Courier New', monospace" font-size="11" font-weight="700" letter-spacing="2" fill="#F5D060" text-anchor="middle">WEITER →</text>
+  </g>
+
+  <!-- HELP ICONS row (bottom) -->
+  <g transform="translate(40, 320)">
+    <text x="0" y="-8" font-family="'Courier New', monospace" font-size="8" letter-spacing="2" fill="#C8922A" opacity="0.7">HILFE</text>
+    <!-- Help "?" -->
+    <circle cx="22" cy="22" r="22" fill="#1A1208" stroke="url(#tutGold)" stroke-width="2"/>
+    <text x="22" y="30" font-family="'Courier New', monospace" font-size="22" font-weight="900" fill="#F5D060" text-anchor="middle">?</text>
+    <!-- Manual / book -->
+    <g transform="translate(64,0)">
+      <rect x="0" y="2" width="44" height="40" rx="6" fill="#1A1208" stroke="#C8922A" stroke-width="1.5"/>
+      <rect x="20" y="8" width="4" height="28" fill="#C8922A"/>
+      <rect x="8"  y="12" width="10" height="3" fill="#9A6810"/>
+      <rect x="8"  y="18" width="10" height="3" fill="#9A6810"/>
+      <rect x="8"  y="24" width="8"  height="3" fill="#9A6810"/>
+      <rect x="26" y="12" width="10" height="3" fill="#9A6810"/>
+      <rect x="26" y="18" width="10" height="3" fill="#9A6810"/>
+      <rect x="26" y="24" width="8"  height="3" fill="#9A6810"/>
+    </g>
+    <!-- Video tutorial / play -->
+    <g transform="translate(128,0)">
+      <circle cx="22" cy="22" r="22" fill="#1A1208" stroke="#6DBF4A" stroke-width="2"/>
+      <polygon points="16,12 16,32 34,22" fill="#6DBF4A"/>
+    </g>
+  </g>
+</svg>

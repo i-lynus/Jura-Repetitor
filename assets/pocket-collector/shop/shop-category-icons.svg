@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 150" width="540" height="150">
+  <defs>
+    <linearGradient id="shopFrame" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#241808"/><stop offset="100%" stop-color="#0D0A04"/>
+    </linearGradient>
+    <linearGradient id="shopGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+    <linearGradient id="shopGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6DBF4A"/><stop offset="100%" stop-color="#2D6B1A"/>
+    </linearGradient>
+    <linearGradient id="shopBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7BBFEE"/><stop offset="100%" stop-color="#3A5A88"/>
+    </linearGradient>
+    <linearGradient id="shopPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C080FF"/><stop offset="100%" stop-color="#6030A0"/>
+    </linearGradient>
+    <filter id="shopGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- PACKS -->
+  <g transform="translate(10, 12)">
+    <rect x="0" y="0" width="92" height="92" rx="12" fill="url(#shopFrame)" stroke="url(#shopGold)" stroke-width="2"/>
+    <rect x="3" y="3" width="86" height="14" rx="9" fill="#F5D060" opacity="0.06"/>
+    <!-- Booster pack icon -->
+    <rect x="32" y="22" width="30" height="44" rx="4" fill="#3A5A88" stroke="#5A8AB8" stroke-width="1.5"/>
+    <rect x="32" y="22" width="30" height="8" rx="4" fill="#5A8AB8" opacity="0.7"/>
+    <polyline points="32,30 38,27 44,30 50,27 56,30 62,28" fill="none" stroke="#AACCEE" stroke-width="1" opacity="0.5"/>
+    <rect x="38" y="36" width="18" height="20" rx="2" fill="#1A2A48" opacity="0.7"/>
+    <!-- Spark on pack -->
+    <polygon points="47,40 49,46 55,46 50,49 52,55 47,51 42,55 44,49 39,46 45,46" fill="#FFD700" opacity="0.8" filter="url(#shopGlow)"/>
+    <!-- Second pack behind -->
+    <rect x="26" y="26" width="10" height="40" rx="3" fill="#2D6B1A" stroke="#4A9B30" stroke-width="1" opacity="0.6"/>
+    <text x="46" y="84" font-family="'Courier New', monospace" font-size="9" font-weight="700" letter-spacing="1" fill="#F5D060" text-anchor="middle">PACKS</text>
+  </g>
+
+  <!-- ZUBEHÖR -->
+  <g transform="translate(112, 12)">
+    <rect x="0" y="0" width="92" height="92" rx="12" fill="url(#shopFrame)" stroke="url(#shopGreen)" stroke-width="2"/>
+    <rect x="3" y="3" width="86" height="14" rx="9" fill="#6DBF4A" opacity="0.06"/>
+    <!-- Card sleeve / toploader icon -->
+    <rect x="30" y="24" width="32" height="44" rx="3" fill="#1A3010" stroke="#4A9B30" stroke-width="1.5"/>
+    <!-- Sleeve shine -->
+    <rect x="34" y="28" width="24" height="36" rx="2" fill="#2D6B1A" opacity="0.4"/>
+    <rect x="36" y="30" width="8"  height="14" fill="#A8E060" opacity="0.25"/>
+    <!-- Card peeking out top -->
+    <rect x="34" y="18" width="24" height="12" rx="2" fill="#C8922A" opacity="0.8"/>
+    <rect x="37" y="21" width="18" height="6"  fill="#F5D060" opacity="0.5"/>
+    <text x="46" y="84" font-family="'Courier New', monospace" font-size="9" font-weight="700" letter-spacing="1" fill="#6DBF4A" text-anchor="middle">ZUBEHÖR</text>
+  </g>
+
+  <!-- DEKORATION -->
+  <g transform="translate(214, 12)">
+    <rect x="0" y="0" width="92" height="92" rx="12" fill="url(#shopFrame)" stroke="url(#shopBlue)" stroke-width="2"/>
+    <rect x="3" y="3" width="86" height="14" rx="9" fill="#7BBFEE" opacity="0.06"/>
+    <!-- Potted plant deco icon -->
+    <rect x="32" y="52" width="28" height="16" rx="2" fill="#8B6030"/>
+    <rect x="32" y="52" width="28" height="5" fill="#A87040"/>
+    <!-- Plant -->
+    <rect x="42" y="38" width="6" height="16" fill="#4A9B30"/>
+    <rect x="30" y="34" width="14" height="8" rx="4" fill="#5DB840"/>
+    <rect x="48" y="32" width="14" height="8" rx="4" fill="#4A9B30"/>
+    <rect x="38" y="26" width="14" height="10" rx="5" fill="#6DBF4A"/>
+    <!-- Flower -->
+    <circle cx="36" cy="30" r="3" fill="#FF9B40"/>
+    <circle cx="54" cy="34" r="3" fill="#E84080"/>
+    <!-- Sparkle -->
+    <rect x="60" y="24" width="4" height="4" fill="#7BBFEE" opacity="0.7" filter="url(#shopGlow)"/>
+    <text x="46" y="84" font-family="'Courier New', monospace" font-size="8" font-weight="700" letter-spacing="1" fill="#7BBFEE" text-anchor="middle">DEKORATION</text>
+  </g>
+
+  <!-- SPEZIAL -->
+  <g transform="translate(316, 12)">
+    <rect x="0" y="0" width="92" height="92" rx="12" fill="url(#shopFrame)" stroke="url(#shopPurple)" stroke-width="2"/>
+    <rect x="3" y="3" width="86" height="14" rx="9" fill="#C080FF" opacity="0.06"/>
+    <!-- Gift box / special icon -->
+    <rect x="30" y="42" width="32" height="26" rx="3" fill="#4A1870" stroke="#8A40B0" stroke-width="1.5"/>
+    <rect x="30" y="42" width="32" height="8"  fill="#6030A0"/>
+    <!-- Ribbon vertical -->
+    <rect x="42" y="34" width="8" height="34" fill="#C080FF" opacity="0.8"/>
+    <!-- Bow -->
+    <rect x="36" y="30" width="8" height="8" rx="4" fill="#C080FF"/>
+    <rect x="48" y="30" width="8" height="8" rx="4" fill="#C080FF"/>
+    <rect x="42" y="32" width="8" height="6" fill="#E0B0FF"/>
+    <!-- Sparkle burst -->
+    <polygon points="46,18 48,26 56,28 48,30 46,38 44,30 36,28 44,26" fill="#E0B0FF" opacity="0.9" filter="url(#shopGlow)"/>
+    <text x="46" y="84" font-family="'Courier New', monospace" font-size="9" font-weight="700" letter-spacing="1" fill="#C080FF" text-anchor="middle">SPEZIAL</text>
+  </g>
+
+  <!-- WÄHRUNGEN -->
+  <g transform="translate(418, 12)">
+    <rect x="0" y="0" width="92" height="92" rx="12" fill="url(#shopFrame)" stroke="url(#shopGold)" stroke-width="2"/>
+    <rect x="3" y="3" width="86" height="14" rx="9" fill="#F5D060" opacity="0.06"/>
+    <!-- Stacked coins + gem icon -->
+    <ellipse cx="38" cy="58" rx="16" ry="6" fill="#9A6810"/>
+    <ellipse cx="38" cy="54" rx="16" ry="6" fill="#C8922A"/>
+    <ellipse cx="38" cy="50" rx="16" ry="6" fill="#F5D060"/>
+    <ellipse cx="38" cy="50" rx="10" ry="3" fill="#FFE878" opacity="0.5"/>
+    <!-- Gem on top -->
+    <polygon points="58,30 68,38 63,52 53,52 48,38" fill="#40A8E0" stroke="#7BBFEE" stroke-width="1"/>
+    <polygon points="58,34 64,39 61,48 55,48 52,39" fill="#A0E8FF" opacity="0.5"/>
+    <rect x="55" y="26" width="3" height="3" fill="#FFFFFF" opacity="0.7" filter="url(#shopGlow)"/>
+    <text x="46" y="84" font-family="'Courier New', monospace" font-size="8" font-weight="700" letter-spacing="1" fill="#F5D060" text-anchor="middle">WÄHRUNGEN</text>
+  </g>
+
+  <!-- Header strip label -->
+  <text x="10" y="124" font-family="'Courier New', monospace" font-size="9" letter-spacing="3" fill="#C8922A" opacity="0.8">SHOP KATEGORIEN</text>
+  <line x1="120" y1="120" x2="530" y2="120" stroke="#C8922A" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+  <!-- Price tag examples -->
+  <g transform="translate(10, 132)">
+    <rect x="0" y="0" width="70" height="14" rx="4" fill="#1A1208" stroke="#C8922A" stroke-width="1"/>
+    <circle cx="9" cy="7" r="4" fill="#F5D060"/>
+    <text x="40" y="10" font-family="'Courier New', monospace" font-size="7" fill="#F5D060" text-anchor="middle">120 GOLD</text>
+  </g>
+  <g transform="translate(90, 132)">
+    <rect x="0" y="0" width="70" height="14" rx="4" fill="#1A1208" stroke="#40A8E0" stroke-width="1"/>
+    <polygon points="9,3 13,6 11,11 7,11 5,6" fill="#40A8E0"/>
+    <text x="42" y="10" font-family="'Courier New', monospace" font-size="7" fill="#7BBFEE" text-anchor="middle">15 GEMS</text>
+  </g>
+</svg>
