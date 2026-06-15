@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120" width="80" height="120">
+  <!-- Animated lantern with flame flicker and glow pulse -->
+  <!-- 8-frame animation: glow pulses, flame flickers, light shifts -->
+
+  <!-- Outer glow (pulsing) -->
+  <circle cx="40" cy="52" r="28" fill="#FFD700" opacity="0">
+    <animate attributeName="opacity" values="0;0.06;0.12;0.08;0.14;0.06;0.10;0.04;0"
+             dur="2.4s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="28;32;26;34;28;30;24;32;28"
+             dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Inner glow (faster flicker) -->
+  <circle cx="40" cy="52" r="16" fill="#FFB830" opacity="0">
+    <animate attributeName="opacity" values="0.10;0.18;0.08;0.20;0.12;0.16;0.06;0.18;0.10"
+             dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Post -->
+  <rect x="37" y="74" width="6" height="34" fill="#8B6914"/>
+  <rect x="39" y="74" width="2" height="34" fill="#A87010" opacity="0.5"/>
+  <!-- Base -->
+  <rect x="30" y="106" width="20" height="6" rx="3" fill="#5C3A10"/>
+  <rect x="26" y="110" width="28" height="4" rx="2" fill="#3A2008"/>
+  <!-- Top cap -->
+  <rect x="30" y="26" width="20" height="7" rx="2" fill="#A87010"/>
+  <rect x="35" y="20" width="10" height="8" fill="#C8922A"/>
+  <rect x="36" y="16" width="8"  height="6" rx="1" fill="#A87010"/>
+  <rect x="37" y="12" width="6"  height="6" fill="#C8922A"/>
+  <!-- Lantern body frame -->
+  <rect x="26" y="32" width="28" height="28" rx="3" fill="#C8922A"/>
+  <rect x="28" y="34" width="24" height="24" rx="2" fill="#241808"/>
+  <!-- Glass panes (frame lines) -->
+  <line x1="40" y1="34" x2="40" y2="58" stroke="#C8922A" stroke-width="1"/>
+  <line x1="28" y1="46" x2="52" y2="46" stroke="#C8922A" stroke-width="1"/>
+  <!-- Flame (4 layers, each animating) -->
+  <!-- Flame base (amber) -->
+  <rect x="35" y="44" width="10" height="10" rx="5" fill="#FF8020" opacity="0.9">
+    <animate attributeName="width"  values="10;12;8;11;9;13;10;8;10"  dur="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="x"      values="35;34;36;35;36;33;35;36;35" dur="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="10;12;8;11;9;12;10;8;10"  dur="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="y"      values="44;43;45;44;45;42;44;45;44" dur="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;1;0.8;0.95;0.85;1;0.9;0.8;0.9" dur="0.8s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Flame mid (yellow) -->
+  <rect x="37" y="40" width="6" height="8" rx="3" fill="#FFD700" opacity="0.85">
+    <animate attributeName="width"  values="6;8;5;7;6;9;5;7;6"   dur="0.7s" repeatCount="indefinite"/>
+    <animate attributeName="x"      values="37;36;38;37;37;35;38;37;37" dur="0.7s" repeatCount="indefinite"/>
+    <animate attributeName="height" values="8;10;7;9;8;11;7;9;8" dur="0.7s" repeatCount="indefinite"/>
+    <animate attributeName="y"      values="40;38;41;40;40;37;41;40;40" dur="0.7s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Flame tip (bright white-yellow) -->
+  <rect x="38" y="37" width="4" height="5" rx="2" fill="#FFFDE0" opacity="0.7">
+    <animate attributeName="height" values="5;7;4;6;5;8;4;6;5"   dur="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="y"      values="37;35;38;37;37;34;38;37;37" dur="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0.9;0.5;0.8;0.6;1;0.5;0.8;0.7" dur="0.6s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Warm light wash on glass (color shift with flame) -->
+  <rect x="30" y="36" width="10" height="22" rx="1" fill="#FF8020" opacity="0">
+    <animate attributeName="opacity" values="0.06;0.14;0.04;0.10;0.08;0.16;0.04;0.12;0.06"
+             dur="0.9s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="42" y="36" width="8" height="22" rx="1" fill="#FFD700" opacity="0">
+    <animate attributeName="opacity" values="0.04;0.08;0.12;0.04;0.10;0.06;0.14;0.04;0.04"
+             dur="1.1s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Floating light particle 1 -->
+  <circle cx="30" cy="44" r="2" fill="#FFD700" opacity="0">
+    <animate attributeName="cy"      values="44;38;32;26" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="cx"      values="30;28;32;29" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.7;0.4;0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="r"       values="2;1.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Floating light particle 2 -->
+  <circle cx="50" cy="42" r="1.5" fill="#FF9B40" opacity="0">
+    <animate attributeName="cy"      values="42;35;28;22" dur="2.6s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="cx"      values="50;52;49;53" dur="2.6s" begin="0.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.3;0" dur="2.6s" begin="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Floating light particle 3 -->
+  <circle cx="40" cy="38" r="1" fill="#FFFDE0" opacity="0">
+    <animate attributeName="cy"      values="38;30;22;14" dur="2.2s" begin="1.4s" repeatCount="indefinite"/>
+    <animate attributeName="cx"      values="40;43;38;41" dur="2.2s" begin="1.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.8;0.4;0" dur="2.2s" begin="1.4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

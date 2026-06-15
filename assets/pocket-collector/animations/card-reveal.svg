@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 220" width="160" height="220">
+  <!-- Card flip reveal animation: back → holo shimmer → front reveal -->
+  <!-- 8 phases: back, tilt, edge, edge-bright, face-flash, face, settle, idle -->
+
+  <defs>
+    <linearGradient id="cardBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#0D0804"/>
+    </linearGradient>
+    <linearGradient id="revealGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+    <linearGradient id="holoShimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF6B6B"/>
+      <stop offset="25%"  stop-color="#FFD700"/>
+      <stop offset="50%"  stop-color="#60FF80"/>
+      <stop offset="75%"  stop-color="#60A0FF"/>
+      <stop offset="100%" stop-color="#FF80FF"/>
+    </linearGradient>
+    <linearGradient id="cardFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A0A"/><stop offset="100%" stop-color="#0A0A04"/>
+    </linearGradient>
+    <filter id="revealGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Card shadow (elongates/shortens with tilt) -->
+  <ellipse cx="80" cy="214" rx="55" ry="6" fill="#000000" opacity="0.3">
+    <animate attributeName="rx"      values="55;40;15;4;15;40;55;58;55" dur="2.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.25;0.15;0.05;0.15;0.25;0.3;0.35;0.3" dur="2.4s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Halo glow (max at flash frame) -->
+  <rect x="10" y="10" width="140" height="200" rx="16" fill="url(#holoShimmer)" opacity="0" filter="url(#revealGlow)">
+    <animate attributeName="opacity" values="0;0;0;0.4;0.8;0.2;0;0;0" dur="2.4s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Card body (squishes to simulate perspective flip) -->
+  <g transform="translate(80,110)">
+    <!-- Card rectangle -->
+    <rect x="-55" y="-98" width="110" height="196" rx="10"
+          fill="url(#cardBack)" stroke="#C8922A" stroke-width="2">
+      <animate attributeName="fill"
+               values="url(#cardBack);url(#cardBack);url(#holoShimmer);url(#holoShimmer);url(#cardFront);url(#cardFront);url(#cardFront);url(#cardFront);url(#cardBack)"
+               dur="2.4s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale"
+                        values="1,1; 0.65,1.02; 0.1,1.03; 0.02,1.03; 0.1,1.02; 0.65,1.01; 1,1; 1,1; 1,1"
+                        dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- BACK of card: geometric pattern -->
+    <g opacity="1">
+      <animate attributeName="opacity" values="1;0.6;0;0;0;0;0;0.1;1" dur="2.4s" repeatCount="indefinite"/>
+      <!-- Concentric diamond back pattern -->
+      <polygon points="0,-80 50,-20 0,80 -50,-20" fill="none" stroke="#C8922A" stroke-width="1.5" opacity="0.6"/>
+      <polygon points="0,-60 38,-15 0,60 -38,-15" fill="none" stroke="#9A6810" stroke-width="1"   opacity="0.5"/>
+      <polygon points="0,-40 26,-10 0,40 -26,-10" fill="none" stroke="#C8922A" stroke-width="1"   opacity="0.4"/>
+      <polygon points="0,-20 14,-5  0,20 -14,-5"  fill="none" stroke="#F5D060" stroke-width="1"   opacity="0.4"/>
+      <!-- Center leaf -->
+      <rect x="-6" y="-14" width="6"  height="6"  fill="#4A9B30" opacity="0.6"/>
+      <rect x="0"  y="-14" width="6"  height="6"  fill="#4A9B30" opacity="0.6"/>
+      <rect x="-8" y="-8"  width="6"  height="6"  fill="#2D6B1A" opacity="0.6"/>
+      <rect x="-2" y="-8"  width="6"  height="6"  fill="#6DBF4A" opacity="0.7"/>
+      <rect x="4"  y="-8"  width="6"  height="6"  fill="#2D6B1A" opacity="0.6"/>
+      <rect x="-2" y="-2"  width="6"  height="6"  fill="#2D6B1A" opacity="0.6"/>
+      <rect x="-2" y="4"   width="6"  height="12" fill="#1A4010" opacity="0.6"/>
+      <!-- Corner ornaments back -->
+      <rect x="-52" y="-96" width="10" height="10" fill="#C8922A" opacity="0.4"/>
+      <rect x="42"  y="-96" width="10" height="10" fill="#C8922A" opacity="0.4"/>
+      <rect x="-52" y="86"  width="10" height="10" fill="#C8922A" opacity="0.4"/>
+      <rect x="42"  y="86"  width="10" height="10" fill="#C8922A" opacity="0.4"/>
+      <animateTransform attributeName="transform" type="scale"
+                        values="1,1; 0.65,1; 0.1,1; 0,1; 0,1; 0,1; 0,1; 0,1; 1,1"
+                        dur="2.4s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- FRONT of card: revealed content -->
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0.6;1;1;1;0" dur="2.4s" repeatCount="indefinite"/>
+      <!-- Gold frame -->
+      <rect x="-53" y="-96" width="106" height="192" rx="9" fill="none" stroke="url(#revealGold)" stroke-width="2"/>
+      <!-- Art area -->
+      <rect x="-44" y="-86" width="88" height="100" rx="4" fill="#1A1208"/>
+      <!-- Star burst creature (pixel) -->
+      <rect x="-20" y="-72" width="40" height="8"  fill="#F5D060" opacity="0.8"/>
+      <rect x="-30" y="-64" width="60" height="18" fill="#C8922A" opacity="0.7"/>
+      <rect x="-24" y="-46" width="48" height="14" fill="#9A6810" opacity="0.6"/>
+      <rect x="-20" y="-32" width="14" height="24" fill="#7A5010" opacity="0.5"/>
+      <rect x="6"   y="-32" width="14" height="24" fill="#7A5010" opacity="0.5"/>
+      <!-- Eyes glow -->
+      <rect x="-16" y="-58" width="8" height="8" fill="#FF4040" opacity="0.9"/>
+      <rect x="8"   y="-58" width="8" height="8" fill="#FF4040" opacity="0.9"/>
+      <!-- Card name -->
+      <rect x="-44" y="22" width="88" height="16" rx="2" fill="#241808" stroke="#C8922A" stroke-width="0.5"/>
+      <text x="0" y="34" font-family="'Courier New', monospace" font-size="9" font-weight="700"
+            fill="#F5D060" text-anchor="middle">GEFUNDEN!</text>
+      <!-- Star rarity -->
+      <polygon points="40,-84 42,-78 48,-78 43,-74 45,-68 40,-72 35,-68 37,-74 32,-78 38,-78" fill="#F5D060"/>
+      <!-- Stats bars -->
+      <rect x="-44" y="44" width="88" height="40" rx="2" fill="#120E04"/>
+      <rect x="-40" y="50" width="50" height="4" rx="1" fill="#C8922A" opacity="0.6"/>
+      <rect x="-40" y="58" width="36" height="4" rx="1" fill="#C8922A" opacity="0.5"/>
+      <rect x="-40" y="66" width="60" height="4" rx="1" fill="#C8922A" opacity="0.4"/>
+      <!-- UR badge -->
+      <rect x="20" y="50" width="22" height="22" rx="3" fill="#1A0808" stroke="url(#holoShimmer)" stroke-width="1.5"/>
+      <text x="31" y="65" font-family="'Courier New', monospace" font-size="9" font-weight="900"
+            fill="url(#holoShimmer)" text-anchor="middle">UR</text>
+      <animateTransform attributeName="transform" type="scale"
+                        values="0,1; 0.1,1; 0.6,1; 1,1; 1,1; 1,1; 1,1; 0,1; 0,1"
+                        dur="2.4s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Edge flash (bright white flash at pivot) -->
+    <rect x="-3" y="-96" width="6" height="192" rx="3" fill="#FFFFFF" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.5;1;0.5;0;0;0;0" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="width"   values="6;8;6;4;6;8;6;6;6"     dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- "SELTEN!" label pop -->
+  <text x="80" y="30" font-family="'Courier New', monospace" font-size="14" font-weight="900"
+        letter-spacing="2" fill="#FFD700" text-anchor="middle" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0.9;0.7;0.3;0" dur="2.4s" repeatCount="indefinite"/>
+    <animate attributeName="y"       values="30;30;30;30;30;26;22;18;14" dur="2.4s" repeatCount="indefinite"/>
+    SELTEN!
+  </text>
+  <!-- Stars burst around card on reveal -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0.8;0.4;0;0" dur="2.4s" repeatCount="indefinite"/>
+    <circle cx="14" cy="40"  r="4" fill="#FFD700"/>
+    <circle cx="146" cy="50" r="4" fill="#FFD700"/>
+    <circle cx="20"  cy="170" r="3" fill="#FF80FF"/>
+    <circle cx="140" cy="160" r="3" fill="#60FFFF"/>
+    <circle cx="80"  cy="8"   r="5" fill="#FFD700"/>
+  </g>
+</svg>

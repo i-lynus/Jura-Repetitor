@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Gold coin spinning animation (8 frames: full → edge → full other side) -->
+  <!-- Uses scaleX to simulate 3D spin perspective -->
+
+  <defs>
+    <radialGradient id="coinFront" cx="35%" cy="30%" r="65%">
+      <stop offset="0%"   stop-color="#FFE878"/>
+      <stop offset="40%"  stop-color="#C8922A"/>
+      <stop offset="100%" stop-color="#7A5010"/>
+    </radialGradient>
+    <radialGradient id="coinBack" cx="65%" cy="70%" r="65%">
+      <stop offset="0%"   stop-color="#F5D060"/>
+      <stop offset="40%"  stop-color="#9A6810"/>
+      <stop offset="100%" stop-color="#5A3808"/>
+    </radialGradient>
+    <radialGradient id="coinEdge" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C8922A"/>
+      <stop offset="100%" stop-color="#7A5010"/>
+    </radialGradient>
+    <filter id="coinSpinGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Coin shadow (scales with squish) -->
+  <ellipse cx="40" cy="72" rx="26" ry="5" fill="#000000" opacity="0">
+    <animate attributeName="opacity" values="0.3;0.2;0.1;0.05;0.1;0.2;0.3;0.35;0.3"
+             dur="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="26;18;6;2;6;18;26;28;26"
+             dur="1.6s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Coin body group (squishes to simulate spin) -->
+  <g transform="translate(40,38)">
+    <!-- Coin circle - width animates to simulate perspective -->
+    <ellipse cx="0" cy="0" rx="30" ry="30" fill="url(#coinFront)" filter="url(#coinSpinGlow)">
+      <animate attributeName="rx" values="30;22;8;1;8;22;30;32;30"
+               dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="fill"
+               values="url(#coinFront);url(#coinFront);url(#coinEdge);url(#coinEdge);url(#coinBack);url(#coinBack);url(#coinFront);url(#coinFront);url(#coinFront)"
+               dur="1.6s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Rim ring -->
+    <ellipse cx="0" cy="0" rx="30" ry="30" fill="none" stroke="#F5D060" stroke-width="2" opacity="0.5">
+      <animate attributeName="rx" values="30;22;8;1;8;22;30;32;30"
+               dur="1.6s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Inner design ring -->
+    <ellipse cx="0" cy="0" rx="24" ry="24" fill="none" stroke="#9A6810" stroke-width="1" opacity="0.4">
+      <animate attributeName="rx" values="24;17;5;0.5;5;17;24;26;24"
+               dur="1.6s" repeatCount="indefinite"/>
+    </ellipse>
+
+    <!-- "G" pixel lettering (front face) -->
+    <g opacity="1">
+      <animate attributeName="opacity"
+               values="1;0.7;0;0;0;0.7;1;1;1"
+               dur="1.6s" repeatCount="indefinite"/>
+      <!-- G letter pixels (relative to center) -->
+      <rect x="-10" y="-12" width="20" height="4" fill="#7A5010"/>
+      <rect x="-14" y="-8"  width="5"  height="4" fill="#7A5010"/>
+      <rect x="-14" y="-4"  width="5"  height="4" fill="#7A5010"/>
+      <rect x="-14" y="0"   width="5"  height="4" fill="#7A5010"/>
+      <rect x="-14" y="4"   width="5"  height="4" fill="#7A5010"/>
+      <rect x="-14" y="8"   width="22" height="4" fill="#7A5010"/>
+      <rect x="2"   y="0"   width="8"  height="4" fill="#7A5010"/>
+      <rect x="6"   y="-4"  width="5"  height="4" fill="#7A5010"/>
+      <!-- Scale G with coin squish -->
+      <animateTransform attributeName="transform" type="scale"
+                        values="1,1; 0.73,1; 0.27,1; 0.03,1; 0.27,1; 0.73,1; 1,1; 1.07,1; 1,1"
+                        dur="1.6s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Shine flash (appears as coin turns towards viewer) -->
+    <ellipse cx="-8" cy="-10" rx="8" ry="6" fill="#FFFDE0" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0;0.4;0.2;0;0"
+               dur="1.6s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale"
+                        values="1,1; 0.7,1; 0.2,1; 0,1; 0.2,1; 0.7,1; 1,1; 1.1,1; 1,1"
+                        dur="1.6s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Glow burst when coin faces viewer -->
+    <ellipse cx="0" cy="0" rx="34" ry="34" fill="#FFD700" opacity="0" filter="url(#coinSpinGlow)">
+      <animate attributeName="opacity" values="0;0;0;0;0;0;0.08;0.04;0"
+               dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="rx" values="34;34;34;34;34;34;38;34;34"
+               dur="1.6s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+
+  <!-- "+1 coin" text pop (appears at peak) -->
+  <text x="40" y="14" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+        fill="#F5D060" text-anchor="middle" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0.9;0.5;0"
+             dur="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="14;14;14;14;14;14;10;6;2"
+             dur="1.6s" repeatCount="indefinite"/>
+    +1
+  </text>
+</svg>

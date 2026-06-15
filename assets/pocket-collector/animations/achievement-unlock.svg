@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+  <!-- Achievement unlock animation: dark → shield drops in → rays burst → badge glows → idle shimmer -->
+
+  <defs>
+    <linearGradient id="shieldGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="50%" stop-color="#C8922A"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+    <linearGradient id="shieldInner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A2808"/><stop offset="100%" stop-color="#1A1004"/>
+    </linearGradient>
+    <filter id="achieveGlow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="rayGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer ring burst (rays) -->
+  <g transform="translate(110,100)" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0.7;1;0.6;0.3;0.15;0" dur="3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="rotate" from="0" to="45" dur="3s" repeatCount="indefinite"/>
+    <!-- 8 rays -->
+    <line x1="0" y1="-60"  x2="0"   y2="-95"  stroke="#F5D060" stroke-width="3" stroke-linecap="round" filter="url(#rayGlow)"/>
+    <line x1="43" y1="-43" x2="68"  y2="-68"  stroke="#F5D060" stroke-width="2" stroke-linecap="round" filter="url(#rayGlow)"/>
+    <line x1="60" y1="0"   x2="95"  y2="0"    stroke="#F5D060" stroke-width="3" stroke-linecap="round" filter="url(#rayGlow)"/>
+    <line x1="43" y1="43"  x2="68"  y2="68"   stroke="#F5D060" stroke-width="2" stroke-linecap="round" filter="url(#rayGlow)"/>
+    <line x1="0"  y1="60"  x2="0"   y2="95"   stroke="#F5D060" stroke-width="3" stroke-linecap="round" filter="url(#rayGlow)"/>
+    <line x1="-43" y1="43" x2="-68" y2="68"   stroke="#F5D060" stroke-width="2" stroke-linecap="round" filter="url(#rayGlow)"/>
+    <line x1="-60" y1="0"  x2="-95" y2="0"    stroke="#F5D060" stroke-width="3" stroke-linecap="round" filter="url(#rayGlow)"/>
+    <line x1="-43" y1="-43" x2="-68" y2="-68" stroke="#F5D060" stroke-width="2" stroke-linecap="round" filter="url(#rayGlow)"/>
+  </g>
+
+  <!-- Glow halo behind shield -->
+  <circle cx="110" cy="100" r="65" fill="#F5D060" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0.1;0.2;0.1;0.06;0.04;0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="65;65;65;75;80;70;65;65;65" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- SHIELD badge (drops in from top) -->
+  <g transform="translate(110,100)">
+    <animateTransform attributeName="transform" type="translate"
+                      values="110,-20; 110,20; 110,105; 110,100; 110,100; 110,100; 110,100; 110,100; 110,-20"
+                      dur="3s" repeatCount="indefinite" calcMode="spline"
+                      keySplines="0,0,1,1; 0.3,0,0.7,1; 0.3,0,0.7,1; 0,0,1,1; 0,0,1,1; 0,0,1,1; 0,0,1,1; 0,0,1,1"/>
+    <animate attributeName="opacity" values="0;0.8;1;1;1;1;1;0.9;0" dur="3s" repeatCount="indefinite"/>
+
+    <!-- Shield body -->
+    <path d="M0,-68 L60,-68 L60,20 Q60,68 0,84 Q-60,68 -60,20 L-60,-68 Z"
+          fill="url(#shieldGold)" stroke="#F5D060" stroke-width="2" filter="url(#achieveGlow)"/>
+    <path d="M0,-56 L50,-56 L50,18 Q50,58 0,72 Q-50,58 -50,18 L-50,-56 Z"
+          fill="url(#shieldInner)"/>
+    <!-- Inner rim -->
+    <path d="M0,-48 L42,-48 L42,16 Q42,50 0,62 Q-42,50 -42,16 L-42,-48 Z"
+          fill="none" stroke="#C8922A" stroke-width="1" opacity="0.4"/>
+
+    <!-- Star inside shield -->
+    <polygon points="0,-38 7,-16 30,-16 12,-3 19,20 0,8 -19,20 -12,-3 -30,-16 -7,-16"
+             fill="url(#shieldGold)" filter="url(#achieveGlow)"/>
+    <polygon points="0,-28 5,-12 20,-12 8,-2 13,14 0,5 -13,14 -8,-2 -20,-12 -5,-12"
+             fill="#FFE878" opacity="0.6"/>
+
+    <!-- "ERFOLG" text -->
+    <text x="0" y="52" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+          letter-spacing="2" fill="#F5D060" text-anchor="middle" filter="url(#achieveGlow)">ERFOLG!</text>
+  </g>
+
+  <!-- Celebration particles -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0.9;0.7;0.4;0.1;0" dur="3s" repeatCount="indefinite"/>
+    <!-- Colored diamond particles -->
+    <polygon points="20,30 24,40 20,50 16,40" fill="#FF6B6B"/>
+    <polygon points="190,60 194,70 190,80 186,70" fill="#FFD700"/>
+    <polygon points="40,160 44,170 40,180 36,170" fill="#6DBF4A"/>
+    <polygon points="170,150 174,160 170,170 166,160" fill="#60A0FF"/>
+    <polygon points="110,15 115,22 110,29 105,22" fill="#FF80FF"/>
+    <!-- Small circles -->
+    <circle cx="30"  cy="90"  r="5" fill="#FFD700"/>
+    <circle cx="190" cy="110" r="4" fill="#A8E060"/>
+    <circle cx="50"  cy="170" r="4" fill="#FF9B40"/>
+    <circle cx="170" cy="50"  r="5" fill="#60C0FF"/>
+  </g>
+
+  <!-- "FREISCHALTEN!" banner at bottom -->
+  <rect x="10" y="182" width="200" height="30" rx="6" fill="#1A1208" stroke="#C8922A" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;0;0.9;0.9;0.6;0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="110" y="203" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+        letter-spacing="2" fill="#F5D060" text-anchor="middle" opacity="0" filter="url(#achieveGlow)">
+    FREISCHALTEN!
+    <animate attributeName="opacity" values="0;0;0;0;0;0.9;0.9;0.6;0" dur="3s" repeatCount="indefinite"/>
+  </text>
+</svg>
