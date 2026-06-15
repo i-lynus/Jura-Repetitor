@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="620" height="400">
+  <defs>
+    <linearGradient id="primaryBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4A9B30"/><stop offset="100%" stop-color="#2D6B1A"/>
+    </linearGradient>
+    <linearGradient id="secondaryBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A5A88"/><stop offset="100%" stop-color="#1A2A48"/>
+    </linearGradient>
+    <linearGradient id="dangerBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C83020"/><stop offset="100%" stop-color="#7A1810"/>
+    </linearGradient>
+    <linearGradient id="goldBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+    <linearGradient id="inactiveBtn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A3828"/><stop offset="100%" stop-color="#1A1810"/>
+    </linearGradient>
+    <linearGradient id="progressFill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6DBF4A"/><stop offset="100%" stop-color="#F5D060"/>
+    </linearGradient>
+    <filter id="btnGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- SECTION: BUTTONS -->
+  <text x="12" y="20" font-family="'Courier New', monospace" font-size="9" fill="#C8922A" letter-spacing="3" opacity="0.8">BUTTONS</text>
+
+  <!-- Primary button (green) -->
+  <g transform="translate(12, 30)">
+    <!-- Shadow -->
+    <rect x="2" y="4" width="110" height="36" rx="6" fill="#1A3A10" opacity="0.5"/>
+    <!-- Button -->
+    <rect x="0" y="0" width="110" height="36" rx="6" fill="url(#primaryBtn)" stroke="#6DBF4A" stroke-width="1.5"/>
+    <!-- Top shine strip -->
+    <rect x="2" y="2" width="106" height="8" rx="4" fill="#FFFFFF" opacity="0.10"/>
+    <!-- Bottom shadow strip -->
+    <rect x="2" y="28" width="106" height="6" rx="4" fill="#000000" opacity="0.15"/>
+    <!-- Pixel corner accents -->
+    <rect x="2"   y="2"  width="5" height="5" fill="#A8E060" opacity="0.4"/>
+    <rect x="103" y="2"  width="5" height="5" fill="#A8E060" opacity="0.4"/>
+    <text x="55" y="23" font-family="'Courier New', monospace" font-size="11" font-weight="700"
+          letter-spacing="1" fill="#E8FFD8" text-anchor="middle">PRIMÄR</text>
+  </g>
+
+  <!-- Secondary button (blue) -->
+  <g transform="translate(138, 30)">
+    <rect x="2" y="4" width="110" height="36" rx="6" fill="#0A1828" opacity="0.5"/>
+    <rect x="0" y="0" width="110" height="36" rx="6" fill="url(#secondaryBtn)" stroke="#5A8AB8" stroke-width="1.5"/>
+    <rect x="2" y="2" width="106" height="8" rx="4" fill="#FFFFFF" opacity="0.08"/>
+    <rect x="2"   y="2"  width="5" height="5" fill="#AACCEE" opacity="0.4"/>
+    <rect x="103" y="2"  width="5" height="5" fill="#AACCEE" opacity="0.4"/>
+    <text x="55" y="23" font-family="'Courier New', monospace" font-size="11" font-weight="700"
+          letter-spacing="1" fill="#CCE8FF" text-anchor="middle">SEKUNDÄR</text>
+  </g>
+
+  <!-- Danger button (red) -->
+  <g transform="translate(264, 30)">
+    <rect x="2" y="4" width="90" height="36" rx="6" fill="#3A0808" opacity="0.5"/>
+    <rect x="0" y="0" width="90" height="36" rx="6" fill="url(#dangerBtn)" stroke="#E04030" stroke-width="1.5"/>
+    <rect x="2" y="2" width="86" height="8" rx="4" fill="#FFFFFF" opacity="0.08"/>
+    <text x="45" y="23" font-family="'Courier New', monospace" font-size="11" font-weight="700"
+          letter-spacing="1" fill="#FFD8D0" text-anchor="middle">GEFAHR</text>
+  </g>
+
+  <!-- Inactive button -->
+  <g transform="translate(368, 30)">
+    <rect x="0" y="0" width="90" height="36" rx="6" fill="url(#inactiveBtn)" stroke="#5A5840" stroke-width="1"/>
+    <text x="45" y="23" font-family="'Courier New', monospace" font-size="11" font-weight="700"
+          letter-spacing="1" fill="#6A6850" text-anchor="middle">INAKTIV</text>
+  </g>
+
+  <!-- Gold/Premium button -->
+  <g transform="translate(470, 30)">
+    <rect x="2" y="4" width="140" height="36" rx="6" fill="#3A2008" opacity="0.5"/>
+    <rect x="0" y="0" width="140" height="36" rx="6" fill="#1A1004" stroke="url(#goldBtn)" stroke-width="2" filter="url(#btnGlow)"/>
+    <rect x="2" y="2" width="136" height="8" rx="4" fill="#F5D060" opacity="0.12"/>
+    <rect x="2"   y="2"  width="6" height="6" fill="#F5D060" opacity="0.5"/>
+    <rect x="132" y="2"  width="6" height="6" fill="#F5D060" opacity="0.5"/>
+    <text x="70" y="23" font-family="'Courier New', monospace" font-size="11" font-weight="900"
+          letter-spacing="1" fill="#F5D060" text-anchor="middle" filter="url(#btnGlow)">PREMIUM</text>
+  </g>
+
+  <!-- SECTION: TOGGLE & CHECKBOX -->
+  <text x="12" y="94" font-family="'Courier New', monospace" font-size="9" fill="#C8922A" letter-spacing="3" opacity="0.8">TOGGLE &amp; CHECKBOX</text>
+
+  <!-- Toggle ON -->
+  <g transform="translate(12, 106)">
+    <rect x="0" y="0" width="56" height="28" rx="14" fill="#2D6B1A" stroke="#4A9B30" stroke-width="1.5"/>
+    <circle cx="42" cy="14" r="11" fill="#6DBF4A" filter="url(#btnGlow)"/>
+    <rect x="10" y="11" width="12" height="6" rx="3" fill="#A8E060" opacity="0.5"/>
+    <text x="28" y="46" font-family="'Courier New', monospace" font-size="7" fill="#6DBF4A" text-anchor="middle">AN</text>
+  </g>
+
+  <!-- Toggle OFF -->
+  <g transform="translate(82, 106)">
+    <rect x="0" y="0" width="56" height="28" rx="14" fill="#2A2018" stroke="#5A4A30" stroke-width="1.5"/>
+    <circle cx="14" cy="14" r="11" fill="#5A4A30"/>
+    <text x="28" y="46" font-family="'Courier New', monospace" font-size="7" fill="#5A4A30" text-anchor="middle">AUS</text>
+  </g>
+
+  <!-- Checkbox checked -->
+  <g transform="translate(152, 106)">
+    <rect x="0" y="0" width="28" height="28" rx="4" fill="#1A1208" stroke="#C8922A" stroke-width="2"/>
+    <rect x="3" y="3" width="22" height="22" rx="2" fill="#3A2808" opacity="0.5"/>
+    <!-- Checkmark pixel -->
+    <rect x="5"  y="16" width="6"  height="6" fill="#F5D060"/>
+    <rect x="11" y="18" width="6"  height="6" fill="#F5D060"/>
+    <rect x="16" y="12" width="6"  height="6" fill="#F5D060"/>
+    <rect x="20" y="6"  width="6"  height="6" fill="#F5D060"/>
+    <text x="14" y="46" font-family="'Courier New', monospace" font-size="7" fill="#C8922A" text-anchor="middle">AN</text>
+  </g>
+
+  <!-- Checkbox unchecked -->
+  <g transform="translate(194, 106)">
+    <rect x="0" y="0" width="28" height="28" rx="4" fill="#1A1208" stroke="#5A4030" stroke-width="1.5"/>
+    <text x="14" y="46" font-family="'Courier New', monospace" font-size="7" fill="#5A4030" text-anchor="middle">AUS</text>
+  </g>
+
+  <!-- SECTION: PROGRESS BARS -->
+  <text x="12" y="174" font-family="'Courier New', monospace" font-size="9" fill="#C8922A" letter-spacing="3" opacity="0.8">FORTSCHRITTSBALKEN</text>
+
+  <!-- XP bar -->
+  <g transform="translate(12, 186)">
+    <text x="0" y="10" font-family="'Courier New', monospace" font-size="8" fill="#C8922A" opacity="0.7">XP</text>
+    <rect x="30"  y="0" width="200" height="14" rx="4" fill="#1A1208" stroke="#5A4030" stroke-width="1"/>
+    <rect x="32"  y="2" width="154" height="10" rx="3" fill="url(#progressFill)"/>
+    <!-- Pixel shine -->
+    <rect x="32"  y="2" width="40"  height="4"  rx="2" fill="#FFFFFF" opacity="0.12"/>
+    <text x="236" y="11" font-family="'Courier New', monospace" font-size="8" fill="#C8922A" opacity="0.7">74%</text>
+  </g>
+
+  <!-- Collection bar -->
+  <g transform="translate(12, 212)">
+    <text x="0" y="10" font-family="'Courier New', monospace" font-size="8" fill="#7BBFEE" opacity="0.7">KOL</text>
+    <rect x="30"  y="0" width="200" height="14" rx="4" fill="#0A1218" stroke="#2A4A78" stroke-width="1"/>
+    <rect x="32"  y="2" width="120" height="10" rx="3" fill="#3A6AB8"/>
+    <rect x="32"  y="2" width="30"  height="4"  rx="2" fill="#FFFFFF" opacity="0.12"/>
+    <text x="236" y="11" font-family="'Courier New', monospace" font-size="8" fill="#7BBFEE" opacity="0.7">53%</text>
+  </g>
+
+  <!-- Sync bar -->
+  <g transform="translate(12, 238)">
+    <text x="0" y="10" font-family="'Courier New', monospace" font-size="7" fill="#6DBF4A" opacity="0.7">SYNC</text>
+    <rect x="30"  y="0" width="200" height="14" rx="4" fill="#0A1A08" stroke="#2A5A1A" stroke-width="1"/>
+    <rect x="32"  y="2" width="196" height="10" rx="3" fill="#4A9B30"/>
+    <rect x="32"  y="2" width="40"  height="4"  rx="2" fill="#FFFFFF" opacity="0.15"/>
+    <text x="236" y="11" font-family="'Courier New', monospace" font-size="8" fill="#6DBF4A" opacity="0.7">100%</text>
+  </g>
+
+  <!-- SECTION: TABS -->
+  <text x="12" y="280" font-family="'Courier New', monospace" font-size="9" fill="#C8922A" letter-spacing="3" opacity="0.8">TABS</text>
+
+  <g transform="translate(12, 292)">
+    <!-- Tab bar background -->
+    <rect x="0" y="0" width="580" height="44" rx="6" fill="#0D0A04"/>
+    <!-- Active tab -->
+    <rect x="2"   y="2"  width="120" height="40" rx="5" fill="#1A1208" stroke="#C8922A" stroke-width="1.5"/>
+    <rect x="4"   y="4"  width="116" height="8"  rx="3" fill="#F5D060" opacity="0.08"/>
+    <text x="62"  y="27" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+          letter-spacing="1" fill="#F5D060" text-anchor="middle">SAMMLUNG</text>
+    <!-- Inactive tab 2 -->
+    <rect x="126" y="4"  width="110" height="36" rx="4" fill="#0A0804" opacity="0.6"/>
+    <text x="181" y="26" font-family="'Courier New', monospace" font-size="10" letter-spacing="1"
+          fill="#5A4030" text-anchor="middle">BINDER</text>
+    <!-- Inactive tab 3 -->
+    <rect x="240" y="4"  width="110" height="36" rx="4" fill="#0A0804" opacity="0.6"/>
+    <text x="295" y="26" font-family="'Courier New', monospace" font-size="10" letter-spacing="1"
+          fill="#5A4030" text-anchor="middle">SCAN</text>
+    <!-- Inactive tab 4 -->
+    <rect x="354" y="4"  width="110" height="36" rx="4" fill="#0A0804" opacity="0.6"/>
+    <text x="409" y="26" font-family="'Courier New', monospace" font-size="10" letter-spacing="1"
+          fill="#5A4030" text-anchor="middle">GARTEN</text>
+    <!-- Inactive tab 5 -->
+    <rect x="468" y="4"  width="108" height="36" rx="4" fill="#0A0804" opacity="0.6"/>
+    <text x="522" y="26" font-family="'Courier New', monospace" font-size="10" letter-spacing="1"
+          fill="#5A4030" text-anchor="middle">ARCHIV</text>
+    <!-- Active tab indicator line -->
+    <rect x="4" y="40" width="116" height="2" rx="1" fill="#F5D060" opacity="0.8"/>
+  </g>
+
+  <!-- SECTION: SLIDER -->
+  <text x="12" y="360" font-family="'Courier New', monospace" font-size="9" fill="#C8922A" letter-spacing="3" opacity="0.8">REGLER</text>
+  <g transform="translate(12, 372)">
+    <rect x="0" y="8" width="300" height="8" rx="4" fill="#1A1208" stroke="#5A4030" stroke-width="1"/>
+    <rect x="0" y="8" width="186" height="8" rx="4" fill="#C8922A"/>
+    <!-- Slider thumb (pixel diamond) -->
+    <rect x="178" y="2" width="16" height="20" rx="3" fill="#F5D060" stroke="#C8922A" stroke-width="1.5" filter="url(#btnGlow)"/>
+    <rect x="182" y="6" width="4"  height="12" fill="#FFFFFF" opacity="0.3"/>
+    <!-- Tick marks -->
+    <rect x="0"   y="18" width="2" height="6" fill="#5A4030" opacity="0.5"/>
+    <rect x="74"  y="18" width="2" height="6" fill="#5A4030" opacity="0.5"/>
+    <rect x="148" y="18" width="2" height="6" fill="#5A4030" opacity="0.5"/>
+    <rect x="222" y="18" width="2" height="6" fill="#5A4030" opacity="0.5"/>
+    <rect x="298" y="18" width="2" height="6" fill="#5A4030" opacity="0.5"/>
+  </g>
+</svg>

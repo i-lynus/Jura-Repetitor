@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <defs>
+    <radialGradient id="coinBg" cx="38%" cy="34%" r="60%">
+      <stop offset="0%"   stop-color="#FFE878"/>
+      <stop offset="45%"  stop-color="#C8922A"/>
+      <stop offset="100%" stop-color="#7A5010"/>
+    </radialGradient>
+    <radialGradient id="coinShine" cx="30%" cy="25%" r="50%">
+      <stop offset="0%"   stop-color="#FFFDE0" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FFE878" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="coinGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="emboss">
+      <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="#7A5010" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Outer rim shadow -->
+  <circle cx="41" cy="42" r="33" fill="#7A5010" opacity="0.5"/>
+  <!-- Coin body -->
+  <circle cx="40" cy="40" r="33" fill="url(#coinBg)" filter="url(#coinGlow)"/>
+  <!-- Rim detail ring -->
+  <circle cx="40" cy="40" r="33" fill="none" stroke="#F5D060" stroke-width="2" opacity="0.5"/>
+  <circle cx="40" cy="40" r="29" fill="none" stroke="#9A6810" stroke-width="1" opacity="0.4"/>
+  <!-- Pixel art "G" (gold) symbol -->
+  <!-- G letter in pixel blocks -->
+  <rect x="28" y="24" width="24" height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <rect x="23" y="29" width="5"  height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <rect x="23" y="34" width="5"  height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <rect x="23" y="39" width="5"  height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <rect x="23" y="44" width="5"  height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <rect x="23" y="49" width="29" height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <rect x="38" y="38" width="14" height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <rect x="47" y="34" width="5"  height="5" fill="#7A5010" filter="url(#emboss)"/>
+  <!-- Shine overlay -->
+  <circle cx="40" cy="40" r="33" fill="url(#coinShine)"/>
+  <!-- Pixel art shine dot -->
+  <rect x="26" y="26" width="5" height="5" fill="#FFFDE0" opacity="0.5"/>
+</svg>

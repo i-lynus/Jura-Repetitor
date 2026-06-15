@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <defs>
+    <linearGradient id="gemFace" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%"   stop-color="#A0E8FF"/>
+      <stop offset="30%"  stop-color="#40A8E0"/>
+      <stop offset="70%"  stop-color="#1060A0"/>
+      <stop offset="100%" stop-color="#082040"/>
+    </linearGradient>
+    <linearGradient id="gemFacet1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#C0F0FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#40A8E0" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="gemFacet2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#082040" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1060A0" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="gemGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Gem shadow -->
+  <ellipse cx="41" cy="68" rx="18" ry="4" fill="#082040" opacity="0.4"/>
+
+  <!-- PIXEL ART DIAMOND GEM -->
+  <!-- Top crown pixels -->
+  <rect x="35" y="14" width="10" height="8" fill="#A0E8FF"/>
+  <rect x="27" y="14" width="8"  height="8" fill="#C0F0FF"/>
+  <rect x="45" y="14" width="8"  height="8" fill="#60B8F0"/>
+
+  <!-- Upper belt -->
+  <rect x="20" y="22" width="40" height="10" fill="#40A8E0"/>
+  <rect x="22" y="22" width="10" height="10" fill="#C0F0FF" opacity="0.6"/>
+  <rect x="48" y="22" width="10" height="10" fill="#082040" opacity="0.5"/>
+
+  <!-- Middle pavilion (widest) -->
+  <rect x="20" y="32" width="40" height="4"  fill="#60B8F0"/>
+
+  <!-- Lower facets (tapering) -->
+  <!-- Row 1 down -->
+  <rect x="22" y="36" width="36" height="6" fill="#1060A0"/>
+  <rect x="22" y="36" width="14" height="6" fill="#40A8E0" opacity="0.5"/>
+  <!-- Row 2 down -->
+  <rect x="26" y="42" width="28" height="6" fill="#0A4080"/>
+  <!-- Row 3 down -->
+  <rect x="30" y="48" width="20" height="6" fill="#082040"/>
+  <!-- Row 4 down (tip) -->
+  <rect x="35" y="54" width="10" height="6" fill="#061830"/>
+  <!-- Tip pixel -->
+  <rect x="38" y="60" width="4"  height="4" fill="#040F20"/>
+
+  <!-- Shine facets -->
+  <rect x="28" y="24" width="6"  height="6" fill="#E0F8FF" opacity="0.7"/>
+  <rect x="36" y="16" width="4"  height="4" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- Glow aura -->
+  <rect x="18" y="12" width="44" height="52" fill="none" filter="url(#gemGlow)" opacity="0.3"/>
+</svg>

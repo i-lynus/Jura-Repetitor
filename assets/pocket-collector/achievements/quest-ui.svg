@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 360" width="380" height="360">
+  <defs>
+    <linearGradient id="questBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#0D0A04"/>
+    </linearGradient>
+    <linearGradient id="questFill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C8922A"/><stop offset="100%" stop-color="#F5D060"/>
+    </linearGradient>
+    <linearGradient id="questDone" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A9B30"/><stop offset="100%" stop-color="#6DBF4A"/>
+    </linearGradient>
+    <filter id="questGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Panel background -->
+  <rect x="0" y="0" width="380" height="360" rx="12" fill="url(#questBg)" stroke="#C8922A" stroke-width="2"/>
+  <rect x="2" y="2" width="376" height="356" rx="11" fill="none" stroke="#5A4030" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Header -->
+  <rect x="0" y="0" width="380" height="50" rx="12" fill="#241808"/>
+  <rect x="0" y="38" width="380" height="12" fill="#241808"/>
+  <line x1="12" y1="50" x2="368" y2="50" stroke="#C8922A" stroke-width="1" opacity="0.5"/>
+  <!-- Title -->
+  <text x="190" y="32" font-family="'Courier New', monospace" font-size="12" font-weight="700"
+        letter-spacing="3" fill="#F5D060" text-anchor="middle" filter="url(#questGlow)">TÄGLICHE QUESTS</text>
+  <!-- Corner ornaments -->
+  <rect x="8"   y="8"  width="6" height="6" fill="#F5D060" opacity="0.5"/>
+  <rect x="366" y="8"  width="6" height="6" fill="#F5D060" opacity="0.5"/>
+
+  <!-- QUEST 1 (in progress) -->
+  <g transform="translate(12, 62)">
+    <rect x="0" y="0" width="356" height="70" rx="6" fill="#1A1208" stroke="#5A4030" stroke-width="1"/>
+    <!-- Quest icon -->
+    <rect x="8" y="8" width="36" height="36" rx="4" fill="#241808" stroke="#C8922A" stroke-width="1.5"/>
+    <!-- Pack open pixel icon -->
+    <rect x="14" y="14" width="24" height="20" fill="#3A5A88"/>
+    <rect x="14" y="14" width="24" height="6"  fill="#5A8AB8"/>
+    <rect x="16" y="10" width="20" height="6"  fill="#3A5A88" opacity="0.7"/>
+    <!-- Progress info -->
+    <text x="54" y="18" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+          fill="#E8D0A0">Öffne 2 Booster Packs</text>
+    <text x="54" y="30" font-family="'Courier New', monospace" font-size="8" fill="#8A7A60">+50 XP · +200 Gold Coins</text>
+    <!-- Progress bar -->
+    <rect x="54" y="38" width="240" height="10" rx="3" fill="#0A0804" stroke="#3A2808" stroke-width="1"/>
+    <rect x="56" y="40" width="80"  height="6"  rx="2" fill="url(#questFill)"/>
+    <text x="300" y="48" font-family="'Courier New', monospace" font-size="8" fill="#C8922A">0 / 2</text>
+    <!-- Star reward -->
+    <polygon points="344,10 346,16 352,16 347,20 349,26 344,22 339,26 341,20 336,16 342,16"
+             fill="#F5D060" opacity="0.8" filter="url(#questGlow)"/>
+  </g>
+
+  <!-- QUEST 2 (almost done) -->
+  <g transform="translate(12, 144)">
+    <rect x="0" y="0" width="356" height="70" rx="6" fill="#1A1208" stroke="#5A4030" stroke-width="1"/>
+    <rect x="8" y="8" width="36" height="36" rx="4" fill="#241808" stroke="#C8922A" stroke-width="1.5"/>
+    <!-- Scan icon pixel -->
+    <rect x="14" y="12" width="24" height="28" rx="3" fill="none" stroke="#40E0A0" stroke-width="1.5"/>
+    <path d="M18,18 L18,22 L22,22" fill="none" stroke="#40E0A0" stroke-width="1.5" stroke-linecap="square"/>
+    <path d="M30,18 L30,22 L26,22" fill="none" stroke="#40E0A0" stroke-width="1.5" stroke-linecap="square"/>
+    <path d="M18,32 L18,28 L22,28" fill="none" stroke="#40E0A0" stroke-width="1.5" stroke-linecap="square"/>
+    <path d="M30,32 L30,28 L26,28" fill="none" stroke="#40E0A0" stroke-width="1.5" stroke-linecap="square"/>
+    <line x1="14" y1="25" x2="38" y2="25" stroke="#40E0A0" stroke-width="1" opacity="0.5"/>
+    <text x="54" y="18" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+          fill="#E8D0A0">Scanne 5 Karten</text>
+    <text x="54" y="30" font-family="'Courier New', monospace" font-size="8" fill="#8A7A60">+75 XP · +1 Gem</text>
+    <rect x="54" y="38" width="240" height="10" rx="3" fill="#0A0804" stroke="#3A2808" stroke-width="1"/>
+    <rect x="56" y="40" width="192" height="6"  rx="2" fill="url(#questFill)"/>
+    <!-- Filled pixel segments -->
+    <rect x="56" y="40" width="38"  height="6" fill="#F5D060" opacity="0.15"/>
+    <rect x="95" y="40" width="38"  height="6" fill="#F5D060" opacity="0.15"/>
+    <rect x="134" y="40" width="38" height="6" fill="#F5D060" opacity="0.15"/>
+    <rect x="173" y="40" width="38" height="6" fill="#F5D060" opacity="0.15"/>
+    <text x="300" y="48" font-family="'Courier New', monospace" font-size="8" fill="#C8922A">3 / 5</text>
+    <polygon points="344,10 346,16 352,16 347,20 349,26 344,22 339,26 341,20 336,16 342,16"
+             fill="#F5D060" opacity="0.8" filter="url(#questGlow)"/>
+  </g>
+
+  <!-- QUEST 3 (not started) -->
+  <g transform="translate(12, 226)">
+    <rect x="0" y="0" width="356" height="70" rx="6" fill="#120E04" stroke="#3A2808" stroke-width="1" opacity="0.8"/>
+    <rect x="8" y="8" width="36" height="36" rx="4" fill="#1A1208" stroke="#3A2808" stroke-width="1"/>
+    <!-- Binder icon pixel -->
+    <rect x="14" y="13" width="8"  height="26" fill="#5A4030" opacity="0.7"/>
+    <rect x="22" y="16" width="20" height="20" fill="none" stroke="#5A4030" stroke-width="1.5" opacity="0.7"/>
+    <rect x="24" y="20" width="14" height="3" fill="#5A4030" opacity="0.5"/>
+    <rect x="24" y="26" width="14" height="3" fill="#5A4030" opacity="0.5"/>
+    <rect x="24" y="30" width="10" height="3" fill="#5A4030" opacity="0.5"/>
+    <text x="54" y="18" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+          fill="#6A5A40">Ordne 10 Karten im Binder</text>
+    <text x="54" y="30" font-family="'Courier New', monospace" font-size="8" fill="#5A4A30">+100 XP · +300 Gold Coins</text>
+    <rect x="54" y="38" width="240" height="10" rx="3" fill="#0A0804" stroke="#2A1808" stroke-width="1"/>
+    <rect x="56" y="40" width="2"   height="6"  rx="1" fill="#5A4030" opacity="0.5"/>
+    <text x="300" y="48" font-family="'Courier New', monospace" font-size="8" fill="#5A4030">0 / 10</text>
+    <polygon points="344,10 346,16 352,16 347,20 349,26 344,22 339,26 341,20 336,16 342,16"
+             fill="#5A4030" opacity="0.5"/>
+  </g>
+
+  <!-- Timer / Next refresh -->
+  <g transform="translate(12, 308)">
+    <rect x="0" y="0" width="356" height="40" rx="6" fill="#0A0804" stroke="#3A2808" stroke-width="1" opacity="0.7"/>
+    <!-- Clock pixel icon -->
+    <circle cx="20" cy="20" r="12" fill="none" stroke="#C8922A" stroke-width="1.5" opacity="0.6"/>
+    <line x1="20" y1="20" x2="20" y2="12" stroke="#C8922A" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+    <line x1="20" y1="20" x2="26" y2="20" stroke="#C8922A" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+    <text x="40" y="24" font-family="'Courier New', monospace" font-size="10" fill="#C8922A" opacity="0.8">Neue Quests in:</text>
+    <text x="210" y="24" font-family="'Courier New', monospace" font-size="13" font-weight="700"
+          fill="#F5D060" filter="url(#questGlow)">12h 45m</text>
+  </g>
+</svg>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" width="560" height="160">
+  <defs>
+    <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4956A"/><stop offset="100%" stop-color="#8B4E2A"/>
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E0E0"/><stop offset="100%" stop-color="#8A8A8A"/>
+    </linearGradient>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D060"/><stop offset="100%" stop-color="#9A6810"/>
+    </linearGradient>
+    <linearGradient id="platGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C0F0FF"/><stop offset="50%" stop-color="#60A8D0"/><stop offset="100%" stop-color="#1040A0"/>
+    </linearGradient>
+    <linearGradient id="legendGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B6B"/><stop offset="33%" stop-color="#FFD700"/>
+      <stop offset="66%" stop-color="#6DBF4A"/><stop offset="100%" stop-color="#A060FF"/>
+    </linearGradient>
+    <filter id="badgeGlow2">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ERSTER FANG — Bronze -->
+  <g transform="translate(10,10)">
+    <!-- Shield shape -->
+    <path d="M50,5 L90,5 L90,70 Q90,100 50,115 Q10,100 10,70 L10,5 Z" fill="#1A0E08" stroke="url(#bronzeGrad)" stroke-width="3" filter="url(#badgeGlow2)"/>
+    <path d="M50,14 L82,14 L82,68 Q82,94 50,107 Q18,94 18,68 L18,14 Z" fill="none" stroke="#D4956A" stroke-width="1" opacity="0.4"/>
+    <!-- Pixel star icon inside -->
+    <polygon points="50,28 54,40 66,40 57,48 60,60 50,53 40,60 43,48 34,40 46,40"
+             fill="url(#bronzeGrad)" filter="url(#badgeGlow2)"/>
+    <!-- Label -->
+    <text x="50" y="132" font-family="'Courier New', monospace" font-size="7" letter-spacing="1"
+          fill="#D4956A" text-anchor="middle" font-weight="700">ERSTER FANG</text>
+  </g>
+
+  <!-- SET VOLLST. — Silver -->
+  <g transform="translate(120,10)">
+    <path d="M50,5 L90,5 L90,70 Q90,100 50,115 Q10,100 10,70 L10,5 Z" fill="#0E0E0E" stroke="url(#silverGrad)" stroke-width="3" filter="url(#badgeGlow2)"/>
+    <path d="M50,14 L82,14 L82,68 Q82,94 50,107 Q18,94 18,68 L18,14 Z" fill="none" stroke="#C0C0C0" stroke-width="1" opacity="0.4"/>
+    <!-- Book / binder icon pixel -->
+    <rect x="30" y="26" width="8"  height="42" fill="url(#silverGrad)"/>
+    <rect x="38" y="30" width="22" height="34" fill="none" stroke="url(#silverGrad)" stroke-width="2"/>
+    <rect x="40" y="36" width="16" height="3" fill="#8A8A8A"/>
+    <rect x="40" y="43" width="16" height="3" fill="#8A8A8A"/>
+    <rect x="40" y="50" width="12" height="3" fill="#8A8A8A"/>
+    <text x="50" y="132" font-family="'Courier New', monospace" font-size="7" letter-spacing="1"
+          fill="#C0C0C0" text-anchor="middle" font-weight="700">SET KOMPLETT</text>
+  </g>
+
+  <!-- 100 KARTEN — Gold -->
+  <g transform="translate(230,10)">
+    <path d="M50,5 L90,5 L90,70 Q90,100 50,115 Q10,100 10,70 L10,5 Z" fill="#1A1208" stroke="url(#goldGrad2)" stroke-width="3" filter="url(#badgeGlow2)"/>
+    <path d="M50,14 L82,14 L82,68 Q82,94 50,107 Q18,94 18,68 L18,14 Z" fill="none" stroke="#F5D060" stroke-width="1" opacity="0.4"/>
+    <!-- 100 in pixel numbers -->
+    <!-- "1" -->
+    <rect x="26" y="32" width="5" height="30" fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <!-- "0" -->
+    <rect x="34" y="32" width="10" height="5"  fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <rect x="34" y="57" width="10" height="5"  fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <rect x="34" y="37" width="5"  height="20" fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <rect x="39" y="37" width="5"  height="20" fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <!-- "0" second -->
+    <rect x="47" y="32" width="10" height="5"  fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <rect x="47" y="57" width="10" height="5"  fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <rect x="47" y="37" width="5"  height="20" fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <rect x="52" y="37" width="5"  height="20" fill="url(#goldGrad2)" filter="url(#badgeGlow2)"/>
+    <text x="50" y="132" font-family="'Courier New', monospace" font-size="7" letter-spacing="1"
+          fill="#F5D060" text-anchor="middle" font-weight="700">100 KARTEN</text>
+  </g>
+
+  <!-- MEISTER SAMMLER — Platinum -->
+  <g transform="translate(340,10)">
+    <path d="M50,5 L90,5 L90,70 Q90,100 50,115 Q10,100 10,70 L10,5 Z" fill="#080C14" stroke="url(#platGrad)" stroke-width="3" filter="url(#badgeGlow2)"/>
+    <path d="M50,14 L82,14 L82,68 Q82,94 50,107 Q18,94 18,68 L18,14 Z" fill="none" stroke="#C0F0FF" stroke-width="1" opacity="0.4"/>
+    <!-- Crown pixel art -->
+    <!-- Base -->
+    <rect x="22" y="60" width="56" height="8" fill="url(#platGrad)"/>
+    <!-- Teeth -->
+    <rect x="24" y="44" width="10" height="18" fill="url(#platGrad)"/>
+    <rect x="39" y="36" width="10" height="26" fill="url(#platGrad)" filter="url(#badgeGlow2)"/>
+    <rect x="54" y="44" width="10" height="18" fill="url(#platGrad)"/>
+    <!-- Crown gems -->
+    <rect x="26" y="42" width="6" height="6" fill="#FFFFFF" opacity="0.8"/>
+    <rect x="41" y="33" width="6" height="6" fill="#E0F8FF" filter="url(#badgeGlow2)"/>
+    <rect x="56" y="42" width="6" height="6" fill="#FFFFFF" opacity="0.8"/>
+    <text x="50" y="132" font-family="'Courier New', monospace" font-size="6" letter-spacing="1"
+          fill="#C0F0FF" text-anchor="middle" font-weight="700">MEISTER SAMMLER</text>
+  </g>
+
+  <!-- LEGENDE — Rainbow -->
+  <g transform="translate(450,10)">
+    <path d="M50,5 L90,5 L90,70 Q90,100 50,115 Q10,100 10,70 L10,5 Z" fill="#0A0808" stroke="url(#legendGrad)" stroke-width="3.5" filter="url(#badgeGlow2)"/>
+    <path d="M50,14 L82,14 L82,68 Q82,94 50,107 Q18,94 18,68 L18,14 Z" fill="none" stroke="url(#legendGrad)" stroke-width="1" opacity="0.5"/>
+    <!-- Diamond + rays (legend symbol) -->
+    <polygon points="50,26 62,46 50,66 38,46" fill="none" stroke="url(#legendGrad)" stroke-width="2.5" filter="url(#badgeGlow2)"/>
+    <polygon points="50,32 58,46 50,60 42,46" fill="#1A0808"/>
+    <!-- Rays -->
+    <line x1="50" y1="18" x2="50" y2="26" stroke="url(#legendGrad)" stroke-width="2" filter="url(#badgeGlow2)"/>
+    <line x1="62" y1="22" x2="58" y2="30" stroke="url(#legendGrad)" stroke-width="1.5" filter="url(#badgeGlow2)"/>
+    <line x1="38" y1="22" x2="42" y2="30" stroke="url(#legendGrad)" stroke-width="1.5" filter="url(#badgeGlow2)"/>
+    <line x1="68" y1="38" x2="62" y2="42" stroke="url(#legendGrad)" stroke-width="1.5" filter="url(#badgeGlow2)"/>
+    <line x1="32" y1="38" x2="38" y2="42" stroke="url(#legendGrad)" stroke-width="1.5" filter="url(#badgeGlow2)"/>
+    <text x="50" y="132" font-family="'Courier New', monospace" font-size="7" letter-spacing="1"
+          fill="url(#legendGrad)" text-anchor="middle" font-weight="700">LEGENDE</text>
+  </g>
+</svg>
