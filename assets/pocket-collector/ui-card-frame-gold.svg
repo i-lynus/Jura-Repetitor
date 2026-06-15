@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" width="300" height="420">
+  <defs>
+    <linearGradient id="frameGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   style="stop-color:#F5D060"/>
+      <stop offset="30%"  style="stop-color:#C8922A"/>
+      <stop offset="70%"  style="stop-color:#9A6810"/>
+      <stop offset="100%" style="stop-color:#F5D060"/>
+    </linearGradient>
+    <linearGradient id="innerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   style="stop-color:#1A1208"/>
+      <stop offset="100%" style="stop-color:#0D0A04"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#3A2808"/>
+      <stop offset="100%" style="stop-color:#1A1208"/>
+    </linearGradient>
+    <filter id="frameGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer gold frame -->
+  <rect x="4" y="4" width="292" height="412" rx="16" ry="16"
+        fill="url(#frameGold)" filter="url(#frameGlow)"/>
+
+  <!-- Inner dark background -->
+  <rect x="12" y="12" width="276" height="396" rx="11" ry="11"
+        fill="url(#innerBg)"/>
+
+  <!-- Top header band -->
+  <rect x="12" y="12" width="276" height="48" rx="11" ry="11"
+        fill="url(#headerGrad)"/>
+  <rect x="12" y="44" width="276" height="16" fill="url(#headerGrad)"/>
+
+  <!-- Header bottom separator line -->
+  <line x1="20" y1="60" x2="280" y2="60" stroke="#C8922A" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Corner ornaments (pixel style) -->
+  <!-- Top-left -->
+  <rect x="14" y="14"  width="8" height="8" fill="#F5D060" opacity="0.9"/>
+  <rect x="22" y="14"  width="4" height="4" fill="#C8922A" opacity="0.6"/>
+  <rect x="14" y="22"  width="4" height="4" fill="#C8922A" opacity="0.6"/>
+  <!-- Top-right -->
+  <rect x="278" y="14" width="8" height="8" fill="#F5D060" opacity="0.9"/>
+  <rect x="274" y="14" width="4" height="4" fill="#C8922A" opacity="0.6"/>
+  <rect x="278" y="22" width="4" height="4" fill="#C8922A" opacity="0.6"/>
+  <!-- Bottom-left -->
+  <rect x="14" y="390" width="8" height="8" fill="#F5D060" opacity="0.9"/>
+  <rect x="22" y="394" width="4" height="4" fill="#C8922A" opacity="0.6"/>
+  <rect x="14" y="382" width="4" height="4" fill="#C8922A" opacity="0.6"/>
+  <!-- Bottom-right -->
+  <rect x="278" y="390" width="8" height="8" fill="#F5D060" opacity="0.9"/>
+  <rect x="274" y="394" width="4" height="4" fill="#C8922A" opacity="0.6"/>
+  <rect x="278" y="382" width="4" height="4" fill="#C8922A" opacity="0.6"/>
+
+  <!-- Card name area placeholder -->
+  <text x="150" y="42" font-family="'Courier New', monospace" font-size="14"
+        font-weight="700" letter-spacing="2" fill="#F5D060"
+        text-anchor="middle" opacity="0.9">CARD NAME</text>
+
+  <!-- Rarity stars (top right of header) -->
+  <!-- Star 1 -->
+  <polygon points="262,22 264,28 270,28 265,32 267,38 262,34 257,38 259,32 254,28 260,28"
+           fill="#F5D060" opacity="0.9"/>
+
+  <!-- Image area (center) -->
+  <rect x="22" y="68" width="256" height="180" rx="6" ry="6"
+        fill="#0A0806" stroke="#5A4010" stroke-width="1.5"/>
+  <!-- Image area inner glow -->
+  <rect x="24" y="70" width="252" height="176" rx="5" ry="5"
+        fill="none" stroke="#C8922A" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Placeholder art text -->
+  <text x="150" y="162" font-family="'Courier New', monospace" font-size="11"
+        fill="#5A4010" text-anchor="middle" opacity="0.6">[ ART AREA ]</text>
+
+  <!-- Type bar -->
+  <rect x="22" y="255" width="256" height="22" rx="4" ry="4"
+        fill="#2A1C06" stroke="#C8922A" stroke-width="1" opacity="0.8"/>
+  <text x="150" y="271" font-family="'Courier New', monospace" font-size="10"
+        letter-spacing="3" fill="#C8922A" text-anchor="middle">TYPE · RARITY</text>
+
+  <!-- Description text area -->
+  <rect x="22" y="284" width="256" height="80" rx="4" ry="4"
+        fill="#120E04" opacity="0.6"/>
+  <!-- Horizontal rules in text area (placeholder lines) -->
+  <line x1="34" y1="300" x2="266" y2="300" stroke="#5A4010" stroke-width="0.8" opacity="0.5"/>
+  <line x1="34" y1="314" x2="266" y2="314" stroke="#5A4010" stroke-width="0.8" opacity="0.5"/>
+  <line x1="34" y1="328" x2="220" y2="328" stroke="#5A4010" stroke-width="0.8" opacity="0.5"/>
+  <line x1="34" y1="342" x2="240" y2="342" stroke="#5A4010" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Bottom stats bar -->
+  <rect x="22" y="372" width="110" height="28" rx="4" ry="4"
+        fill="#2A1C06" stroke="#C8922A" stroke-width="1"/>
+  <text x="77" y="390" font-family="'Courier New', monospace" font-size="10"
+        fill="#F5D060" text-anchor="middle" font-weight="700">ATK  120</text>
+
+  <rect x="168" y="372" width="110" height="28" rx="4" ry="4"
+        fill="#2A1C06" stroke="#C8922A" stroke-width="1"/>
+  <text x="223" y="390" font-family="'Courier New', monospace" font-size="10"
+        fill="#F5D060" text-anchor="middle" font-weight="700">DEF  80</text>
+
+  <!-- Pixel art leaf badge (bottom center) -->
+  <circle cx="150" cy="386" r="10" fill="#1C3A14" stroke="#4A9B30" stroke-width="1.5"/>
+  <rect x="146" y="379" width="3" height="3" fill="#6DBF4A"/>
+  <rect x="149" y="379" width="3" height="3" fill="#6DBF4A"/>
+  <rect x="146" y="382" width="3" height="3" fill="#A8E060"/>
+  <rect x="149" y="382" width="3" height="3" fill="#6DBF4A"/>
+  <rect x="146" y="385" width="3" height="3" fill="#4A9B30"/>
+  <rect x="149" y="388" width="3" height="3" fill="#2D6B1A"/>
+
+  <!-- Side decorative lines -->
+  <line x1="8" y1="120" x2="8" y2="300" stroke="#F5D060" stroke-width="1.5" opacity="0.4"/>
+  <line x1="292" y1="120" x2="292" y2="300" stroke="#F5D060" stroke-width="1.5" opacity="0.4"/>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <defs>
+    <!-- Gold gradient for text -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5D060;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#C8922A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7A5010;stop-opacity:1" />
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Subtle shadow -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#1A0D00" flood-opacity="0.8"/>
+    </filter>
+    <!-- Leaf icon gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6DBF4A"/>
+      <stop offset="100%" style="stop-color:#2D6B1A"/>
+    </linearGradient>
+    <linearGradient id="leafShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A8E060;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#2D6B1A;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Decorative top line -->
+  <line x1="20" y1="22" x2="500" y2="22" stroke="#C8922A" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Left pixel-art leaf icon -->
+  <!-- Leaf pixels (8x8 grid, each pixel 7px) -->
+  <g transform="translate(20, 34)" filter="url(#shadow)">
+    <!-- Leaf shape in pixel art -->
+    <rect x="14" y="0"  width="7" height="7" fill="#6DBF4A"/>
+    <rect x="21" y="0"  width="7" height="7" fill="#6DBF4A"/>
+    <rect x="7"  y="7"  width="7" height="7" fill="#6DBF4A"/>
+    <rect x="14" y="7"  width="7" height="7" fill="#A8E060"/>
+    <rect x="21" y="7"  width="7" height="7" fill="#6DBF4A"/>
+    <rect x="28" y="7"  width="7" height="7" fill="#4A9B30"/>
+    <rect x="0"  y="14" width="7" height="7" fill="#4A9B30"/>
+    <rect x="7"  y="14" width="7" height="7" fill="#A8E060"/>
+    <rect x="14" y="14" width="7" height="7" fill="#C8F080"/>
+    <rect x="21" y="14" width="7" height="7" fill="#6DBF4A"/>
+    <rect x="28" y="14" width="7" height="7" fill="#4A9B30"/>
+    <rect x="0"  y="21" width="7" height="7" fill="#4A9B30"/>
+    <rect x="7"  y="21" width="7" height="7" fill="#6DBF4A"/>
+    <rect x="14" y="21" width="7" height="7" fill="#A8E060"/>
+    <rect x="21" y="21" width="7" height="7" fill="#4A9B30"/>
+    <rect x="7"  y="28" width="7" height="7" fill="#4A9B30"/>
+    <rect x="14" y="28" width="7" height="7" fill="#6DBF4A"/>
+    <rect x="14" y="35" width="7" height="7" fill="#2D6B1A"/>
+    <rect x="14" y="42" width="7" height="7" fill="#2D6B1A"/>
+    <!-- Inner spine highlight -->
+    <rect x="14" y="14" width="3" height="21" fill="#C8F080" opacity="0.6"/>
+  </g>
+
+  <!-- Main Title: POCKET -->
+  <text
+    x="82" y="86"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="52"
+    font-weight="900"
+    letter-spacing="6"
+    fill="url(#goldGrad)"
+    filter="url(#glow)"
+  >POCKET</text>
+
+  <!-- Main Title: COLLECTOR -->
+  <text
+    x="82" y="128"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="52"
+    font-weight="900"
+    letter-spacing="2"
+    fill="url(#goldGrad)"
+    filter="url(#glow)"
+  >COLLECTOR</text>
+
+  <!-- Decorative pixel dots between words -->
+  <rect x="76" y="96" width="4" height="4" fill="#C8922A" opacity="0.8"/>
+  <rect x="82" y="96" width="4" height="4" fill="#F5D060" opacity="0.6"/>
+  <rect x="88" y="96" width="4" height="4" fill="#C8922A" opacity="0.8"/>
+
+  <!-- Subtitle / tagline -->
+  <text
+    x="82" y="148"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="11"
+    letter-spacing="4"
+    fill="#C8922A"
+    opacity="0.85"
+  >YOUR COLLECTION · YOUR STORY</text>
+
+  <!-- Decorative bottom line -->
+  <line x1="20" y1="158" x2="500" y2="158" stroke="#C8922A" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Corner ornaments -->
+  <rect x="20" y="15" width="6" height="6" fill="#F5D060" opacity="0.6"/>
+  <rect x="494" y="15" width="6" height="6" fill="#F5D060" opacity="0.6"/>
+  <rect x="20" y="153" width="6" height="6" fill="#F5D060" opacity="0.6"/>
+  <rect x="494" y="153" width="6" height="6" fill="#F5D060" opacity="0.6"/>
+</svg>

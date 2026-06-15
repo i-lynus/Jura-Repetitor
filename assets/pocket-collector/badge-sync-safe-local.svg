@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="badgeBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1C2A1A"/>
+      <stop offset="100%" style="stop-color:#0D1508"/>
+    </linearGradient>
+    <linearGradient id="greenIcon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6DBF4A"/>
+      <stop offset="100%" style="stop-color:#2D6B1A"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Three badge pills side by side -->
+
+  <!-- SYNC badge -->
+  <rect x="2" y="10" width="92" height="60" rx="10" fill="url(#badgeBg)" stroke="#4A9B30" stroke-width="1.5"/>
+  <!-- Sync icon (arrows) -->
+  <path d="M28,28 A10,10 0 0,1 48,28" fill="none" stroke="#6DBF4A" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="48,24 48,32 54,28" fill="#6DBF4A"/>
+  <path d="M48,52 A10,10 0 0,1 28,52" fill="none" stroke="#6DBF4A" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="28,48 28,56 22,52" fill="#6DBF4A"/>
+  <text x="58" y="45" font-family="'Courier New', monospace" font-size="11" font-weight="700"
+        letter-spacing="1" fill="#A8E060">SYNC</text>
+
+  <!-- Divider dot -->
+  <circle cx="103" cy="40" r="3" fill="#4A9B30" opacity="0.6"/>
+
+  <!-- SAFE badge -->
+  <rect x="112" y="10" width="92" height="60" rx="10" fill="url(#badgeBg)" stroke="#C8922A" stroke-width="1.5"/>
+  <!-- Shield icon -->
+  <path d="M138,25 L148,25 L148,42 Q148,48 143,50 Q138,48 138,42 Z" fill="none" stroke="#F5D060" stroke-width="2.5"/>
+  <path d="M140,37 L143,40 L148,33" fill="none" stroke="#F5D060" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="154" y="45" font-family="'Courier New', monospace" font-size="11" font-weight="700"
+        letter-spacing="1" fill="#F5D060">SAFE</text>
+
+  <!-- Divider dot -->
+  <circle cx="213" cy="40" r="3" fill="#C8922A" opacity="0.6"/>
+
+  <!-- LOCAL badge -->
+  <rect x="222" y="10" width="96" height="60" rx="10" fill="url(#badgeBg)" stroke="#5A9BD5" stroke-width="1.5"/>
+  <!-- Lock/device icon (pixel style) -->
+  <rect x="243" y="30" width="14" height="12" rx="2" fill="none" stroke="#7BBFEE" stroke-width="2"/>
+  <path d="M246,30 L246,26 Q246,22 250,22 Q254,22 254,26 L254,30" fill="none" stroke="#7BBFEE" stroke-width="2" stroke-linecap="round"/>
+  <rect x="248" y="34" width="4" height="4" rx="1" fill="#7BBFEE"/>
+  <text x="263" y="45" font-family="'Courier New', monospace" font-size="10" font-weight="700"
+        letter-spacing="1" fill="#7BBFEE">LOCAL</text>
+</svg>

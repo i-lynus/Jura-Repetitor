@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#0A1A06"/>
+      <stop offset="100%" style="stop-color:#1A2E10"/>
+    </linearGradient>
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#2A4A18"/>
+      <stop offset="100%" style="stop-color:#162A0C"/>
+    </linearGradient>
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="lanternGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect x="0" y="0" width="640" height="360" fill="url(#skyGrad)"/>
+
+  <!-- Distant stars / fireflies -->
+  <circle cx="80"  cy="40"  r="2" fill="#F5D060" opacity="0.9" filter="url(#starGlow)"/>
+  <circle cx="200" cy="25"  r="1.5" fill="#A8E060" opacity="0.8" filter="url(#starGlow)"/>
+  <circle cx="310" cy="50"  r="2.5" fill="#FFD700" opacity="0.7" filter="url(#starGlow)"/>
+  <circle cx="450" cy="30"  r="2"   fill="#F5D060" opacity="0.9" filter="url(#starGlow)"/>
+  <circle cx="560" cy="55"  r="1.5" fill="#A8E060" opacity="0.8" filter="url(#starGlow)"/>
+  <circle cx="140" cy="80"  r="1.5" fill="#FFD700" opacity="0.6" filter="url(#starGlow)"/>
+  <circle cx="500" cy="70"  r="2"   fill="#6DBF4A" opacity="0.7" filter="url(#starGlow)"/>
+
+  <!-- PIXEL ART LARGE TREE (left) - each pixel = 10px -->
+  <!-- Trunk -->
+  <rect x="90"  y="210" width="20" height="80" fill="#5C3A1E"/>
+  <rect x="96"  y="210" width="8"  height="80" fill="#7A5030"/>
+  <!-- Exposed root left -->
+  <rect x="70"  y="280" width="20" height="8"  fill="#5C3A1E"/>
+  <rect x="110" y="278" width="20" height="8"  fill="#5C3A1E"/>
+  <!-- Foliage - layer 1 (widest) -->
+  <rect x="40"  y="185" width="120" height="30" fill="#2D6B1A"/>
+  <!-- Foliage - layer 2 -->
+  <rect x="55"  y="160" width="90"  height="30" fill="#4A9B30"/>
+  <!-- Foliage - layer 3 -->
+  <rect x="70"  y="138" width="60"  height="28" fill="#5DB840"/>
+  <!-- Foliage - layer 4 (top) -->
+  <rect x="82"  y="118" width="36"  height="24" fill="#6DBF4A"/>
+  <rect x="90"  y="100" width="20"  height="22" fill="#A8E060"/>
+  <!-- Highlights -->
+  <rect x="56"  y="163" width="20"  height="8"  fill="#6DBF4A" opacity="0.4"/>
+  <rect x="72"  y="142" width="14"  height="6"  fill="#A8E060" opacity="0.4"/>
+  <!-- Fruit/berries -->
+  <circle cx="68"  cy="200" r="4"  fill="#E84040" opacity="0.9"/>
+  <circle cx="130" cy="192" r="4"  fill="#E84040" opacity="0.9"/>
+  <circle cx="100" cy="175" r="3.5" fill="#FFB830" opacity="0.9"/>
+
+  <!-- PIXEL ART MEDIUM TREE (right) -->
+  <rect x="490" y="220" width="16" height="70" fill="#5C3A1E"/>
+  <rect x="495" y="220" width="6"  height="70" fill="#7A5030"/>
+  <rect x="460" y="195" width="76" height="28" fill="#2D6B1A"/>
+  <rect x="472" y="172" width="52" height="26" fill="#4A9B30"/>
+  <rect x="480" y="152" width="36" height="24" fill="#5DB840"/>
+  <rect x="486" y="134" width="24" height="22" fill="#6DBF4A"/>
+  <rect x="490" y="118" width="16" height="18" fill="#A8E060"/>
+  <rect x="473" y="176" width="16" height="6"  fill="#6DBF4A" opacity="0.4"/>
+
+  <!-- PIXEL ART BUSH (center-left) -->
+  <rect x="240" y="258" width="60" height="32" fill="#2D6B1A"/>
+  <rect x="248" y="248" width="44" height="16" fill="#4A9B30"/>
+  <rect x="256" y="242" width="28" height="12" fill="#5DB840"/>
+  <!-- Bush flowers -->
+  <rect x="252" y="252" width="8"  height="8"  fill="#FF9B40"/>
+  <rect x="268" y="248" width="8"  height="8"  fill="#E84080"/>
+  <rect x="284" y="254" width="8"  height="8"  fill="#FFD700"/>
+
+  <!-- PIXEL ART BUSH (center-right) -->
+  <rect x="370" y="260" width="56" height="30" fill="#2D6B1A"/>
+  <rect x="378" y="250" width="40" height="16" fill="#4A9B30"/>
+  <rect x="386" y="244" width="24" height="12" fill="#5DB840"/>
+  <rect x="374" y="254" width="8"  height="8"  fill="#A040E8"/>
+  <rect x="390" y="250" width="8"  height="8"  fill="#6DBF4A"/>
+  <rect x="406" y="256" width="8"  height="8"  fill="#FF6B6B"/>
+
+  <!-- Stone path (pixel tiles) -->
+  <rect x="286" y="295" width="26" height="16" fill="#585858" rx="3"/>
+  <rect x="316" y="292" width="24" height="16" fill="#4A4A4A" rx="3"/>
+  <rect x="344" y="296" width="26" height="16" fill="#585858" rx="3"/>
+  <!-- Path highlights -->
+  <rect x="288" y="297" width="10" height="4"  fill="#707070" opacity="0.5"/>
+  <rect x="318" y="293" width="10" height="4"  fill="#707070" opacity="0.5"/>
+
+  <!-- Center CHEST / CARD CASE pixel art -->
+  <rect x="296" y="238" width="48" height="38" fill="#7A5010"/>
+  <rect x="296" y="238" width="48" height="10" fill="#C8922A"/>
+  <rect x="299" y="240" width="42" height="3"  fill="#F5D060" opacity="0.4"/>
+  <!-- Chest lock -->
+  <rect x="316" y="254" width="8"  height="10" fill="#C8922A" rx="1"/>
+  <rect x="318" y="256" width="4"  height="4"  fill="#F5D060"/>
+  <!-- Chest detail (card peeking out top) -->
+  <rect x="308" y="232" width="24" height="10" fill="#8B6030" rx="2"/>
+  <rect x="310" y="234" width="20" height="6"  fill="#C8922A" rx="1" opacity="0.6"/>
+
+  <!-- Fountain (center background) -->
+  <rect x="292" y="178" width="56" height="52" fill="#3A5A38" rx="4"/>
+  <!-- Water -->
+  <rect x="296" y="194" width="48" height="32" fill="#1A3A6A" rx="2"/>
+  <rect x="296" y="194" width="48" height="8"  fill="#2A5A9A" rx="2" opacity="0.6"/>
+  <!-- Fountain center pillar -->
+  <rect x="316" y="180" width="8"  height="14" fill="#5A7A58"/>
+  <rect x="312" y="178" width="16" height="6"  fill="#6A8A68" rx="2"/>
+  <!-- Water sparkles -->
+  <rect x="304" y="202" width="4"  height="4"  fill="#7BBFEE" opacity="0.7"/>
+  <rect x="316" y="198" width="4"  height="4"  fill="#7BBFEE" opacity="0.5"/>
+  <rect x="328" y="204" width="4"  height="4"  fill="#7BBFEE" opacity="0.7"/>
+  <rect x="338" y="200" width="4"  height="4"  fill="#A8D8FF" opacity="0.5"/>
+
+  <!-- LANTERN POSTS -->
+  <!-- Left lantern -->
+  <rect x="196" y="220" width="8"  height="70" fill="#8B6914"/>
+  <rect x="190" y="204" width="20" height="22" fill="#C8922A" rx="3"/>
+  <rect x="194" y="208" width="12" height="14" fill="#FFD700" opacity="0.85"/>
+  <circle cx="200" cy="215" r="18" fill="#FFD700" opacity="0.08" filter="url(#lanternGlow)"/>
+  <circle cx="200" cy="215" r="10" fill="#FFD700" opacity="0.07" filter="url(#lanternGlow)"/>
+  <!-- Lantern top cap -->
+  <rect x="192" y="200" width="16" height="6" fill="#A87010" rx="2"/>
+  <rect x="197" y="196" width="6"  height="6" fill="#C8922A"/>
+
+  <!-- Right lantern -->
+  <rect x="436" y="220" width="8"  height="70" fill="#8B6914"/>
+  <rect x="430" y="204" width="20" height="22" fill="#C8922A" rx="3"/>
+  <rect x="434" y="208" width="12" height="14" fill="#FFD700" opacity="0.85"/>
+  <circle cx="440" cy="215" r="18" fill="#FFD700" opacity="0.08" filter="url(#lanternGlow)"/>
+  <circle cx="440" cy="215" r="10" fill="#FFD700" opacity="0.07" filter="url(#lanternGlow)"/>
+  <rect x="432" y="200" width="16" height="6" fill="#A87010" rx="2"/>
+  <rect x="437" y="196" width="6"  height="6" fill="#C8922A"/>
+
+  <!-- WOODEN FENCE (left) -->
+  <rect x="160" y="272" width="6" height="32" fill="#8B6030"/>
+  <rect x="184" y="272" width="6" height="32" fill="#8B6030"/>
+  <rect x="158" y="278" width="34" height="6" fill="#A87040"/>
+  <rect x="158" y="292" width="34" height="6" fill="#A87040"/>
+
+  <!-- WOODEN FENCE (right) -->
+  <rect x="450" y="272" width="6" height="32" fill="#8B6030"/>
+  <rect x="474" y="272" width="6" height="32" fill="#8B6030"/>
+  <rect x="448" y="278" width="34" height="6" fill="#A87040"/>
+  <rect x="448" y="292" width="34" height="6" fill="#A87040"/>
+
+  <!-- Ground -->
+  <rect x="0" y="305" width="640" height="55" fill="url(#groundGrad)"/>
+
+  <!-- Ground grass tufts -->
+  <rect x="30"  y="302" width="6"  height="10" fill="#5DB840"/>
+  <rect x="60"  y="300" width="6"  height="12" fill="#4A9B30"/>
+  <rect x="150" y="303" width="6"  height="10" fill="#5DB840"/>
+  <rect x="390" y="301" width="6"  height="11" fill="#4A9B30"/>
+  <rect x="500" y="303" width="6"  height="10" fill="#5DB840"/>
+  <rect x="580" y="300" width="6"  height="12" fill="#4A9B30"/>
+  <rect x="610" y="303" width="6"  height="10" fill="#5DB840"/>
+
+  <!-- Flower patches on ground -->
+  <rect x="40"  y="300" width="6"  height="8"  fill="#3A6B20"/>
+  <circle cx="40"  cy="298" r="4"  fill="#FF6B6B" opacity="0.9"/>
+  <rect x="550" y="300" width="6"  height="8"  fill="#3A6B20"/>
+  <circle cx="553" cy="297" r="4"  fill="#A040E8" opacity="0.9"/>
+  <rect x="565" y="302" width="6"  height="8"  fill="#3A6B20"/>
+  <circle cx="568" cy="300" r="3"  fill="#FFD700" opacity="0.9"/>
+
+  <!-- Floating magic particles -->
+  <circle cx="175" cy="170" r="3"  fill="#F5D060" opacity="0.85" filter="url(#starGlow)"/>
+  <circle cx="460" cy="160" r="2.5" fill="#A8E060" opacity="0.8" filter="url(#starGlow)"/>
+  <circle cx="320" cy="130" r="2"  fill="#FFD700" opacity="0.7" filter="url(#starGlow)"/>
+  <circle cx="240" cy="145" r="2"  fill="#7BBFEE" opacity="0.8" filter="url(#starGlow)"/>
+  <circle cx="400" cy="140" r="2.5" fill="#F5D060" opacity="0.7" filter="url(#starGlow)"/>
+</svg>

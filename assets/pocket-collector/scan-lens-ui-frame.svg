@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" width="360" height="480">
+  <defs>
+    <linearGradient id="scanBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   style="stop-color:#0A1A14"/>
+      <stop offset="100%" style="stop-color:#050D0A"/>
+    </linearGradient>
+    <linearGradient id="scanGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#40E0A0"/>
+      <stop offset="100%" style="stop-color:#106040"/>
+    </linearGradient>
+    <linearGradient id="scanLine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   style="stop-color:#40E0A0;stop-opacity:0"/>
+      <stop offset="50%"  style="stop-color:#40E0A0;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#40E0A0;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="crtGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="scanGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- CRT / Scan Lens outer frame -->
+  <rect x="4" y="4" width="352" height="472" rx="20" ry="20"
+        fill="url(#scanBg)" stroke="#20604A" stroke-width="3"/>
+
+  <!-- Inner screen area -->
+  <rect x="20" y="56" width="320" height="280" rx="8" fill="#030A06" stroke="#106040" stroke-width="1.5"/>
+
+  <!-- CRT scanlines overlay (thin horizontal lines) -->
+  <g opacity="0.06">
+    <rect x="20" y="56" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="60" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="64" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="68" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="72" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="76" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="80" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="84" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="88" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="92" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="96" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="100" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="180" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="184" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="188" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="220" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="260" width="320" height="1" fill="#40E0A0"/>
+    <rect x="20" y="300" width="320" height="1" fill="#40E0A0"/>
+  </g>
+
+  <!-- Card placeholder in center of screen -->
+  <rect x="130" y="80" width="100" height="140" rx="6" fill="none" stroke="#40E0A0" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Corner scan brackets -->
+  <!-- Top-left -->
+  <path d="M48,70 L48,88 L66,88" fill="none" stroke="#40E0A0" stroke-width="2.5" stroke-linecap="square" filter="url(#crtGlow)"/>
+  <!-- Top-right -->
+  <path d="M312,70 L312,88 L294,88" fill="none" stroke="#40E0A0" stroke-width="2.5" stroke-linecap="square" filter="url(#crtGlow)"/>
+  <!-- Bottom-left -->
+  <path d="M48,324 L48,306 L66,306" fill="none" stroke="#40E0A0" stroke-width="2.5" stroke-linecap="square" filter="url(#crtGlow)"/>
+  <!-- Bottom-right -->
+  <path d="M312,324 L312,306 L294,306" fill="none" stroke="#40E0A0" stroke-width="2.5" stroke-linecap="square" filter="url(#crtGlow)"/>
+
+  <!-- Cross-hair center -->
+  <line x1="160" y1="148" x2="200" y2="148" stroke="#40E0A0" stroke-width="1" opacity="0.4"/>
+  <line x1="180" y1="128" x2="180" y2="168" stroke="#40E0A0" stroke-width="1" opacity="0.4"/>
+  <circle cx="180" cy="148" r="6" fill="none" stroke="#40E0A0" stroke-width="1" opacity="0.6"/>
+
+  <!-- Scan line (horizontal moving line) -->
+  <rect x="20" y="190" width="320" height="3" fill="url(#scanLine)" filter="url(#scanGlow)"/>
+
+  <!-- Top header bar -->
+  <rect x="20" y="14" width="320" height="36" rx="4" fill="#0A2018"/>
+  <!-- Header text -->
+  <text x="180" y="37" font-family="'Courier New', monospace" font-size="13" font-weight="700"
+        letter-spacing="4" fill="#40E0A0" text-anchor="middle" filter="url(#scanGlow)">SCAN LENS</text>
+  <!-- Header status dot -->
+  <circle cx="40" cy="32" r="5" fill="#40E040" filter="url(#scanGlow)"/>
+  <text x="52" y="36" font-family="'Courier New', monospace" font-size="9" fill="#40E0A0" letter-spacing="1">ACTIVE</text>
+
+  <!-- Stats column (right side) -->
+  <rect x="248" y="100" width="82" height="220" rx="4" fill="#060E0A" opacity="0.8"/>
+
+  <!-- Stat labels -->
+  <text x="256" y="118" font-family="'Courier New', monospace" font-size="8" letter-spacing="1" fill="#40E0A0" opacity="0.7">CONDITION</text>
+  <rect x="256" y="122" width="66" height="5" rx="2" fill="#106040"/>
+  <rect x="256" y="122" width="58" height="5" rx="2" fill="#40E0A0" opacity="0.8"/>
+
+  <text x="256" y="142" font-family="'Courier New', monospace" font-size="8" letter-spacing="1" fill="#40E0A0" opacity="0.7">CENTERING</text>
+  <rect x="256" y="146" width="66" height="5" rx="2" fill="#106040"/>
+  <rect x="256" y="146" width="52" height="5" rx="2" fill="#40E0A0" opacity="0.8"/>
+
+  <text x="256" y="166" font-family="'Courier New', monospace" font-size="8" letter-spacing="1" fill="#40E0A0" opacity="0.7">SURFACE</text>
+  <rect x="256" y="170" width="66" height="5" rx="2" fill="#106040"/>
+  <rect x="256" y="170" width="62" height="5" rx="2" fill="#40E0A0" opacity="0.8"/>
+
+  <text x="256" y="190" font-family="'Courier New', monospace" font-size="8" letter-spacing="1" fill="#40E0A0" opacity="0.7">EDGES</text>
+  <rect x="256" y="194" width="66" height="5" rx="2" fill="#106040"/>
+  <rect x="256" y="194" width="44" height="5" rx="2" fill="#40E0A0" opacity="0.8"/>
+
+  <text x="256" y="214" font-family="'Courier New', monospace" font-size="8" letter-spacing="1" fill="#40E0A0" opacity="0.7">CORNERS</text>
+  <rect x="256" y="218" width="66" height="5" rx="2" fill="#106040"/>
+  <rect x="256" y="218" width="56" height="5" rx="2" fill="#40E0A0" opacity="0.8"/>
+
+  <!-- Trust score circle -->
+  <circle cx="289" cy="276" r="22" fill="none" stroke="#40E0A0" stroke-width="3" stroke-dasharray="100,38" filter="url(#scanGlow)"/>
+  <circle cx="289" cy="276" r="22" fill="none" stroke="#106040" stroke-width="3"/>
+  <text x="289" y="280" font-family="'Courier New', monospace" font-size="13" font-weight="900"
+        fill="#40E0A0" text-anchor="middle" filter="url(#scanGlow)">92%</text>
+  <text x="289" y="310" font-family="'Courier New', monospace" font-size="7" letter-spacing="1"
+        fill="#40E0A0" text-anchor="middle" opacity="0.7">TRUST SCORE</text>
+
+  <!-- Bottom action area -->
+  <rect x="20" y="350" width="320" height="118" rx="4" fill="#070F0B"/>
+
+  <!-- Scan button -->
+  <rect x="88" y="364" width="184" height="46" rx="8" fill="#104030" stroke="#40E0A0" stroke-width="2" filter="url(#scanGlow)"/>
+  <text x="180" y="393" font-family="'Courier New', monospace" font-size="14" font-weight="900"
+        letter-spacing="4" fill="#40E0A0" text-anchor="middle" filter="url(#scanGlow)">SCAN</text>
+  <!-- Button glow pulse ring -->
+  <rect x="84" y="360" width="192" height="54" rx="10" fill="none" stroke="#40E0A0" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- History tab -->
+  <text x="50" y="424" font-family="'Courier New', monospace" font-size="9" letter-spacing="1"
+        fill="#40E0A0" opacity="0.5">HISTORY</text>
+  <line x1="30" y1="428" x2="100" y2="428" stroke="#40E0A0" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Last scan preview row -->
+  <rect x="30" y="432" width="30" height="20" rx="2" fill="#0A1E16" stroke="#106040" stroke-width="1"/>
+  <rect x="66" y="432" width="30" height="20" rx="2" fill="#0A1E16" stroke="#106040" stroke-width="1"/>
+  <rect x="102" y="432" width="30" height="20" rx="2" fill="#0A1E16" stroke="#106040" stroke-width="1"/>
+
+  <!-- Mode toggle row -->
+  <text x="180" y="464" font-family="'Courier New', monospace" font-size="8" letter-spacing="2"
+        fill="#40E0A0" text-anchor="middle" opacity="0.5">BASIC · DETAIL · SPECTRUM</text>
+</svg>
